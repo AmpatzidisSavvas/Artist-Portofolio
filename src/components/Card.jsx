@@ -6,7 +6,7 @@ import Button from './Button'
 const Card = ({ src, title, description, titleButton, onClick }) => {
 
   return (
-    <div className="realative size-full">
+    <div className="relative size-full">
       <video
         src={src}
         loop

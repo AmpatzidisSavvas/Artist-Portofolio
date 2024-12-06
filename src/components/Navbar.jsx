@@ -2,7 +2,7 @@ import gsap from 'gsap';
 import React, { useEffect, useRef, useState } from 'react'
 import { useWindowScroll } from 'react-use';
 
-const navItems = ['Home', 'About', 'Projects']
+const navItems = ['Home', 'About', 'Projects', 'Contact']
 
 const Navbar = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -46,7 +46,7 @@ const Navbar = () => {
             <div className="hidden md:block">
               {navItems.map((item) => (
                 <a
-                  id="item"
+                  id={item}
                   href={`#${item.toLocaleLowerCase()}`}
                   className="nav-hover-btn"
                 >

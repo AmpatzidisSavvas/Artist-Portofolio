@@ -148,47 +148,20 @@ const Hero = () => {
 
         <div className="absolute left-0 top-0 z-40 size-full">
           <div className=" mt-24 px-5 sm:px-10">
-            <h1 className="special-font hero-heading text-blue-100">
+            <h1 className="special-font hero-heading text-blue-100 mb-2">
               savvas ampatzidis
             </h1>
-            <p className="mb-1 max-x-64 font-robert-regular text-blue-100">
-              Multidisciplinary Visual Designer
-            </p>
-            <p className="mb-5 max-x-64 font-robert-regular text-blue-100">
-              Visual Storyteller
-            </p>
-
-            <div className=" flex gap-2">
-              <Button
-                id="watch-trailer"
-                title="Vimeo"
-                leftIcon={<FaVimeo />}
-                onClick={() =>
-                  (window.location.href = "https://vimeo.com/user85100118")
-                }
-                containerClass="!bg-yellow-300 flex-center gap-1"
-              />
-              <Button
-                id="watch-trailer"
-                title="Instagram"
-                leftIcon={<PiInstagramLogo />}
-                onClick={() =>
-                  (window.location.href =
-                    "https://www.instagram.com/thepack_art_/")
-                }
-                containerClass="!bg-yellow-300 flex-center gap-1"
-              />
-              <Button
-                id="watch-trailer"
-                title="Facebook"
-                leftIcon={<PiFacebookLogo />}
-                onClick={() =>
-                  (window.location.href =
-                    "https://www.facebook.com/ThePackArte/")
-                }
-                containerClass="!bg-yellow-300 flex-center gap-1"
-              />
+            <div className='bg-yellow-300 flex-center gap-1 group relative z-10 w-fit overflow-hidden rounded-full'>
+              <p className="mb-1 p-3 max-x-64 font-robert-regular text-black">
+                Multidisciplinary Visual Designer
+              </p>
             </div>
+            <div className='bg-yellow-300 flex-center gap-1 group relative z-10 w-fit overflow-hidden rounded-full mt-2'>
+              <p className="mb-1 p-3 max-x-64 font-robert-regular text-black">
+                Visual Storyteller
+              </p>
+            </div>
+
           </div>
         </div>
       </div>
