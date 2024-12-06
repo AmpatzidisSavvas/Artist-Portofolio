@@ -23,10 +23,7 @@ const Projects = () => {
               </>
             }
             titleButton="Watch full video"
-            onClick={() =>
-              (window.location.href =
-                "https://www.youtube.com/watch?v=57m9Sb6Nk4M")
-            }
+            href="https://www.youtube.com/watch?v=57m9Sb6Nk4M"
           />
         </Tilt>
 
@@ -51,10 +48,7 @@ const Projects = () => {
               }
               src={"videos/feature-4.mp4"}
               titleButton="Watch full video"
-              onClick={() =>
-                (window.location.href =
-                  "https://www.youtube.com/watch?v=kZOZSruDpRw")
-              }
+              href="https://www.youtube.com/watch?v=kZOZSruDpRw"
             />
           </Tilt>
 

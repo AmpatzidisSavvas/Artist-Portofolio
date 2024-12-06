@@ -3,7 +3,7 @@ import Button from './Button'
 
 
 
-const Card = ({ src, title, description, titleButton, onClick }) => {
+const Card = ({ src, title, description, titleButton, href }) => {
 
   return (
     <div className="relative size-full">
@@ -21,10 +21,10 @@ const Card = ({ src, title, description, titleButton, onClick }) => {
             <p className="mt-3 max-w-64 text-xs md:text-base">{description}</p>
           )}
         </div>
-        {titleButton && onClick && (<Button
+        {titleButton && href && (<Button
           title={titleButton}
           containerClass="!bg-yellow-300 flex-center gap-1"
-          onClick={onClick}
+          href={href}
         />)}
       </div>
     </div>
