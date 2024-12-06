@@ -1,16 +1,26 @@
-import React from 'react'
-import Card from './Card';
-import AnimatedTitle from "./AnimatedTitle"
-import Tilt from './Tilt'
-
+import React from "react";
+import Card from "./Card";
+import AnimatedTitle from "./AnimatedTitle";
+import Tilt from "./Tilt";
 
 const Projects = () => {
-
   return (
-    <section id='projects' className="bg-black pb-52">
+    <section id="projects" className="bg-black pb-52">
       <div className="container mx-auto px-3 md:px-10">
         <div className="px-5 py-32">
           <AnimatedTitle title="Projects" />
+          <AnimatedTitle title="---" className/>
+        </div>
+        
+        <div className="px-5 py-10">
+          <AnimatedTitle
+            title="3d animations"
+            containerClass="mt-5 !text-yellow-300 text-center !text-6xl"
+          />
+          <AnimatedTitle
+            title="Visuals"
+            containerClass="mt-5 !text-yellow-300 text-center !text-6xl"
+          />
         </div>
         <Tilt className="border-hsla relative mb-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh] ">
           <Card
@@ -53,7 +63,7 @@ const Projects = () => {
           </Tilt>
 
           {/* Double small cards */}
-          
+
           <Tilt className="bento-tilt_2">
             <video
               src="videos/feature-5.mp4"
@@ -72,12 +82,10 @@ const Projects = () => {
               className="size-full object-cover object-center"
             />
           </Tilt>
-          
-          
         </div>
       </div>
     </section>
   );
-}
+};
 
-export default Projects
+export default Projects;
