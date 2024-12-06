@@ -16,14 +16,14 @@ const Contact = () => {
         <div className="relative rounded-lg bg-black py-24 text-blue-50 sm:overflow-hidden">
           <div className="absolute -left-20 top-0 hidden h-full w-72 overflow-hidden sm:block lg:left-20 lg:w-96">
             <ImageClipBox
-              src="/img/contact-1.jpg"
+              src="img/contact-1.webp"
               clipClass="absolute md:scale-100"
             />
           </div>
   
           <div className="absolute -top-40 left-20 w-60 sm:top-1/2 md:left-auto md:right-10 lg:top-20 lg:w-80">
             <ImageClipBox
-              src="/img/logo.jpg"
+              src="img/logo.webp"
               clipClass="absolute md:scale-110"
             />
           </div>
