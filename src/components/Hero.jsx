@@ -151,13 +151,13 @@ const Hero = () => {
             <h1 className="special-font hero-heading text-blue-100 mb-2">
               savvas ampatzidis
             </h1>
-            <div className='bg-purple-300 flex-center gap-1 group relative z-10 w-fit overflow-hidden '>
-              <p className="mb-1 p-3 max-x-64 font-robert-regular text-black">
+            <div className='bg-yellow-200 flex-center gap-1 group relative z-10 w-fit overflow-hidden '>
+              <p className="mb-1 p-3 max-x-64 font-circular-web text-black">
                 Multidisciplinary Visual Designer
               </p>
             </div>
-            <div className='bg-purple-300 flex-center gap-1 group relative z-10 w-fit overflow-hidden  mt-2'>
-              <p className="mb-1 p-3 max-x-64 font-robert-regular text-black">
+            <div className='bg-pink-200 flex-center gap-1 group relative z-10 w-fit overflow-hidden  mt-2'>
+              <p className="mb-1 p-3 max-x-64 font-circular-web text-black">
                 Visual Storyteller
               </p>
             </div>

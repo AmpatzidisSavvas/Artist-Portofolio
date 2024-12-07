@@ -2,9 +2,11 @@ import gsap from 'gsap';
 import React, { useEffect, useRef, useState } from 'react'
 import { useWindowScroll } from 'react-use';
 
+
 const navItems = ['Home', 'About', 'Projects', 'Contact']
 
 const Navbar = () => {
+
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isNavVisible, setIsNavVisible] = useState(true);
   const navContainerRef = useRef(null);
@@ -32,7 +34,11 @@ const Navbar = () => {
         opacity: isNavVisible ? 1 : 0,
         duration: 0.2
     })
-  })
+  });
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  }
 
   return (
     <div
@@ -41,11 +47,16 @@ const Navbar = () => {
     >
       <header className=" absolute top-1/2 w-full -translate-y-1/2">
         <nav className="flex size-full items-center justify-between p-4">
+
           <div></div>
-          <div className="flex h-full items-center">
-            <div className="hidden md:block">
+
+
+          {/* Links for larger screens */}
+          <div className="md:flex h-full items-center">
+            <div className="block">
               {navItems.map((item) => (
                 <a
+                  key={item}
                   id={item}
                   href={`#${item.toLocaleLowerCase()}`}
                   className="nav-hover-btn"
@@ -54,6 +65,7 @@ const Navbar = () => {
                 </a>
               ))}
             </div>
+            
           </div>
         </nav>
       </header>

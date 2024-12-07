@@ -44,6 +44,7 @@ const About = () => {
             A World bridging the divide between reality and fantasy, seamlessly
             blending elements of 2D and 3D design.
           </p>
+          
         </div>
       </div>
 

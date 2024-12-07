@@ -85,6 +85,16 @@ const Projects = () => {
           </Tilt>
         </div>
       </div>
+
+      <div className="px-5 py-10">
+          <AnimatedTitle
+            title="2d Illustrations"
+            containerClass="mt-5 !text-pink-300 text-center !text-6xl"
+          />
+          
+          <p className=" text-blue-50 text-center mt-6 font-circular-web">Coming Soon...</p>
+          
+        </div>
     </section>
   );
 };
