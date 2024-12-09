@@ -10,10 +10,11 @@ const OPTIONS = [
   "img/gg.webp",
   "img/fox.webp",
   "img/fort.webp",
-  "img/hood.webp",
-  "img/Inter.webp",
+  "img/kapou.webp",
+  "img/Hood.webp",
   "img/check.webp",
   "img/kara.webp",
+  "img/Inter.webp",
   "img/New-era.webp",
 ];
 
