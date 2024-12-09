@@ -2,6 +2,20 @@ import React from "react";
 import Card from "./Card";
 import AnimatedTitle from "./AnimatedTitle";
 import Tilt from "./Tilt";
+import EmblaCarousel from './EmblaCarousel'
+
+const OPTIONS = [
+  "public/img/boar.webp",
+  "public/img/robot.webp",
+  "public/img/gg.webp",
+  "public/img/fox.webp",
+  "public/img/fort.webp",
+  "public/img/hood.webp",
+  "public/img/Inter.webp",
+  "public/img/check.webp",
+  "public/img/kara.webp",
+  "public/img/New-era.webp",
+];
 
 const Projects = () => {
   return (
@@ -89,10 +103,10 @@ const Projects = () => {
       <div className="px-5 py-10">
           <AnimatedTitle
             title="2d Illustrations"
-            containerClass="mt-5 !text-pink-300 text-center !text-6xl"
+            containerClass="mt-5 mb-10 !text-pink-300 text-center !text-6xl"
           />
           
-          <p className=" text-blue-50 text-center mt-6 font-circular-web">Coming Soon...</p>
+          <EmblaCarousel slides={OPTIONS} />
           
         </div>
     </section>

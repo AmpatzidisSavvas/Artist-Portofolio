@@ -1,10 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
-import Button from './Button';
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from 'gsap/all';
-import { PiFacebookLogo, PiInstagramLogo } from 'react-icons/pi';
-import { FaVimeo } from 'react-icons/fa';
 
 gsap.registerPlugin(ScrollTrigger);
 
