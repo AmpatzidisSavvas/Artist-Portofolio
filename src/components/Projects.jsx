@@ -5,16 +5,16 @@ import Tilt from "./Tilt";
 import EmblaCarousel from './EmblaCarousel'
 
 const OPTIONS = [
-  "public/img/boar.webp",
-  "public/img/robot.webp",
-  "public/img/gg.webp",
-  "public/img/fox.webp",
-  "public/img/fort.webp",
-  "public/img/hood.webp",
-  "public/img/Inter.webp",
-  "public/img/check.webp",
-  "public/img/kara.webp",
-  "public/img/New-era.webp",
+  "img/boar.webp",
+  "img/robot.webp",
+  "img/gg.webp",
+  "img/fox.webp",
+  "img/fort.webp",
+  "img/hood.webp",
+  "img/Inter.webp",
+  "img/check.webp",
+  "img/kara.webp",
+  "img/New-era.webp",
 ];
 
 const Projects = () => {
