@@ -38,6 +38,7 @@ const Projects = () => {
             containerClass="mt-5 !text-yellow-300 text-center !text-6xl"
           />
         </div>
+
         <Tilt className="border-hsla relative mb-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh] ">
           <Card
             src="videos/feature-1.mp4"
@@ -99,6 +100,21 @@ const Projects = () => {
             />
           </Tilt>
         </div>
+        
+        <Tilt className="border-hsla relative mt-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh] ">
+          <Card
+            src="videos/hero-1.mp4"
+            title={<>"Unusual Mind"</>}
+            description={
+              <>
+                Scene from my animated short film "Unusual Mind" 2024.
+              </>
+            }
+            titleButton="Watch teaser here"
+            href="https://vimeo.com/user85100118"
+          />
+        </Tilt>
+
       </div>
 
       <div className="px-5 py-10">
@@ -106,6 +122,9 @@ const Projects = () => {
             title="2d Illustrations"
             containerClass="mt-5 mb-10 !text-pink-300 text-center !text-6xl"
           />
+          <p className="mb-10 font-general text-[15px] uppercase text-white text-center">
+              Scroll to see more
+          </p>
           
           <EmblaCarousel slides={OPTIONS} />
           
