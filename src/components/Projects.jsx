@@ -111,7 +111,7 @@ const Projects = () => {
               </>
             }
             titleButton="Watch teaser here"
-            href="https://vimeo.com/user85100118"
+            href="https://vimeo.com/1023495298"
           />
         </Tilt>
 
@@ -123,7 +123,7 @@ const Projects = () => {
             containerClass="mt-5 mb-10 !text-pink-300 text-center !text-6xl"
           />
           <p className="mb-10 font-general text-[15px] uppercase text-white text-center">
-              Scroll to see more
+              Scroll right and left to see more
           </p>
           
           <EmblaCarousel slides={OPTIONS} />
