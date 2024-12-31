@@ -7,13 +7,17 @@ import EmblaCarousel from './EmblaCarousel'
 const OPTIONS = [
   "img/boar.webp",
   "img/robot.webp",
+  "img/Hedgehog.webp",
   "img/gg.webp",
   "img/fox.webp",
+  "img/hawk.webp",
   "img/fort.webp",
   "img/kapou.webp",
+  "img/two-city.webp",
   "img/Hood.webp",
   "img/check.webp",
   "img/kara.webp",
+  "img/Ritual.webp",
   "img/Inter.webp",
   "img/New-era.webp",
 ];
