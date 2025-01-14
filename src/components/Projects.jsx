@@ -27,11 +27,11 @@ const Projects = () => {
     <section id="projects" className="bg-black pb-52">
       <div className="container mx-auto px-3 md:px-10">
         <div className="px-5 py-32">
-          <AnimatedTitle title="---" className/>
+          <AnimatedTitle title="---" className />
           <AnimatedTitle title="Projects" />
-          <AnimatedTitle title="---" className/>
+          <AnimatedTitle title="---" className />
         </div>
-        
+
         <div className="px-5 py-10">
           <AnimatedTitle
             title="3d animations"
@@ -104,35 +104,46 @@ const Projects = () => {
             />
           </Tilt>
         </div>
-        
+
         <Tilt className="border-hsla relative mt-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh] ">
           <Card
             src="videos/hero-1.mp4"
             title={<>"Unusual Mind"</>}
             description={
-              <>
-                Scene from my animated short film "Unusual Mind" 2024.
-              </>
+              <>Scene from my animated short film "Unusual Mind" 2024.</>
             }
             titleButton="Watch teaser here"
             href="https://vimeo.com/1023495298"
           />
         </Tilt>
 
+        <Tilt className="border-hsla relative mt-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh] ">
+            <Card
+              src="videos/feature-7.mp4"
+              title={<>"Balkanoia"</>}
+              description={
+                <>
+                  Teaser video for the self-published fanzine "Balkanoia", a
+                  collaboration with Thomas Kefalas.
+                </>
+              }
+              titleButton="Watch teaser here"
+              href="https://vimeo.com/1045778818"
+            />
+          </Tilt>
       </div>
 
       <div className="px-5 py-10">
-          <AnimatedTitle
-            title="2d Illustrations"
-            containerClass="mt-5 mb-10 !text-pink-300 text-center !text-6xl"
-          />
-          <p className="mb-10 font-general text-[15px] uppercase text-white text-center">
-              Scroll right and left to see more
-          </p>
-          
-          <EmblaCarousel slides={OPTIONS} />
-          
-        </div>
+        <AnimatedTitle
+          title="2d Illustrations"
+          containerClass="mt-5 mb-10 !text-pink-300 text-center !text-6xl"
+        />
+        <p className="mb-10 font-general text-[15px] uppercase text-white text-center">
+          Scroll right and left to see more
+        </p>
+
+        <EmblaCarousel slides={OPTIONS} />
+      </div>
     </section>
   );
 };
