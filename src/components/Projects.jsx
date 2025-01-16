@@ -63,7 +63,7 @@ const Projects = () => {
             <Card
               title={<>creatures</>}
               description={
-                <>Creatures from my animated short film "Unusual Mind".</>
+                <>Creatures from my animated short film "Unusual Mind"</>
               }
               src="videos/feature-2.mp4"
             />
@@ -75,7 +75,7 @@ const Projects = () => {
             <Card
               title={<>"go-ship"</>}
               description={
-                <>3D animated music video for the artist "Silent".</>
+                <>3D animated music video for the artist "Silent"</>
               }
               src={"videos/feature-4.mp4"}
               titleButton="Watch full video"
@@ -110,7 +110,7 @@ const Projects = () => {
             src="videos/hero-1.mp4"
             title={<>"Unusual Mind"</>}
             description={
-              <>Scene from my animated short film "Unusual Mind" 2024.</>
+              <>Scene from my animated short film "Unusual Mind" 2024</>
             }
             titleButton="Watch teaser here"
             href="https://vimeo.com/1023495298"
