@@ -65,13 +65,13 @@ const Contact = () => {
               href="https://www.linkedin.com/in/savvas-ampatzidis/"
               containerClass="!bg-yellow-300 flex-center gap-1"
             />
-            <Button
+            {/* <Button
               id="watch-trailer"
               title={isEmailDisplayed ? "savvas.ampa@gmail.com" : "Email"}
               leftIcon={<MdOutlineEmail />}
               onClick={handleClick}
               containerClass="!bg-yellow-300 flex-center gap-1"
-            />
+            /> */}
           </div>
         </div>
       </div>
