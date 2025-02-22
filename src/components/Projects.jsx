@@ -1,8 +1,9 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import Card from "./Card";
 import AnimatedTitle from "./AnimatedTitle";
 import Tilt from "./Tilt";
 import EmblaCarousel from './EmblaCarousel'
+
 
 const OPTIONS = [
   "img/boar.webp",
@@ -42,7 +43,7 @@ const Projects = () => {
             containerClass="mt-5 !text-yellow-300 text-center !text-6xl"
           />
         </div>
-
+        
         <Tilt className="border-hsla relative mb-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh] ">
           <Card
             src="videos/feature-1.mp4"
