@@ -47,10 +47,7 @@ const Navbar = () => {
     >
       <header className=" absolute top-1/2 w-full -translate-y-1/2">
         <nav className="flex size-full items-center justify-between p-4">
-
           <div></div>
-
-
           {/* Links for larger screens */}
           <div className="md:flex h-full items-center">
             <div className="block">

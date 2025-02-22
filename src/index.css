@@ -272,7 +272,7 @@ body {
 }
 
 .embla {
-  max-width: 58rem;
+  max-width: 80rem;
   margin: auto;
   --slide-height: 19rem;
   --slide-spacing: 1rem;
@@ -306,8 +306,9 @@ body {
 }
 .embla__controls {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 50fr 1fr;
   justify-content: space-between;
+  justify-items: center;
   gap: 1.2rem;
   margin-top: 1.8rem;
 }
