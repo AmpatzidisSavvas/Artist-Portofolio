@@ -10,9 +10,10 @@ const Hero = () => {
   const [hasClicked, setHasClicked] = useState(false);
   const [loading, setLoading] = useState(true);
   const [loadedVideos, setLoadedVideos] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   const totalVideos = 4;
-  const nextVideoRef = useRef(null);
+  const videoRef = useRef(false);
 
   const handleVideoLoad = () => {
     setLoadedVideos((prev) => prev + 1);
@@ -25,16 +26,25 @@ const Hero = () => {
   }, [loadedVideos]);
 
   
-  // 0 % 4 = 0 + 1 => 1
-  // 1 % 4 = 1 + 1 => 2
-  // 2 % 4 = 2 + 1 => 3
-  // 3 % 4 = 3 + 1 => 4
-  // 4 % 4 = 0 + 1 => 1
-  const upcomingVideoIndex = (currentIndex % totalVideos) + 1;
+  const handleNextVideo = () => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
 
-  const handleMiniVdClick = () => {
-    setHasClicked(true);
-    setCurrentIndex(upcomingVideoIndex);
+    gsap.to(videoRef.current, {
+      opacity: 0,
+      duration: 0.5,
+      onComplete: () => {
+        const nextIndex = currentIndex + 1 > totalVideos ? 1 : currentIndex + 1;
+        setCurrentIndex(nextIndex);
+        setTimeout(() => {
+          gsap.to(videoRef.current, {
+            opacity: 1,
+            duration: 0.5,
+            onComplete: () => setIsTransitioning(false),
+          });
+        }, 100);
+      },
+    });
   };
 
   useGSAP(
@@ -89,7 +99,7 @@ const Hero = () => {
 
   return (
     <div id='home' className=" relative h-dvh w-screen overflow-x-hidden">
-      {loading && (
+      {/* {loading && (
         <div className=' flex-center absolute z-[100] h-dvh w-screen overflow-hidden bg-violet-50"'>
           <div className="three-body">
             <div className="three-body__dot"></div>
@@ -97,13 +107,13 @@ const Hero = () => {
             <div className="three-body__dot"></div>
           </div>
         </div>
-      )}
+      )} */}
       <div
         id="video-frame"
         className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-blue-75"
       >
         <div>
-          <div className=" mask-clip-path absolute-center absolute z-50 size-64 cursor-pointer overflow-hidden rounded-lg">
+          {/* <div className=" mask-clip-path absolute-center absolute z-50 size-64 cursor-pointer overflow-hidden rounded-lg">
             <div
               onClick={handleMiniVdClick}
               className=" origin-center scale-50 opacity-0 transition-all duration-500 ease-in hover:scale-100 hover:opacity-100"
@@ -118,8 +128,16 @@ const Hero = () => {
                 onLoadedData={handleVideoLoad}
               />
             </div>
+          </div> */}
+          <div className='absolute-center absolute z-50 cursor-pointer'>
+            <button 
+              onClick={handleNextVideo} 
+              className="custom-button">
+              Click Me
+            </button>
           </div>
-          <video
+          
+          {/* <video
             ref={nextVideoRef}
             src={getVideoSrc(currentIndex)}
             loop
@@ -127,10 +145,10 @@ const Hero = () => {
             id="next-video"
             className=" absolute-center invisible z-20 size-64 object-cover object-center"
             onLoadedData={handleVideoLoad}
-          />
+          /> */}
           <video
             src={getVideoSrc(
-              currentIndex === totalVideos - 1 ? 1 : currentIndex
+              currentIndex 
             )}
             autoPlay
             loop

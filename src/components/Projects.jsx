@@ -44,7 +44,7 @@ const Projects = () => {
           />
         </div>
         
-        <Tilt className="border-hsla relative mb-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh] ">
+        <div className="border-hsla relative mb-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh] ">
           <Card
             src="videos/feature-1.mp4"
             title={<>"dialleima"</>}
@@ -57,10 +57,10 @@ const Projects = () => {
             titleButton="Watch full video"
             href="https://www.youtube.com/watch?v=57m9Sb6Nk4M"
           />
-        </Tilt>
+        </div>
 
         <div className="grid h-[135vh] grid-cols-2 grid-rows-3 gap-7">
-          <Tilt className="bento-tilt_1 row-span-1 md:col-span-1 md:row-span-2">
+          <div className="bento-tilt_1 row-span-1 md:col-span-1 md:row-span-2">
             <Card
               title={<>creatures</>}
               description={
@@ -68,11 +68,11 @@ const Projects = () => {
               }
               src="videos/feature-2.mp4"
             />
-          </Tilt>
-          <Tilt className="bento-tilt_1 row-span-1 ms-32 md:col-span-1 md:ms-0">
+          </div>
+          <div className="bento-tilt_1 row-span-1 ms-32 md:col-span-1 md:ms-0">
             <Card  src={"videos/feature-3.mp4"} />
-          </Tilt>
-          <Tilt className="bento-tilt_1 me-14 md:col-span-1 md:me-0">
+          </div>
+          <div className="bento-tilt_1 me-14 md:col-span-1 md:me-0">
             <Card
               title={<>"go-ship"</>}
               description={
@@ -82,11 +82,11 @@ const Projects = () => {
               titleButton="Watch full video"
               href="https://www.youtube.com/watch?v=kZOZSruDpRw"
             />
-          </Tilt>
+          </div>
 
           {/* Double small cards */}
 
-          <Tilt className="bento-tilt_2">
+          <div className="bento-tilt_2">
             <video
               src="videos/feature-5.mp4"
               loop
@@ -94,8 +94,8 @@ const Projects = () => {
               autoPlay
               className="size-full object-cover object-center"
             />
-          </Tilt>
-          <Tilt className="bento-tilt_2">
+          </div>
+          <div className="bento-tilt_2">
             <video
               src="videos/feature-6.mp4"
               loop
@@ -103,10 +103,10 @@ const Projects = () => {
               autoPlay
               className="size-full object-cover object-center"
             />
-          </Tilt>
+          </div>
         </div>
 
-        <Tilt className="border-hsla relative mt-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh] ">
+        <div className="border-hsla relative mt-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh] ">
           <Card
             src="videos/hero-1.mp4"
             title={<>"Unusual Mind"</>}
@@ -116,9 +116,9 @@ const Projects = () => {
             titleButton="Watch teaser here"
             href="https://vimeo.com/1023495298"
           />
-        </Tilt>
+        </div>
 
-        <Tilt className="border-hsla relative mt-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh] ">
+        <div className="border-hsla relative mt-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh] ">
             <Card
               src="videos/feature-7.mp4"
               title={<>"Balkanoia"</>}
@@ -131,7 +131,7 @@ const Projects = () => {
               titleButton="Watch teaser here"
               href="https://vimeo.com/1045778818"
             />
-          </Tilt>
+          </div>
       </div>
 
       <div className="px-5 py-10">
