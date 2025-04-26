@@ -9,6 +9,7 @@ const Hero = () => {
   const [currentIndex, setCurrentIndex] = useState(1);
   const [hasClicked, setHasClicked] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [isVideoReady, setIsVideoReady] = useState(false);
   const [loadedVideos, setLoadedVideos] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
@@ -95,40 +96,20 @@ const Hero = () => {
     });
   })
 
+  
+  const handleCanPlay = () => {
+    setIsVideoReady(true);
+  }
+
   const getVideoSrc = (index) => `videos/hero-${index}.mp4`;
 
   return (
     <div id='home' className=" relative h-dvh w-screen overflow-x-hidden">
-      {/* {loading && (
-        <div className=' flex-center absolute z-[100] h-dvh w-screen overflow-hidden bg-violet-50"'>
-          <div className="three-body">
-            <div className="three-body__dot"></div>
-            <div className="three-body__dot"></div>
-            <div className="three-body__dot"></div>
-          </div>
-        </div>
-      )} */}
       <div
         id="video-frame"
         className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-blue-75"
       >
         <div>
-          {/* <div className=" mask-clip-path absolute-center absolute z-50 size-64 cursor-pointer overflow-hidden rounded-lg">
-            <div
-              onClick={handleMiniVdClick}
-              className=" origin-center scale-50 opacity-0 transition-all duration-500 ease-in hover:scale-100 hover:opacity-100"
-            >
-              <video
-                ref={nextVideoRef}
-                src={getVideoSrc(upcomingVideoIndex)}
-                loop
-                muted
-                id="current-video"
-                className=" size-64 origin-center scale-150 object-cover object-center"
-                onLoadedData={handleVideoLoad}
-              />
-            </div>
-          </div> */}
           <div className='absolute-center absolute z-50 cursor-pointer'>
             <button 
               onClick={handleNextVideo} 
@@ -136,16 +117,15 @@ const Hero = () => {
               Click Me
             </button>
           </div>
-          
-          {/* <video
-            ref={nextVideoRef}
-            src={getVideoSrc(currentIndex)}
-            loop
-            muted
-            id="next-video"
-            className=" absolute-center invisible z-20 size-64 object-cover object-center"
-            onLoadedData={handleVideoLoad}
-          /> */}
+          {!isVideoReady && (
+          <div className="absolute inset-0 flex items-center justify-center z-20">
+            <div className="flex space-x-2">
+              <div className="w-3 h-3  bg-gray-800  rounded-full animate-bounce" />
+              <div className="w-3 h-3  bg-gray-800  rounded-full animate-bounce [animation-delay:-0.3s]" />
+              <div className="w-3 h-3  bg-gray-800  rounded-full animate-bounce [animation-delay:-0.6s]" />
+            </div>
+          </div>
+          )}
           <video
             src={getVideoSrc(
               currentIndex 
@@ -153,6 +133,9 @@ const Hero = () => {
             autoPlay
             loop
             muted
+            playsInline
+            onCanPlay={handleCanPlay}
+            style={{pointerEvents:"none"}}
             className=" absolute left-0 top-0 size-full object-cover object-center"
             onLoadedData={handleVideoLoad}
           />

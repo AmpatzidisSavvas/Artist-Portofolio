@@ -1,7 +1,8 @@
 import React, { lazy, Suspense } from "react";
 import Card from "./Card";
 import AnimatedTitle from "./AnimatedTitle";
-import EmblaCarousel from './EmblaCarousel'
+import TopCarousel from './TopCarousel'
+import SmallCard from "./SmallCard";
 
 
 const OPTIONS = [
@@ -85,24 +86,8 @@ const Projects = () => {
 
           {/* Double small cards */}
 
-          <div className="bento-tilt_2">
-            <video
-              src="videos/feature-5.mp4"
-              loop
-              muted
-              autoPlay
-              className="size-full object-cover object-center"
-            />
-          </div>
-          <div className="bento-tilt_2">
-            <video
-              src="videos/feature-6.mp4"
-              loop
-              muted
-              autoPlay
-              className="size-full object-cover object-center"
-            />
-          </div>
+          <SmallCard  src={"videos/feature-5.mp4"}/>
+          <SmallCard  src={"videos/feature-6.mp4"}/>
         </div>
 
         <div className="border-hsla relative mt-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh] ">
@@ -118,26 +103,10 @@ const Projects = () => {
         </div>
 
         <div className="grid h-96 grid-cols-2 grid-rows-1 mt-7 gap-7">
-            {/* Double small cards */}
-
-          <div className="bento-tilt_2">
-            <video
-              src="videos/feature-8.mp4"
-              loop
-              muted
-              autoPlay
-              className="size-full object-cover object-center"
-            />
-          </div>
-          <div className="bento-tilt_2">
-            <video
-              src="videos/feature-9.mp4"
-              loop
-              muted
-              autoPlay
-              className="size-full object-cover object-center"
-            />
-          </div>
+          
+          {/* Double small cards */}
+          <SmallCard  src={"videos/feature-8.mp4"}/>
+          <SmallCard  src={"videos/feature-9.mp4"}/>
 
         </div>
 
@@ -166,7 +135,7 @@ const Projects = () => {
           Scroll right and left to see more
         </p>
 
-        <EmblaCarousel slides={OPTIONS} />
+        <TopCarousel slides={OPTIONS} />
       </div>
     </section>
   );
