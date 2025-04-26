@@ -33,8 +33,9 @@ const LazyVideo = ({
 
   return (
     <>
+      <div className="absolute inset-0 bg-black" /> 
       {!isVideoReady && (
-        <div className="absolute inset-0 flex items-center justify-center z-20">
+        <div className="absolute inset-0 flex items-center justify-center z-10">
         <div className="flex space-x-2">
           <div className="w-3 h-3  bg-gray-300  rounded-full animate-bounce" />
           <div className="w-3 h-3  bg-gray-300  rounded-full animate-bounce [animation-delay:-0.3s]" />
@@ -46,7 +47,7 @@ const LazyVideo = ({
         ref={videoRef}
         src={isLoaded ? src : ""}
         onCanPlay={handleCanPlay}
-        className={`w-full h-auto pointer-events-none relative z-30 transition-opacity duration-500 ${
+        className={`w-full h-auto pointer-events-none relative z-20 transition-opacity duration-500 ${
           isVideoReady ? "opacity-100" : "opacity-0"
         }`}
         {...props}

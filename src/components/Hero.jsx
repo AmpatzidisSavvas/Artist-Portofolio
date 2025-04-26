@@ -117,8 +117,9 @@ const Hero = () => {
               Click Me
             </button>
           </div>
+          <div className="absolute inset-0 bg-black"/> 
           {!isVideoReady && (
-          <div className="absolute inset-0 flex items-center justify-center z-20">
+          <div className="absolute inset-0 flex items-center justify-center z-10">
             <div className="flex space-x-2">
               <div className="w-3 h-3  bg-gray-800  rounded-full animate-bounce" />
               <div className="w-3 h-3  bg-gray-800  rounded-full animate-bounce [animation-delay:-0.3s]" />
@@ -136,7 +137,7 @@ const Hero = () => {
             playsInline
             onCanPlay={handleCanPlay}
             style={{pointerEvents:"none"}}
-            className=" absolute left-0 top-0 size-full object-cover object-center"
+            className=" absolute left-0 top-0 size-full object-cover object-center z-20"
             onLoadedData={handleVideoLoad}
           />
         </div>
