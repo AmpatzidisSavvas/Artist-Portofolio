@@ -1,7 +1,6 @@
 import React, { lazy, Suspense } from "react";
 import Card from "./Card";
 import AnimatedTitle from "./AnimatedTitle";
-import Tilt from "./Tilt";
 import EmblaCarousel from './EmblaCarousel'
 
 
@@ -116,6 +115,30 @@ const Projects = () => {
             titleButton="Watch teaser here"
             href="https://vimeo.com/1023495298"
           />
+        </div>
+
+        <div className="grid h-96 grid-cols-2 grid-rows-1 mt-7 gap-7">
+            {/* Double small cards */}
+
+          <div className="bento-tilt_2">
+            <video
+              src="videos/feature-8.mp4"
+              loop
+              muted
+              autoPlay
+              className="size-full object-cover object-center"
+            />
+          </div>
+          <div className="bento-tilt_2">
+            <video
+              src="videos/feature-9.mp4"
+              loop
+              muted
+              autoPlay
+              className="size-full object-cover object-center"
+            />
+          </div>
+
         </div>
 
         <div className="border-hsla relative mt-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh] ">

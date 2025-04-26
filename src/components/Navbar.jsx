@@ -65,7 +65,7 @@ const Navbar = () => {
 
       {/* Burger Button (Animated) */}
       <div className="md:hidden flex justify-end p-4 ">
-        <button className="border-2 border-white p-2 rounded flex flex-col items-center justify-center" onClick={toggleMenu}>
+        <button className="border-2 border-white bg-gray-800 p-2 rounded flex flex-col items-center justify-center" onClick={toggleMenu}>
           <motion.div
             animate={isMenuOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
             className="w-6 h-0.5 bg-white mb-1 transition-all"
