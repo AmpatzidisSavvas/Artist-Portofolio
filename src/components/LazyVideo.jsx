@@ -33,7 +33,7 @@ const LazyVideo = ({
 
   return (
     <>
-      <div className="absolute inset-0 bg-black" /> 
+      <div className="absolute inset-0 bg-black z-1"/> 
       {!isVideoReady && (
         <div className="absolute inset-0 flex items-center justify-center z-10">
         <div className="flex space-x-2">
