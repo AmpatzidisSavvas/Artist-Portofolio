@@ -5,9 +5,9 @@ import TopCarousel from "./TopCarousel";
 import SmallCard from "./SmallCard";
 
 const OPTIONS = [
+	"img/Hedgehog.webp",
 	"img/boar.webp",
 	"img/robot.webp",
-	"img/Hedgehog.webp",
 	"img/gg.webp",
 	"img/hawk.webp",
 	"img/soft.webp",
@@ -80,7 +80,7 @@ const Projects = () => {
 				</div>
 
 				<div className="border-hsla relative mt-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh] ">
-					<Card src="videos/feature-7.mp4" title={<>"Balkanoia"</>} titleButton="Watch teaser here" href="https://vimeo.com/1045778818" />
+					<Card src="videos/feature-7.mp4" title={<>"Balkanoia"</>} titleButton="Watch full video" href="https://vimeo.com/1045778818" />
 				</div>
 			</div>
 			<div className="px-5 py-10">

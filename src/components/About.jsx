@@ -1,0 +1,36 @@
+import React from "react";
+import AnimatedTitle from "./AnimatedTitle";
+
+const About = () => {
+	return (
+		<div id="about" className="my-20 min-h-96 w-screen  px-10">
+			<div className="relative rounded-lg bg-black py-24 text-blue-50 sm:overflow-hidden">
+				<div className="flex flex-col items-center text-center">
+					<div className="mb-10">
+						<AnimatedTitle title="About" className="special-font  !md:text-[6.2rem] w-full font-zentry !text-5xl !font-black !leading-[.9]" />
+					</div>
+
+					<div className="flex flex-col-reverse lg:flex-row items-center lg:items-start justify-between gap-8 max-w-6xl mx-auto px-4">
+						<div className="lg:w-2/3 space-y-6">
+							<p className="text-base sm:text-lg md:text-xl leading-relaxed tracking-wide">
+								Savvas “The Pack” Ampatzidis is a self-taught visual designer based in Thessaloniki, Greece. His work is deeply rooted in storytelling—blending
+								violence, romance, chaos, and beauty into rich visual narratives. These stories reflect the raw, often contradictory nature of life.
+							</p>
+							<p className="text-base sm:text-lg md:text-xl leading-relaxed tracking-wide">
+								Using a mix of 2D and 3D techniques, he creates striking, layered visuals that invite viewers to look beneath the surface. His artistic range
+								spans multiple mediums, evolving across disciplines while maintaining a strong personal voice.
+							</p>
+							<p className="text-base sm:text-lg md:text-xl leading-relaxed tracking-wide">
+								Savvas has exhibited internationally and been featured in festivals for illustration, comics, and animation. His work continues to grow with
+								each new project.
+							</p>
+						</div>
+						<img src="img/about-1.webp" alt="Artwork" className="w-full lg:w-1/3 max-w-sm rounded-xl shadow-lg object-cover" />
+					</div>
+				</div>
+			</div>
+		</div>
+	);
+};
+
+export default About;
