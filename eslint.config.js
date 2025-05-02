@@ -3,6 +3,7 @@ import globals from 'globals'
 import react from 'eslint-plugin-react'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
+import prettier from 'eslint-plugin-prettier'
 
 export default [
   { ignores: ['dist'] },
@@ -22,7 +23,14 @@ export default [
       react,
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
+      prettier,
     },
+    extends: [
+      'plugin:react/recommended',
+      'plugin:react-hooks/recommended',
+      'plugin:react-refresh/recommended',
+      'prettier', // Ensure Prettier rules take precedence over other style rules
+    ],
     rules: {
       ...js.configs.recommended.rules,
       ...react.configs.recommended.rules,
@@ -32,6 +40,17 @@ export default [
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },
+      ],
+      'prettier/prettier': [
+        'error',
+        {
+          useTabs: true,
+          tabWidth: 2,
+          singleQuote: false,
+          semi: true,
+          trailingComma: 'none',
+          printWidth: 160,
+        },
       ],
     },
   },
