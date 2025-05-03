@@ -112,7 +112,7 @@ const Hero = () => {
 					{/* Video Transition Button */}
 					<div className="absolute-center absolute z-50 cursor-pointer">
 						<button onClick={handleNextVideo} className="custom-button" aria-label="Next Video">
-							Click Me
+							Click
 						</button>
 					</div>
 					<div className="absolute inset-0 bg-black z-1" />

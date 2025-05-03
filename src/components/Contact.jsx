@@ -19,8 +19,6 @@ const Contact = () => {
 				</div>
 
 				<div className="flex flex-col items-center text-center">
-					<p className="mb-10 font-general text-[10px] uppercase">----</p>
-
 					<div className="mb-10">
 						<AnimatedTitle title="Contact" className="special-font !md:text-[6.2rem] w-full font-zentry !text-5xl !font-black !leading-[.9]" />
 					</div>

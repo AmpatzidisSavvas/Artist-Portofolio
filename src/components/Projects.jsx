@@ -5,26 +5,23 @@ import TopCarousel from "./TopCarousel";
 import SmallCard from "./SmallCard";
 
 const OPTIONS = [
-	"img/Hedgehog.webp",
-	"img/boar.webp",
-	"img/robot.webp",
-	"img/gg.webp",
-	"img/hawk.webp",
-	"img/soft.webp",
-	"img/fort.webp",
-	"img/kapou.webp",
-	"img/two-city.webp",
-	"img/Hood.webp",
-	"img/check.webp",
-	"img/kara.webp",
-	"img/Ritual.webp",
-	"img/Inter.webp",
-	"img/New-era.webp"
+	"img/1.webp",
+	"img/2.webp",
+	"img/3.webp",
+	"img/4.webp",
+	"img/5.webp",
+	"img/6.webp",
+	"img/7.webp",
+	"img/8.webp",
+	"img/9.webp",
+	"img/10.webp",
+	"img/11.webp",
+	"img/12.webp"
 ];
 
 const Projects = () => {
 	return (
-		<section id="projects" className="bg-black pb-52">
+		<section id="work" className="bg-black pb-52">
 			<div className="container mx-auto px-3 md:px-10">
 				<div className="px-5 py-10">
 					<AnimatedTitle title="3d animations" containerClass="mt-5 !text-yellow-300 text-center !text-6xl" />
