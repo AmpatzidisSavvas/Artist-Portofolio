@@ -7,14 +7,13 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
 	const [currentIndex, setCurrentIndex] = useState(1);
-	const [hasClicked, setHasClicked] = useState(false);
 	const [loading, setLoading] = useState(true);
 	const [isVideoReady, setIsVideoReady] = useState(false);
 	const [loadedVideos, setLoadedVideos] = useState(0);
 	const [isTransitioning, setIsTransitioning] = useState(false);
 
 	const totalVideos = 4;
-	const videoRef = useRef(false);
+	const videoRef = useRef(null);
 
 	const handleVideoLoad = () => {
 		setLoadedVideos((prev) => prev + 1);
@@ -50,35 +49,6 @@ const Hero = () => {
 		});
 	}, [currentIndex, isTransitioning, totalVideos]);
 
-	// GSAP animation for the video transitions
-	useGSAP(
-		() => {
-			if (hasClicked) {
-				gsap.set("#next-video", { visibility: "visible" });
-
-				gsap.to("#next-video", {
-					transformOrigin: "center center",
-					scale: 1,
-					width: "100%",
-					height: "100%",
-					duration: 1,
-					ease: "power1.inOut",
-					onStart: () => nextVideoRef.current.play()
-				});
-				gsap.from("#current-video", {
-					transformOrigin: "center center",
-					scale: 0,
-					duration: 1.5,
-					ease: "power1.inOut"
-				});
-			}
-		},
-		{
-			dependencies: [currentIndex],
-			revertOnUpdate: true
-		}
-	);
-
 	// GSAP ScrollTrigger animation for video frame clipping
 	useGSAP(() => {
 		gsap.set("#video-frame", {
@@ -109,14 +79,6 @@ const Hero = () => {
 		<div id="home" className="relative h-dvh w-screen overflow-x-hidden">
 			<div id="video-frame" className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-blue-75">
 				<div>
-					{/* Video Transition Button */}
-					<div className="absolute-center absolute z-50 cursor-pointer">
-						<button onClick={handleNextVideo} className="custom-button" aria-label="Next Video">
-							Click
-						</button>
-					</div>
-					<div className="absolute inset-0 bg-black z-1" />
-
 					{/* Loading Indicator */}
 					{!isVideoReady && (
 						<div className="absolute inset-0 flex items-center justify-center z-10">
@@ -130,12 +92,14 @@ const Hero = () => {
 
 					{/* Video Player */}
 					<video
+						ref={videoRef}
 						src={getVideoSrc(currentIndex)}
 						autoPlay
-						loop
 						muted
+						loop={false}
 						playsInline
 						onCanPlay={handleCanPlay}
+						onEnded={handleNextVideo}
 						style={{ pointerEvents: "none" }}
 						className="absolute left-0 top-0 size-full object-cover object-center z-20"
 						loading="lazy"
