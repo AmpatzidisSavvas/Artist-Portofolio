@@ -70,7 +70,7 @@ const Projects = () => {
 					/>
 				</div>
 
-				<div className="grid h-96 grid-cols-2 grid-rows-1 mt-7 gap-7">
+				<div className="grid  grid-cols-1 md:grid-cols-2 mt-7 gap-7">
 					{/* Double small cards */}
 					<SmallCard src={"videos/feature-8.mp4"} />
 					<SmallCard src={"videos/feature-9.mp4"} />
@@ -78,6 +78,12 @@ const Projects = () => {
 
 				<div className="border-hsla relative mt-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh] ">
 					<Card src="videos/feature-7.mp4" title={<>"Balkanoia"</>} titleButton="Watch full video" href="https://vimeo.com/1045778818" />
+				</div>
+
+				<div className="grid  grid-cols-1 md:grid-cols-2 mt-7 gap-7">
+					{/* Double small cards */}
+					<SmallCard src={"videos/feature-8.mp4"} />
+					<SmallCard src={"videos/feature-9.mp4"} />
 				</div>
 			</div>
 			<div className="px-5 py-10">

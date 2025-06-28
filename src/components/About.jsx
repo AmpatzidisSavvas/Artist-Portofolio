@@ -21,8 +21,9 @@ const About = () => {
 								spans multiple mediums, evolving across disciplines while maintaining a strong personal voice.
 							</p>
 							<p className="text-base sm:text-lg md:text-xl leading-relaxed tracking-wide">
-								Savvas has exhibited internationally and been featured in festivals for illustration, comics, and animation. His work continues to grow with
-								each new project.
+								His work has been exhibited internationally and featured at festivals dedicated to illustration, comics, and animation. Most recently, his short
+								animated film <strong>Unusual Mind</strong> has earned official selections at several film festivals, marking a new chapter in his creative
+								journey.
 							</p>
 						</div>
 						<img src="img/about-1.webp" alt="Artwork" className="w-full lg:w-1/3 max-w-sm rounded-xl shadow-lg object-cover" />
