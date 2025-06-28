@@ -80,11 +80,10 @@ const Projects = () => {
 					<Card src="videos/feature-7.mp4" title={<>"Balkanoia"</>} titleButton="Watch full video" href="https://vimeo.com/1045778818" />
 				</div>
 
-				{/* <div className="grid  grid-cols-1 md:grid-cols-2 mt-7 gap-7">
-					
+				<div className="grid  grid-cols-1 md:grid-cols-2 mt-7 gap-7">
 					<SmallCard src={"videos/feature-10.mp4"} />
-					<SmallCard src={"videos/feature-11.mp4"} />
-				</div> */}
+					{/* <SmallCard src={"videos/feature-11.mp4"} /> */}
+				</div>
 			</div>
 			<div className="px-5 py-10">
 				<AnimatedTitle title="2d Illustrations" containerClass="mt-5 mb-10 !text-pink-300 text-center !text-6xl" />
