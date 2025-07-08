@@ -6,7 +6,8 @@ import { ScrollTrigger } from "gsap/all";
 gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
-	const [currentIndex, setCurrentIndex] = useState(1);
+	const [playlist, setPlaylist] = useState([]);
+	const [currentIndex, setCurrentIndex] = useState(0);
 	const [loading, setLoading] = useState(true);
 	const [isVideoReady, setIsVideoReady] = useState(false);
 	const [loadedVideos, setLoadedVideos] = useState(0);
@@ -14,6 +15,19 @@ const Hero = () => {
 
 	const totalVideos = 4;
 	const videoRef = useRef(null);
+
+	const shuffleArray = (array) => {
+		return array
+			.map((value) => ({ value, sort: Math.random() }))
+			.sort((a, b) => a.sort - b.sort)
+			.map(({ value }) => value);
+	};
+
+	useEffect(() => {
+		const initialPlaylist = shuffleArray([...Array(totalVideos)].map((_, i) => i + 1));
+		setPlaylist(initialPlaylist);
+		setCurrentIndex(0);
+	}, []);
 
 	const handleVideoLoad = () => {
 		setLoadedVideos((prev) => prev + 1);
@@ -25,7 +39,6 @@ const Hero = () => {
 		}
 	}, [loadedVideos]);
 
-	// Function to handle next video transition
 	const handleNextVideo = useCallback(() => {
 		if (isTransitioning) return;
 		setIsTransitioning(true);
@@ -35,8 +48,16 @@ const Hero = () => {
 				opacity: 0,
 				duration: 0.5,
 				onComplete: () => {
-					const nextIndex = currentIndex + 1 > totalVideos ? 1 : currentIndex + 1;
-					setCurrentIndex(nextIndex);
+					let nextIndexInPlaylist = currentIndex + 1;
+
+					if (nextIndexInPlaylist >= playlist.length) {
+						const newPlaylist = shuffleArray([...Array(totalVideos)].map((_, i) => i + 1));
+						setPlaylist(newPlaylist);
+						nextIndexInPlaylist = 0;
+					}
+
+					setCurrentIndex(nextIndexInPlaylist);
+
 					setTimeout(() => {
 						gsap.to(videoRef.current, {
 							opacity: 1,
@@ -47,9 +68,9 @@ const Hero = () => {
 				}
 			});
 		});
-	}, [currentIndex, isTransitioning, totalVideos]);
+	}, [currentIndex, playlist, totalVideos, isTransitioning]);
 
-	// GSAP ScrollTrigger animation for video frame clipping
+	// GSAP ScrollTrigger animation
 	useGSAP(() => {
 		gsap.set("#video-frame", {
 			clipPath: "polygon(14% 0%, 72% 0%, 90% 90%, 0% 100%)",
@@ -93,7 +114,7 @@ const Hero = () => {
 					{/* Video Player */}
 					<video
 						ref={videoRef}
-						src={getVideoSrc(currentIndex)}
+						src={getVideoSrc(playlist[currentIndex])}
 						autoPlay
 						muted
 						loop={false}
