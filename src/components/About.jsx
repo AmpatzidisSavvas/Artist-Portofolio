@@ -25,7 +25,7 @@ const About = () => {
 								His work has been exhibited internationally and featured at festivals dedicated to illustration, comics, and animation.
 							</p>
 							<p className="text-base sm:text-lg md:text-xl leading-relaxed tracking-wide">
-								<span className="font-semibold underline">Filmography</span>
+								<strong>-Filmography-</strong>
 							</p>
 							<p className="text-base sm:text-lg md:text-xl leading-relaxed tracking-wide">
 								<strong>Unusual Mind (2024)</strong>
@@ -35,11 +35,12 @@ const About = () => {
 								darkness and the longing for peace. A powerful visual metaphor for the complexity of human consciousness and emotional struggle.
 								<br />
 								<br />
-								<strong>Festival Selections:</strong>
-								<br />
+								<span className="font-semibold">-Festival Selections-</span>
+								<hr className="my-6 border-t border-gray-300" />
 								Athens Digital Arts Festival ADAF (2025)-- <em>Official Selection</em>
-								<br />
+								<hr className="my-6 border-t border-gray-300" />
 								CINERGO International Film Festival (2025)-- <em>Official Selection</em>
+								<hr className="my-6 border-t border-gray-300" />
 							</p>
 						</div>
 						<img src="img/about-1.webp" alt="Artwork" className="w-full lg:w-1/3 max-w-sm rounded-xl shadow-lg object-cover" />
