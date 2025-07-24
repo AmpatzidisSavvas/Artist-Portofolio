@@ -35,7 +35,6 @@ const About = () => {
 								darkness and the longing for peace. A powerful visual metaphor for the complexity of human consciousness and emotional struggle.
 								<br />
 								<br />
-								<span className="font-semibold">-Festival Selections-</span>
 								<hr className="my-6 border-t border-gray-300" />
 								Athens Digital Arts Festival ADAF (2025)-- <em>Official Selection</em>
 								<hr className="my-6 border-t border-gray-300" />
