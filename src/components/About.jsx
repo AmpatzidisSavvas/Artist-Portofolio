@@ -1,14 +1,13 @@
-import React from "react";
 import AnimatedTitle from "./AnimatedTitle";
 
 const About = () => {
 	return (
 		<section id="about" className="my-20 min-h-[24rem] w-full px-6 md:px-10">
-			<div className="relative rounded-2xl bg-black py-24 text-blue-50 shadow-2xl">
+			<div className="relative rounded-2xl bg-blue-50  py-24 text-black">
 				<div className="flex flex-col items-center text-center">
 					{/* Title */}
 					<div className="mb-12">
-						<AnimatedTitle title="About" className="special-font w-full font-zentry text-5xl md:text-7xl font-black leading-[.9]" />
+						<AnimatedTitle title="About" className="special-font w-full font-zentry text-5xl md:text-7xl font-black text-black leading-[.9]" />
 					</div>
 
 					<div className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-12 max-w-6xl mx-auto px-4">
@@ -28,7 +27,7 @@ const About = () => {
 							</p>
 
 							{/* Filmography Section */}
-							<div className="bg-gray-900/60 rounded-xl p-6 mt-8 shadow-lg">
+							<div className=" rounded-xl p-6 mt-8 ">
 								<h3 className="text-2xl font-bold mb-4">🎬 Filmography</h3>
 								<h4 className="text-xl font-semibold">Unusual Mind (2024)</h4>
 								<p className="mt-2 text-base leading-relaxed">
@@ -51,11 +50,7 @@ const About = () => {
 
 						{/* Right Image Section */}
 						<div className="lg:w-1/3 flex justify-center">
-							<img
-								src="img/about-1.webp"
-								alt="Artwork"
-								className="w-full max-w-sm rounded-xl shadow-2xl object-cover transition-transform duration-500 hover:scale-105"
-							/>
+							<img src="img/about-1.webp" alt="Artwork" className="w-full max-w-sm rounded-xl shadow-2xl object-cover transition-transform duration-500" />
 						</div>
 					</div>
 				</div>

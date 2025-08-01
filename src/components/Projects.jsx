@@ -1,8 +1,8 @@
-import React from "react";
 import Card from "./Card";
 import AnimatedTitle from "./AnimatedTitle";
 import TopCarousel from "./TopCarousel";
 import SmallCard from "./SmallCard";
+import ThreeDCarousel from "./3dCarousel";
 
 const OPTIONS = [
 	"img/1.webp",
@@ -19,6 +19,8 @@ const OPTIONS = [
 	"img/12.webp"
 ];
 
+const OPTIONS2 = ["img/Start.png", "img/Start2.png", "img/mid.png", "img/mid2.png", "img/mid3.png"];
+
 const Projects = () => {
 	return (
 		<section id="work" className="bg-black pb-52">
@@ -27,7 +29,8 @@ const Projects = () => {
 					<AnimatedTitle title="3d animations" containerClass="mt-5 !text-yellow-300 text-center !text-6xl" />
 					<AnimatedTitle title="Visuals" containerClass="mt-5 !text-yellow-300 text-center !text-6xl" />
 				</div>
-
+				<ThreeDCarousel slides={OPTIONS2} />
+				<br />
 				<div className="border-hsla relative mb-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh] ">
 					<Card
 						src="videos/feature-1.mp4"
