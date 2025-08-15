@@ -32,6 +32,9 @@ const Projects = () => {
 				<ThreeDCarousel slides={OPTIONS2} />
 				<br />
 				<div className="border-hsla relative mb-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh] ">
+					<Card src="videos/feature-12.mp4" title={<>"Coming Soon"</>} description={<>Part of upcoming animated short film.</>} />
+				</div>
+				<div className="border-hsla relative mb-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh] ">
 					<Card
 						src="videos/feature-1.mp4"
 						title={<>"dialleima"</>}
@@ -40,7 +43,6 @@ const Projects = () => {
 						href="https://www.youtube.com/watch?v=57m9Sb6Nk4M"
 					/>
 				</div>
-
 				<div className="grid h-[135vh] grid-cols-2 grid-rows-3 gap-7">
 					<div className="bento-tilt_1 row-span-1 md:col-span-1 md:row-span-2">
 						<Card title={<>creatures</>} description={<>Creatures from my animated short film "Unusual Mind"</>} src="videos/feature-2.mp4" />
