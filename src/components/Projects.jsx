@@ -16,7 +16,8 @@ const OPTIONS = [
 	"img/9.webp",
 	"img/10.webp",
 	"img/11.webp",
-	"img/12.webp"
+	"img/12.webp",
+	"img/13.webp"
 ];
 
 const OPTIONS2 = ["img/Start.png", "img/Start2.png", "img/mid.png", "img/mid2.png", "img/mid3.png"];
