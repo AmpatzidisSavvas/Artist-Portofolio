@@ -44,6 +44,9 @@ const About = () => {
 									<div className="border-l-4 border-blue-400 pl-4">
 										CINERGO International Film Festival (2025) — <em>Official Selection</em>
 									</div>
+									<div className="border-l-4 border-blue-400 pl-4">
+										KINOdiseea International Children Film Festival Romania (2025) — <em>Official Selection</em>
+									</div>
 								</div>
 							</div>
 						</div>
