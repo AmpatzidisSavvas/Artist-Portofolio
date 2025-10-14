@@ -29,7 +29,7 @@ const About = () => {
 							{/* Filmography Section */}
 							<div className=" rounded-xl p-6 mt-8 ">
 								<h3 className="text-2xl font-bold mb-4">🎬 Filmography</h3>
-								<h4 className="text-xl font-semibold">Unusual Mind (2024)</h4>
+								<h4 className="text-xl font-semibold">Unusual Mind (2025)</h4>
 								<p className="mt-2 text-base leading-relaxed">
 									An immersive, introspective journey into the psyche, <em>Unusual Mind</em> visualizes a passage through the darkest and most luminous parts of
 									mental space. From shadowy realms filled with creatures and demons to rare moments of serenity, the film explores the tension between inner
