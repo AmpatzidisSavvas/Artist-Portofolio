@@ -97,12 +97,12 @@ const Projects = () => {
 				</div>
 
 				<div className="grid  grid-cols-1 md:grid-cols-2 mt-7 gap-7">
-					<SmallCard src={"videos/feature-10.mp4"} />
+					<SmallCard src={"videos/feature-14.mp4"} />
 					<SmallCard src={"videos/feature-11.mp4"} />
 				</div>
 			</div>
 			<div className="px-5 py-10">
-				<AnimatedTitle title="2d Illustrations" containerClass="mt-5 mb-10 !text-pink-300 text-center !text-6xl" />
+				<AnimatedTitle title="Illustrations" containerClass="mt-5 mb-10 !text-pink-300 text-center !text-6xl" />
 				<p className="mb-10 font-general text-[15px] uppercase text-white text-center">Scroll right and left to see more</p>
 
 				<TopCarousel slides={OPTIONS} />
