@@ -37,12 +37,12 @@ const About = () => {
 								</p>
 								<p className="mt-2 text-base leading-relaxed">
 									<a
-										href="https://vimeo.com/1023495298"
+										href="https://youtu.be/_xJd7ZvUFc4?si=GA5onEsLdznPnSOo"
 										target="_blank"
 										rel="noopener noreferrer"
 										className="mt-1 inline-block font-general text-sm uppercase text-white bg-blue-400 hover:bg-blue-500 active:bg-blue-600 dark:bg-white dark:text-black dark:hover:bg-gray-200 transition-colors duration-300 ease-[cubic-bezier(0.65_0.05_0.36_1)] px-4 py-2 rounded-xl shadow-md cursor-pointer"
 									>
-										Trailer
+										Watch movie here
 									</a>
 								</p>
 
