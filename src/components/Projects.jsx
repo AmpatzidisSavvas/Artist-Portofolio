@@ -79,7 +79,7 @@ const Projects = () => {
 					<Card
 						src="videos/hero-3.mp4"
 						title={<>"Unusual Mind"</>}
-						description={<>Scene from my animated short film "Unusual Mind" 2024</>}
+						description={<>Scene from my animated short film "Unusual Mind" 2025</>}
 						titleButton="Watch movie here"
 						href="https://youtu.be/_xJd7ZvUFc4?si=GA5onEsLdznPnSOo"
 					/>
