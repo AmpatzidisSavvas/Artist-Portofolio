@@ -19,7 +19,16 @@ const OPTIONS = [
 	"img/13.webp"
 ];
 
-const OPTIONS2 = ["img/Start.webp", "img/Start2.webp", "img/Eversor.webp", "img/mid.webp", "img/mid2.webp", "img/mid3.webp"];
+const OPTIONS2 = [
+	"img/RoomCross2.webp",
+	"img/RoomPanagia2.webp",
+	"img/Start.webp",
+	"img/Start2.webp",
+	"img/Eversor.webp",
+	"img/mid.webp",
+	"img/mid2.webp",
+	"img/mid3.webp"
+];
 
 const Projects = () => {
 	return (
