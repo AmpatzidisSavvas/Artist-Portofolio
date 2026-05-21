@@ -117,6 +117,7 @@ const Hero = () => {
 						src={getVideoSrc(playlist[currentIndex])}
 						autoPlay
 						muted
+						preload="metadata"
 						loop={false}
 						playsInline
 						onCanPlay={handleCanPlay}
