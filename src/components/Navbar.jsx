@@ -72,10 +72,15 @@ const Navbar = () => {
 				transition={{ duration: 0.3 }}
 				className={`${
 					isMenuOpen ? "block " : "hidden"
-				} md:hidden absolute top-full right-0 w-48 bg-gray-900 text-white p-4 flex flex-col space-y-4 rounded-lg shadow-lg`}
+				} md:hidden absolute top-full right-0 w-48 bg-gray-900 text-white pt-4 flex flex-col space-y-4 rounded-lg shadow-lg `}
 			>
-				{navItems.map((item) => (
-					<a key={item} href={`#${item.toLowerCase()}`} className="block px-4 py-2 hover:bg-gray-700 rounded" onClick={() => setIsMenuOpen(false)}>
+				{navItems.map((item, index) => (
+					<a
+						key={item}
+						href={`#${item.toLowerCase()}`}
+						className={`block px-4 pb-2 hover:bg-gray-700 transition ${index !== navItems.length - 1 ? "border-b border-white/40 hover:border-white" : ""}`}
+						onClick={() => setIsMenuOpen(false)}
+					>
 						{item}
 					</a>
 				))}

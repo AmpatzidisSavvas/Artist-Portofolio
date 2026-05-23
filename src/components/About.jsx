@@ -12,23 +12,20 @@ const About = () => {
 
 					<div className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-12 max-w-6xl mx-auto px-4">
 						{/* Left Text Section */}
-						<div className="lg:w-2/3 space-y-6 text-left">
-							<p className="text-lg md:text-xl leading-relaxed tracking-wide">
-								Savvas “The Pack” Ampatzidis is a self-taught multidisciplinary designer based in Thessaloniki, Greece. His work is deeply rooted in
-								storytelling—blending violence, romance, chaos, and beauty into rich visual narratives. These stories reflect the raw, often contradictory
-								nature of life.
-							</p>
-							<p className="text-lg md:text-xl leading-relaxed tracking-wide">
-								Using a mix of 2D and 3D techniques, he creates striking, layered visuals that invite viewers to look beneath the surface. His artistic range
-								spans multiple mediums, evolving across disciplines while maintaining a strong personal voice.
-							</p>
-							<p className="text-lg md:text-xl leading-relaxed tracking-wide">
-								His work has been exhibited internationally and featured at festivals dedicated to illustration, comics, and animation.
-							</p>
+						<div className="lg:w-2/3 space-y-6  text-left">
+							<div className=" rounded-xl p-6 mt-8">
+								<p className="text-base leading-relaxed ">
+									Savvas “The Pack” Ampatzidis is a self-taught multidisciplinary designer based in Thessaloniki, Greece. His work is deeply rooted in
+									storytelling—blending violence, romance, chaos, and beauty into rich visual narratives. These stories reflect the raw, often contradictory
+									nature of life. Using a mix of 2D and 3D techniques, he creates striking, layered visuals that invite viewers to look beneath the surface. His
+									artistic range spans multiple mediums, evolving across disciplines while maintaining a strong personal voice. His work has been exhibited
+									internationally and featured at festivals dedicated to illustration, comics, and animation.
+								</p>
+							</div>
 
 							{/* Filmography Section */}
 							<div className=" rounded-xl p-6 mt-8 ">
-								<h3 className="text-2xl font-bold mb-4">🎬 Filmography</h3>
+								<h3 className="text-2xl font-bold mb-4">Filmography</h3>
 								<h4 className="text-xl font-semibold">Unusual Mind (2025)</h4>
 								<p className="mt-2 text-base leading-relaxed">
 									An immersive, introspective journey into the psyche, <em>Unusual Mind</em> visualizes a passage through the darkest and most luminous parts of
@@ -40,9 +37,9 @@ const About = () => {
 										href="https://youtu.be/_xJd7ZvUFc4?si=GA5onEsLdznPnSOo"
 										target="_blank"
 										rel="noopener noreferrer"
-										className="mt-1 inline-block font-general text-sm uppercase text-white bg-blue-400 hover:bg-blue-500 active:bg-blue-600 dark:bg-white dark:text-black dark:hover:bg-gray-200 transition-colors duration-300 ease-[cubic-bezier(0.65_0.05_0.36_1)] px-4 py-2 rounded-xl shadow-md cursor-pointer"
+										className="mt-1 inline-block font-general text-sm  text-white bg-blue-400 hover:bg-blue-500 active:bg-blue-600 dark:bg-white dark:text-black dark:hover:bg-gray-200 transition-colors duration-300 ease-[cubic-bezier(0.65_0.05_0.36_1)] px-4 py-2 rounded-xl shadow-md cursor-pointer"
 									>
-										Watch movie here
+										Watch Movie Here
 									</a>
 								</p>
 
