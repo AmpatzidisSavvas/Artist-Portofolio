@@ -16,10 +16,15 @@ const About = () => {
 							<div className=" rounded-xl p-6 mt-8">
 								<p className="text-base leading-relaxed ">
 									Savvas “The Pack” Ampatzidis is a self-taught multidisciplinary designer based in Thessaloniki, Greece. His work is deeply rooted in
-									storytelling—blending violence, romance, chaos, and beauty into rich visual narratives. These stories reflect the raw, often contradictory
-									nature of life. Using a mix of 2D and 3D techniques, he creates striking, layered visuals that invite viewers to look beneath the surface. His
-									artistic range spans multiple mediums, evolving across disciplines while maintaining a strong personal voice. His work has been exhibited
-									internationally and featured at festivals dedicated to illustration, comics, and animation.
+									storytelling, blending violence, romance, chaos, and beauty into rich visual narratives.
+								</p>
+								<p className="text-base leading-relaxed ">
+									These stories reflect the raw, often contradictory nature of life. Using a mix of 2D and 3D techniques, he creates striking, layered visuals
+									that invite viewers to look beneath the surface. His artistic range spans multiple mediums, evolving across disciplines while maintaining a
+									strong personal voice.
+								</p>
+								<p className=" text-base leading leading-relaxed">
+									His work has been exhibited internationally and featured at festivals dedicated to illustration, comics, and animation.
 								</p>
 							</div>
 

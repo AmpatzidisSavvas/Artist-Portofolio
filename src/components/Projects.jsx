@@ -3,6 +3,7 @@ import AnimatedTitle from "./AnimatedTitle";
 import TopCarousel from "./TopCarousel";
 import SmallCard from "./SmallCard";
 import ThreeDCarousel from "./3dCarousel";
+import InstagramFeed from "./InstagramFeed";
 
 const OPTIONS = [
 	"img/1.webp",
@@ -111,7 +112,7 @@ const Projects = () => {
 			</div>
 			<div className="px-5 py-10">
 				<AnimatedTitle title="Illustrations" containerClass="mt-5 mb-10 !text-pink-300 text-center !text-6xl" />
-				<p className="mb-10 font-general text-[15px] uppercase text-white text-center">Scroll right and left to see more</p>
+				<p className="mb-10 font-general text-[15px]  text-white text-center">Scroll right and left to see more</p>
 
 				<TopCarousel slides={OPTIONS} />
 			</div>
