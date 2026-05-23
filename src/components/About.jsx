@@ -23,7 +23,7 @@ const About = () => {
 									that invite viewers to look beneath the surface. His artistic range spans multiple mediums, evolving across disciplines while maintaining a
 									strong personal voice.
 								</p>
-								<p className=" text-base leading leading-relaxed">
+								<p className="text-base leading leading-relaxed">
 									His work has been exhibited internationally and featured at festivals dedicated to illustration, comics, and animation.
 								</p>
 							</div>
