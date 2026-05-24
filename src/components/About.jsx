@@ -59,6 +59,9 @@ const About = () => {
 									<div className="border-l-4 border-blue-400 pl-4">
 										KINOdiseea International Children Film Festival Romania (2025) — <em>Official Selection</em>
 									</div>
+									<div className="border-l-4 border-blue-400 pl-4">
+										Festival Miden (2026) — <em>Official Selection</em>
+									</div>
 								</div>
 							</div>
 						</div>

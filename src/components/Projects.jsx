@@ -42,7 +42,13 @@ const Projects = () => {
 				<ThreeDCarousel slides={OPTIONS2} />
 				<br />
 				<div className="border-hsla relative mb-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh] ">
-					<Card src="videos/feature-12.mp4" title={<>"Coming Soon"</>} description={<>Part of upcoming animated short film.</>} />
+					<Card
+						src="videos/feature-12.mp4"
+						title={<>"Beyond The End"</>}
+						titleButton={"Watch full video"}
+						description={<>Promotional animation for Andri J's third album "Beyond the End".</>}
+						href={"https://www.youtube.com/watch?v=O4CYOYftk1s"}
+					/>
 				</div>
 				<div className="border-hsla relative mb-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh] ">
 					<Card
