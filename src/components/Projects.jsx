@@ -23,11 +23,12 @@ const OPTIONS = [
 const OPTIONS2 = [
 	"img/RoomCross2.webp",
 	"img/RoomPanagia2.webp",
+	"img/256.webp",
+	"img/256-2.webp",
 	"img/Start.webp",
 	"img/Start2.webp",
 	"img/Eversor.webp",
 	"img/mid.webp",
-	"img/mid2.webp",
 	"img/mid3.webp"
 ];
 
@@ -96,7 +97,7 @@ const Projects = () => {
 						src="videos/hero-3.mp4"
 						title={<>"Unusual Mind"</>}
 						description={<>Scene from my animated short film "Unusual Mind" 2025</>}
-						titleButton="Watch movie here"
+						titleButton="Watch film here"
 						href="https://youtu.be/_xJd7ZvUFc4?si=GA5onEsLdznPnSOo"
 					/>
 				</div>

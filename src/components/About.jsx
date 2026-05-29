@@ -15,13 +15,12 @@ const About = () => {
 						<div className="lg:w-2/3 space-y-6  text-left">
 							<div className=" rounded-xl p-6 mt-8">
 								<p className="text-base leading-relaxed ">
-									Savvas “The Pack” Ampatzidis is a self-taught multidisciplinary designer based in Thessaloniki, Greece. His work is deeply rooted in
-									storytelling, blending violence, romance, chaos, and beauty into rich visual narratives.
+									Savvas “The Pack” Ampatzidis is a self-taught multidisciplinary designer based in Thessaloniki, Greece.
 								</p>
 								<p className="text-base leading-relaxed ">
-									These stories reflect the raw, often contradictory nature of life. Using a mix of 2D and 3D techniques, he creates striking, layered visuals
-									that invite viewers to look beneath the surface. His artistic range spans multiple mediums, evolving across disciplines while maintaining a
-									strong personal voice.
+									His work is deeply rooted in storytelling, blending violence, romance, chaos, and beauty into rich visual narratives. These stories reflect
+									the raw, often contradictory nature of life. Using a mix of 2D and 3D techniques, he creates striking, layered visuals that invite viewers to
+									look beneath the surface. His artistic range spans multiple mediums, evolving across disciplines while maintaining a strong personal voice.
 								</p>
 								<p className="text-base leading leading-relaxed">
 									His work has been exhibited internationally and featured at festivals dedicated to illustration, comics, and animation.
@@ -37,19 +36,19 @@ const About = () => {
 									mental space. From shadowy realms filled with creatures and demons to rare moments of serenity, the film explores the tension between inner
 									darkness and the longing for peace. A powerful visual metaphor for the complexity of human consciousness and emotional struggle.
 								</p>
-								<p className="mt-2 text-base leading-relaxed">
+								<p className="mt-8 text-base leading-relaxed">
 									<a
 										href="https://youtu.be/_xJd7ZvUFc4?si=GA5onEsLdznPnSOo"
 										target="_blank"
 										rel="noopener noreferrer"
 										className="mt-1 inline-block font-general text-sm  text-white bg-blue-400 hover:bg-blue-500 active:bg-blue-600 dark:bg-white dark:text-black dark:hover:bg-gray-200 transition-colors duration-300 ease-[cubic-bezier(0.65_0.05_0.36_1)] px-4 py-2 rounded-xl shadow-md cursor-pointer"
 									>
-										Watch Movie Here
+										Watch Film Here
 									</a>
 								</p>
 
 								{/* Festival Selections */}
-								<div className="mt-6 space-y-3">
+								<div className="mt-8 space-y-3">
 									<div className="border-l-4 border-blue-400 pl-4">
 										Athens Digital Arts Festival ADAF (2025) — <em>Official Selection</em>
 									</div>
