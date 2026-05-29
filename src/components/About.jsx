@@ -6,8 +6,8 @@ const About = () => {
 			<div className="relative rounded-2xl bg-blue-50  py-24 text-black">
 				<div className="flex flex-col items-center text-center">
 					{/* Title */}
-					<div className="mb-12">
-						<AnimatedTitle title="About" className="special-font w-full font-zentry text-5xl md:text-7xl font-black text-black leading-[.9]" />
+					<div className="mb-10">
+						<AnimatedTitle title="About" className="special-font w-full font-zentry sm:text-2xl text-5xl md:text-7xl font-black text-black leading-[.9]" />
 					</div>
 
 					<div className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-12 max-w-6xl mx-auto px-4">

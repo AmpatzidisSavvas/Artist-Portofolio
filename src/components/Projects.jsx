@@ -37,8 +37,7 @@ const Projects = () => {
 		<section id="work" className="bg-black pb-52">
 			<div className="container mx-auto px-3 md:px-10">
 				<div className="px-5 py-10">
-					<AnimatedTitle title="3d animations" containerClass="mt-5 !text-yellow-300 text-center !text-6xl" />
-					<AnimatedTitle title="Visuals" containerClass="mt-5 !text-yellow-300 text-center !text-6xl" />
+					<AnimatedTitle title="3d animations / Visuals" containerClass="mt-5 !text-yellow-300 text-center" />
 				</div>
 				<ThreeDCarousel slides={OPTIONS2} />
 				<br />
@@ -118,7 +117,7 @@ const Projects = () => {
 				</div>
 			</div>
 			<div className="px-5 py-10">
-				<AnimatedTitle title="Illustrations" containerClass="mt-5 mb-10 !text-pink-300 text-center !text-6xl" />
+				<AnimatedTitle title="Illustrations" containerClass="mt-5 mb-10 !text-pink-300 text-center" />
 				<p className="mb-10 font-general text-[15px]  text-white text-center">Scroll right and left to see more</p>
 
 				<TopCarousel slides={OPTIONS} />
