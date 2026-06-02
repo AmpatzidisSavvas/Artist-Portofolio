@@ -46,7 +46,7 @@ const Projects = () => {
 						src="videos/feature-12.mp4"
 						title={<>"Beyond The End"</>}
 						titleButton={"Watch full video"}
-						description={<>Promotional animation for Andri J and Motive Hits's third album "Beyond the End".</>}
+						description={<>Promotional animation for Andri J and Motive Hits's third album "Beyond the End"</>}
 						href={"https://www.youtube.com/watch?v=O4CYOYftk1s"}
 					/>
 				</div>
@@ -54,7 +54,7 @@ const Projects = () => {
 					<Card
 						src="videos/feature-1.mp4"
 						title={<>"dialleima"</>}
-						description={<>3D animated music video for the artist "Agrimi". showcasing a dynamic blend of visuals and music.</>}
+						description={<>3D animated music video for the artist "Agrimi"</>}
 						titleButton="Watch full video"
 						href="https://www.youtube.com/watch?v=57m9Sb6Nk4M"
 					/>
