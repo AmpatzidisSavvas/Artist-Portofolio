@@ -46,7 +46,7 @@ const Projects = () => {
 						src="videos/feature-12.mp4"
 						title={<>"Beyond The End"</>}
 						titleButton={"Watch full video"}
-						description={<>Promotional animation for Andri J's third album "Beyond the End".</>}
+						description={<>Promotional animation for Andri J and Motive Hits's third album "Beyond the End".</>}
 						href={"https://www.youtube.com/watch?v=O4CYOYftk1s"}
 					/>
 				</div>
@@ -118,7 +118,6 @@ const Projects = () => {
 			</div>
 			<div className="px-5 py-10">
 				<AnimatedTitle title="Illustrations" containerClass="mt-5 mb-10 !text-pink-300 text-center" />
-				<p className="mb-10 font-general text-[15px]  text-white text-center">Scroll right and left to see more</p>
 
 				<TopCarousel slides={OPTIONS} />
 			</div>
