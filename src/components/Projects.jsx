@@ -44,7 +44,7 @@ const Projects = () => {
 				<div className="border-hsla relative mb-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh] ">
 					<Card
 						src="videos/feature-12.mp4"
-						title={<>"Beyond The End"</>}
+						title={<>Beyond The End</>}
 						titleButton={"Watch full video"}
 						description={<>Promotional animation for Andri J and Motive Hits's third album "Beyond the End"</>}
 						href={"https://www.youtube.com/watch?v=O4CYOYftk1s"}
@@ -53,7 +53,7 @@ const Projects = () => {
 				<div className="border-hsla relative mb-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh] ">
 					<Card
 						src="videos/feature-1.mp4"
-						title={<>"dialleima"</>}
+						title={<>dialleima</>}
 						description={<>3D animated music video for the artist "Agrimi"</>}
 						titleButton="Watch full video"
 						href="https://www.youtube.com/watch?v=57m9Sb6Nk4M"
@@ -71,14 +71,14 @@ const Projects = () => {
 				<br />
 				<div className="grid h-[135vh] grid-cols-2 grid-rows-3 gap-7">
 					<div className="bento-tilt_1 row-span-1 md:col-span-1 md:row-span-2">
-						<Card title={<>creature</>} description={<>Creature from my animated short film "Unusual Mind"</>} src="videos/feature-2.mp4" />
+						<Card title={<>aethales</>} description={<>Animation for producer 256Colors's EP "Aethales Pt.2"</>} src="videos/feature-14.mp4" />
 					</div>
 					<div className="bento-tilt_1 row-span-1 ms-32 md:col-span-1 md:ms-0">
 						<Card src={"videos/feature-3.mp4"} />
 					</div>
 					<div className="bento-tilt_1 me-14 md:col-span-1 md:me-0">
 						<Card
-							title={<>"go-ship"</>}
+							title={<>go-ship</>}
 							description={<>3D animated music video for the artist "Silent"</>}
 							src={"videos/feature-4.mp4"}
 							titleButton="Watch full video"
@@ -94,7 +94,7 @@ const Projects = () => {
 				<div className="border-hsla relative mt-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh] ">
 					<Card
 						src="videos/hero-3.mp4"
-						title={<>"Unusual Mind"</>}
+						title={<>Unusual Mind</>}
 						description={<>Scene from my animated short film "Unusual Mind" 2025</>}
 						titleButton="Watch film here"
 						href="https://youtu.be/_xJd7ZvUFc4?si=GA5onEsLdznPnSOo"
@@ -108,11 +108,11 @@ const Projects = () => {
 				</div>
 
 				<div className="border-hsla relative mt-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh] ">
-					<Card src="videos/feature-7.mp4" title={<>"Balkanoia"</>} titleButton="Watch full video" href="https://vimeo.com/1045778818" />
+					<Card src="videos/feature-7.mp4" />
 				</div>
 
 				<div className="grid  grid-cols-1 md:grid-cols-2 mt-7 gap-7">
-					<SmallCard src={"videos/feature-14.mp4"} />
+					<SmallCard src={"videos/feature-2.mp4"} />
 					<SmallCard src={"videos/feature-11.mp4"} />
 				</div>
 			</div>
