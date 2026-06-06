@@ -71,7 +71,13 @@ const Projects = () => {
 				<br />
 				<div className="grid h-[135vh] grid-cols-2 grid-rows-3 gap-7">
 					<div className="bento-tilt_1 row-span-1 md:col-span-1 md:row-span-2">
-						<Card title={<>aethales</>} description={<>Animation for producer 256Colors's EP "Aethales Pt.2"</>} src="videos/feature-14.mp4" />
+						<Card
+							title={<>aethales</>}
+							description={<>Animation for producer 256Colors's EP "Aethales Pt.2"</>}
+							src="videos/feature-14.mp4"
+							titleButton={"Watch full video"}
+							href={"https://www.youtube.com/watch?v=DNKnkBBHH-U"}
+						/>
 					</div>
 					<div className="bento-tilt_1 row-span-1 ms-32 md:col-span-1 md:ms-0">
 						<Card src={"videos/feature-3.mp4"} />
