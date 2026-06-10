@@ -43,7 +43,7 @@ const Projects = () => {
 				<br />
 				<div className="border-hsla relative mb-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh] ">
 					<Card
-						src="videos/feature-12.mp4"
+						src="videos/feature-12.webm"
 						title={<>Beyond The End</>}
 						titleButton={"Watch full video"}
 						description={<>Promotional animation for Andri J and Motive Hits's third album "Beyond the End"</>}
@@ -61,7 +61,7 @@ const Projects = () => {
 				</div>
 				<div className="border-hsla relative mt-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh] ">
 					<Card
-						src="videos/feature-13.mp4"
+						src="videos/feature-13.webm"
 						title={<>Closed Circuit II</>}
 						description={<>Promotional animation for music producer Eversor's album "Closed Circuit ΙΙ"</>}
 						href={"https://vimeo.com/1127080265"}
@@ -74,7 +74,7 @@ const Projects = () => {
 						<Card
 							title={<>aethales</>}
 							description={<>Animation for producer 256Colors's EP "Aethales Pt.2"</>}
-							src="videos/feature-14.mp4"
+							src="videos/feature-14.webm"
 							titleButton={"Watch full video"}
 							href={"https://www.youtube.com/watch?v=DNKnkBBHH-U"}
 						/>
@@ -99,7 +99,7 @@ const Projects = () => {
 
 				<div className="border-hsla relative mt-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh] ">
 					<Card
-						src="videos/hero-3.mp4"
+						src="videos/hero-3.webm"
 						title={<>Unusual Mind</>}
 						description={<>Scene from my animated short film "Unusual Mind" 2025</>}
 						titleButton="Watch film here"
