@@ -3,10 +3,10 @@ import AnimatedTitle from "./AnimatedTitle";
 const About = () => {
 	return (
 		<section id="about" className="my-20 min-h-[24rem] w-full px-6 md:px-10">
-			<div className="relative rounded-2xl bg-blue-50  py-24  text-black">
+			<div className="relative rounded-2xl bg-blue-50 py-10 sm:py-10 text-black">
 				<div className="flex flex-col items-center text-center">
 					{/* Title */}
-					<div className="mb-10">
+					<div>
 						<AnimatedTitle title="About" className="special-font w-full font-zentry sm:text-2xl md:text-7xl font-black text-black leading-[.9]" />
 					</div>
 
