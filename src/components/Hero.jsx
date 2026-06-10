@@ -94,7 +94,7 @@ const Hero = () => {
 		setIsVideoReady(true);
 	};
 
-	const getVideoSrc = (index) => `videos/hero-${index}.mp4`;
+	const getVideoSrc = (index) => `videos/hero-${index}.webm`;
 
 	return (
 		<div id="home" className="relative h-dvh w-screen overflow-x-hidden">
@@ -117,14 +117,13 @@ const Hero = () => {
 						src={getVideoSrc(playlist[currentIndex])}
 						autoPlay
 						muted
-						preload="metadata"
+						preload="auto"
 						loop={false}
 						playsInline
 						onCanPlay={handleCanPlay}
 						onEnded={handleNextVideo}
 						style={{ pointerEvents: "none" }}
 						className="absolute left-0 top-0 size-full object-cover object-center z-20"
-						loading="lazy"
 						onLoadedData={handleVideoLoad}
 					/>
 				</div>

@@ -54,7 +54,7 @@ const Projects = () => {
 					<Card
 						src="videos/feature-1.mp4"
 						title={<>dialleima</>}
-						description={<>3D animated music video for the artist "Agrimi"</>}
+						description={<>3D animated music video for the artist Agrimi</>}
 						titleButton="Watch full video"
 						href="https://www.youtube.com/watch?v=57m9Sb6Nk4M"
 					/>
