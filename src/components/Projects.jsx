@@ -52,7 +52,7 @@ const Projects = () => {
 				</div>
 				<div className="border-hsla relative mb-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh] ">
 					<Card
-						src="videos/feature-1.mp4"
+						src="videos/feature-1.webm"
 						title={<>dialleima</>}
 						description={<>3D animated music video for the artist Agrimi</>}
 						titleButton="Watch full video"
@@ -80,21 +80,21 @@ const Projects = () => {
 						/>
 					</div>
 					<div className="bento-tilt_1 row-span-1 ms-32 md:col-span-1 md:ms-0">
-						<Card src={"videos/feature-3.mp4"} />
+						<Card src={"videos/feature-3.webm"} />
 					</div>
 					<div className="bento-tilt_1 me-14 md:col-span-1 md:me-0">
 						<Card
 							title={<>go-ship</>}
 							description={<>3D animated music video for the artist "Silent"</>}
-							src={"videos/feature-4.mp4"}
+							src={"videos/feature-4.webm"}
 							titleButton="Watch full video"
 							href="https://www.youtube.com/watch?v=kZOZSruDpRw"
 						/>
 					</div>
 					{/* Double small cards */}
 
-					<SmallCard src={"videos/feature-5.mp4"} />
-					<SmallCard src={"videos/feature-6.mp4"} />
+					<SmallCard src={"videos/feature-5.webm"} />
+					<SmallCard src={"videos/feature-6.webm"} />
 				</div>
 
 				<div className="border-hsla relative mt-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh] ">
@@ -109,17 +109,17 @@ const Projects = () => {
 
 				<div className="grid  grid-cols-1 md:grid-cols-2 mt-7 gap-7">
 					{/* Double small cards */}
-					<SmallCard src={"videos/feature-8.mp4"} />
-					<SmallCard src={"videos/feature-9.mp4"} />
+					<SmallCard src={"videos/feature-8.webm"} />
+					<SmallCard src={"videos/feature-9.webm"} />
 				</div>
 
 				<div className="border-hsla relative mt-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh] ">
-					<Card src="videos/feature-7.mp4" />
+					<Card src="videos/feature-7.webm" />
 				</div>
 
 				<div className="grid  grid-cols-1 md:grid-cols-2 mt-7 gap-7">
-					<SmallCard src={"videos/feature-2.mp4"} />
-					<SmallCard src={"videos/feature-11.mp4"} />
+					<SmallCard src={"videos/feature-2.webm"} />
+					<SmallCard src={"videos/feature-11.webm"} />
 				</div>
 			</div>
 			<div className="px-5 py-10">

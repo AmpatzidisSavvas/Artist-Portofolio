@@ -5,16 +5,11 @@ const About = () => {
 		<section id="about" className="my-20 min-h-[24rem] w-full px-6 md:px-10">
 			<div className="relative rounded-2xl bg-blue-50 py-10 sm:py-10 text-black">
 				<div className="flex flex-col items-center text-center">
-					{/* Title */}
-					<div>
-						<AnimatedTitle title="About" className="special-font w-full font-zentry sm:text-2xl md:text-7xl font-black text-black leading-[.9]" />
-					</div>
-
 					<div className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-12 max-w-6xl mx-auto px-4">
 						{/* Left Text Section */}
 						<div className="lg:w-2/3 space-y-6  text-left">
 							{/* Filmography Section */}
-							<div className=" rounded-xl p-6 mt-8">
+							<div className=" rounded-xl p-6 ">
 								<p className="text-base leading-relaxed">
 									Savvas “The Pack” Ampatzidis is a self-taught multidisciplinary designer based in Thessaloniki, Greece. His work is deeply rooted in
 									storytelling, blending violence, romance, chaos, and beauty into rich visual narratives. These stories reflect the raw, often contradictory
