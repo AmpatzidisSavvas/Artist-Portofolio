@@ -85,7 +85,7 @@ const Projects = () => {
 					<div className="bento-tilt_1 me-14 md:col-span-1 md:me-0">
 						<Card
 							title={<>go-ship</>}
-							description={<>3D animated music video for the artist "Silent"</>}
+							description={<>3D animated music video for the artist Silent</>}
 							src={"videos/feature-4.webm"}
 							titleButton="Watch full video"
 							href="https://www.youtube.com/watch?v=kZOZSruDpRw"
