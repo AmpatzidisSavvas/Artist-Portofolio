@@ -52,7 +52,7 @@ const Projects = () => {
 				</div>
 				<div className="border-hsla relative mb-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh] ">
 					<Card
-						src="videos/feature-1.webm"
+						src="videos/feature-1.mp4"
 						title={<>dialleima</>}
 						description={<>3D animated music video for the artist Agrimi</>}
 						titleButton="Watch full video"
