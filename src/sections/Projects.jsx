@@ -1,9 +1,8 @@
-import Card from "./Card";
-import AnimatedTitle from "./AnimatedTitle";
-import TopCarousel from "./TopCarousel";
-import SmallCard from "./SmallCard";
-import ThreeDCarousel from "./3dCarousel";
-import InstagramFeed from "./InstagramFeed";
+import Card from "../components/ui/Card";
+import AnimatedTitle from "../components/shared/AnimatedTitle";
+import TopCarousel from "../components/shared/TopCarousel";
+import SmallCard from "../components/ui/SmallCard";
+import ThreeDCarousel from "../components/shared/3dCarousel";
 
 const OPTIONS = [
 	"img/1.webp",

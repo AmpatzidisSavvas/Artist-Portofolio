@@ -1,13 +1,13 @@
 import { lazy, Suspense } from "react";
 
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
+import Navbar from "./components/layout/Navbar";
+import Hero from "./sections/Hero";
 
 // Lazy-loaded below-the-fold sections
-const About = lazy(() => import("./components/About"));
-const Projects = lazy(() => import("./components/Projects"));
-const Contact = lazy(() => import("./components/Contact"));
-const Footer = lazy(() => import("./components/Footer"));
+const About = lazy(() => import("./sections/About"));
+const Projects = lazy(() => import("./sections/Projects"));
+const Contact = lazy(() => import("./sections/Contact"));
+const Footer = lazy(() => import("./components/layout/Footer"));
 
 function App() {
 	return (

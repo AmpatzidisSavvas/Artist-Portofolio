@@ -1,7 +1,6 @@
 import { lazy, Suspense } from "react";
 import Button from "./Button";
-
-const LazyVideo = lazy(() => import("./LazyVideo"));
+const LazyVideo = lazy(() => import("../shared/LazyVideo"));
 
 const Card = ({ src, title, description, titleButton, href }) => {
 	return (

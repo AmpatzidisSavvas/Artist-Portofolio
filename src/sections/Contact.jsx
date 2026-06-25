@@ -1,6 +1,6 @@
 import React from "react";
-import AnimatedTitle from "./AnimatedTitle";
-import Button from "./Button";
+import AnimatedTitle from "../components/shared/AnimatedTitle";
+import Button from "../components/ui/Button";
 import { FaVimeo } from "react-icons/fa";
 import { PiFacebookLogo, PiInstagramLogo, PiLinkedinLogo } from "react-icons/pi";
 

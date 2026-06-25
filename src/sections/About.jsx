@@ -1,4 +1,4 @@
-import AnimatedTitle from "./AnimatedTitle";
+import AnimatedTitle from "../components/shared/AnimatedTitle";
 
 const About = () => {
 	return (
