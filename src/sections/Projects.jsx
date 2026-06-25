@@ -33,7 +33,7 @@ const OPTIONS2 = [
 
 const Projects = () => {
 	return (
-		<section id="work" className="bg-black pb-40">
+		<section id="work" className="bg-black pb-35">
 			<div className="container mx-auto px-3 md:px-10">
 				<div className="px-5 py-10">
 					<AnimatedTitle title="3d animations / Visuals" containerClass="mt-5 !text-yellow-300 text-center" />
