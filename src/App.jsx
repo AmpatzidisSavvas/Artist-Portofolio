@@ -1,5 +1,6 @@
 import { lazy, Suspense } from "react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
+import { Analytics } from "@vercel/analytics/next";
 import Navbar from "./components/layout/Navbar";
 import Hero from "./sections/Hero";
 
@@ -24,6 +25,7 @@ function App() {
 				<Footer />
 			</Suspense>
 			<SpeedInsights />
+			<Analytics />
 		</main>
 	);
 }

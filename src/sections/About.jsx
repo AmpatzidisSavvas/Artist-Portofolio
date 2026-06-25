@@ -7,16 +7,19 @@ const About = () => {
 				<div className="flex flex-col items-center text-center">
 					<div className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-12 max-w-6xl mx-auto px-4">
 						{/* Left Text Section */}
-						<div className="lg:w-2/3 space-y-6  text-left">
+						<div className="lg:w-2/3 space-y-6 md:text-left">
 							{/* Filmography Section */}
 							<div className=" rounded-xl p-6 ">
 								<p className="text-base leading-relaxed">
-									Savvas “The Pack” Ampatzidis is a self-taught multidisciplinary designer based in Thessaloniki, Greece. His work is deeply rooted in
-									storytelling, blending violence, romance, chaos, and beauty into rich visual narratives. These stories reflect the raw, often contradictory
-									nature of life. Using a mix of 2D and 3D techniques, he creates striking, layered visuals that invite viewers to look beneath the surface. His
-									artistic range spans multiple mediums, evolving across disciplines while maintaining a strong personal voice.
+									Savvas “The Pack” Ampatzidis is a self-taught multidisciplinary designer based in Thessaloniki, Greece.
 								</p>
-
+								<br />
+								<p className="text-base leading-relaxed">
+									His work is deeply rooted in storytelling, blending violence, romance, chaos, and beauty into rich visual narratives. These stories reflect
+									the raw, often contradictory nature of life. Using a mix of 2D and 3D techniques, he creates striking, layered visuals that invite viewers to
+									look beneath the surface. His artistic range spans multiple mediums, evolving across disciplines while maintaining a strong personal voice.
+								</p>
+								<br />
 								<p className="text-base leading leading-relaxed mb-8">
 									His work has been exhibited internationally and featured at festivals dedicated to illustration, comics, and animation.
 								</p>
