@@ -1,1 +1,0 @@
-import{j as e}from"./index-BccVRniI.js";const s=()=>e.jsx("footer",{className:"w-screenpy-4 text-black",children:e.jsx("div",{className:" container mx-auto flex flex-col items-center justify-between gap-4 px-4 md:flex-row",children:e.jsx("p",{className:" text-center text-sm mb-2 md:text-left",children:"© 2024 Savvas Ampatzidis"})})});export{s as default};
