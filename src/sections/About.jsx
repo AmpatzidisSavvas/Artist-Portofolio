@@ -44,10 +44,19 @@ const About = () => {
 								{/* Festival Selections */}
 								<div className="mt-8 space-y-3">
 									<h4 className="text-xl font-semibold mb-5">Festival Official Selections</h4>
-									<div className="border-l-4 border-blue-400 pl-4">Athens Digital Arts Festival ADAF (2025)</div>
-									<div className="border-l-4 border-blue-400 pl-4">CINERGO International Film Festival (2025)</div>
-									<div className="border-l-4 border-blue-400 pl-4">KINOdiseea International Children Film Festival Romania (2025)</div>
-									<div className="border-l-4 border-blue-400 pl-4">Festival Miden (2026)</div>
+									<div className="mt-8 space-y-3">
+										<h4 className="text-xl font-semibold mb-5">Festival Official Selections</h4>
+
+										<div className="border-l-4 border-r-4 border-blue-400 md:border-r-0 p-3 md:pl-4 ">Athens Digital Arts Festival ADAF (2025)</div>
+
+										<div className="border-l-4 border-r-4 border-blue-400 md:border-r-0 p-3 md:pl-4">CINERGO International Film Festival (2025)</div>
+
+										<div className="border-l-4 border-r-4 border-blue-400 md:border-r-0 p-3 md:pl-4">
+											KINOdiseea International Children Film Festival Romania (2025)
+										</div>
+
+										<div className="border-l-4 border-r-4 border-blue-400 md:border-r-0 p-3 md:pl-4">Festival Miden (2026)</div>
+									</div>
 								</div>
 							</div>
 						</div>

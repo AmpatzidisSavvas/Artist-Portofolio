@@ -33,7 +33,7 @@ const OPTIONS2 = [
 
 const Projects = () => {
 	return (
-		<section id="work" className="bg-black pb-52">
+		<section id="work" className="bg-black pb-40">
 			<div className="container mx-auto px-3 md:px-10">
 				<div className="px-5 py-10">
 					<AnimatedTitle title="3d animations / Visuals" containerClass="mt-5 !text-yellow-300 text-center" />
@@ -121,7 +121,7 @@ const Projects = () => {
 					<SmallCard src={"videos/feature-11.webm"} />
 				</div>
 			</div>
-			<div className="px-5 py-10">
+			<div className="px-5 py-20">
 				<AnimatedTitle title="Illustrations" containerClass="mt-5 mb-10 !text-pink-300 text-center" />
 
 				<TopCarousel slides={OPTIONS} />
