@@ -146,10 +146,10 @@ export default function ContactForm() {
 			{status && (
 				<p
 					className={`mt-4 text-center text-sm font-medium ${
-						status.includes("Thank you") || status.includes("successfully") ? "text-emerald-600" : "text-rose-600"
+						String(status).includes("Thank you") || String(status).includes("successfully") ? "text-emerald-500" : "text-rose-500"
 					}`}
 				>
-					{status}
+					{String(status)}
 				</p>
 			)}
 		</div>
