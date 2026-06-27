@@ -17,11 +17,14 @@ export default function ContactForm() {
 	};
 
 	const handleSubmit = async (e) => {
+		// 1. Crucial: Stop form from hard-reloading the browser tab
 		e.preventDefault();
+		console.log("Form submission triggered with data:", { ...formData, twitterHandle: "HIDDEN" });
 
-		// Anti-Spam: If a bot fills out this hidden input, drop the request silently
+		// Anti-Spam Honeypot protection
 		if (formData.twitterHandle) {
-			setStatus("Message sent successfully!");
+			console.warn("Honeypot filled. Dropping request silently.");
+			setStatus("Thank you! Your message has been sent.");
 			setFormData({ name: "", email: "", message: "", twitterHandle: "" });
 			return;
 		}
@@ -30,9 +33,13 @@ export default function ContactForm() {
 		setStatus("Sending your message...");
 
 		try {
+			console.log("Sending fetch request to /api/contact...");
 			const response = await fetch("/api/contact", {
 				method: "POST",
-				headers: { "Content-Type": "application/json" },
+				headers: {
+					"Content-Type": "application/json",
+					Accept: "application/json"
+				},
 				body: JSON.stringify({
 					name: formData.name,
 					email: formData.email,
@@ -40,33 +47,35 @@ export default function ContactForm() {
 				})
 			});
 
+			console.log(`Response received. Status code: ${response.status}`);
+
+			// Safe parsing fallback logic
 			let result = {};
 			const contentType = response.headers.get("content-type");
 			if (contentType && contentType.includes("application/json")) {
 				result = await response.json();
 			} else {
-				// Fallback if Vercel drops a raw html or text error response string
 				const textFallback = await response.text();
-				console.error("Non-JSON Response received:", textFallback);
+				console.error("Server returned non-JSON data:", textFallback);
+				throw new Error(`Server returned HTML instead of JSON (${response.status}). Check Vercel routing configuration.`);
 			}
 
 			if (response.ok && result.success) {
 				setStatus("Thank you! Your message has been sent.");
 				setFormData({ name: "", email: "", message: "", twitterHandle: "" });
 			} else {
-				// If the parsing step failed to fetch an error message string, read the HTTP status instead
-				setStatus(result.error || `Server responded with status code: ${response.status}`);
+				setStatus(result.error || `Server Error: Status ${response.status}`);
 			}
 		} catch (error) {
-			console.error("Frontend Form Submission Catch Error:", error);
-			setStatus("Network error or connection timed out. Please try again later.");
+			console.error("Frontend Form Submission Catch Block caught an error:", error);
+			setStatus(error.message || "Network error. Please try again later.");
 		} finally {
 			setIsSubmitting(false);
 		}
 	};
 
 	return (
-		<div className="w-full rounded-2xl  p-6 sm:p-8 shadow-sm border border-slate-100 text-left">
+		<div className="w-full rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100 text-left">
 			<h2 className="mb-6 text-center text-2xl font-bold tracking-tight text-blue-50">Get in Touch</h2>
 
 			<form onSubmit={handleSubmit} className="flex flex-col gap-5">
@@ -125,6 +134,7 @@ export default function ContactForm() {
 						className="w-full resize-y rounded-lg border border-slate-200 px-4 py-2.5 text-slate-900 placeholder-slate-400 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
 					/>
 				</div>
+
 				<Button
 					title={isSubmitting ? "Sending..." : "Send Message"}
 					type="submit"
