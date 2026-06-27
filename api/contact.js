@@ -2,23 +2,23 @@ import nodemailer from "nodemailer";
 
 export default async function handler(req, res) {
 	if (req.method !== "POST") {
-		return res.status(405).json({ error: "Method not allowed" });
+		return res.status(405).json({ success: false, error: "Method not allowed" });
 	}
 
 	const { name, email, message } = req.body;
 
 	if (!name || !email || !message) {
-		return res.status(400).json({ error: "All fields are required." });
+		return res.status(400).json({ success: false, error: "All fields are required." });
 	}
 	if (email.length > 150 || !email.includes("@")) {
-		return res.status(400).json({ error: "Invalid email address." });
+		return res.status(400).json({ success: false, error: "Invalid email address." });
 	}
 	if (message.length > 2000) {
-		return res.status(400).json({ error: "Message exceeds character limit." });
+		return res.status(400).json({ success: false, error: "Message exceeds character limit." });
 	}
 
 	const transporter = nodemailer.createTransport({
-		host: process.env.SMTP_HOST,
+		host: process.env.SMTP_HOST || "smtp.gmail.com",
 		port: 465,
 		secure: true,
 		auth: {
@@ -29,7 +29,7 @@ export default async function handler(req, res) {
 
 	try {
 		await transporter.sendMail({
-			from: `${name} <${process.env.SMTP_USER}>`,
+			from: `"${name}" <${process.env.SMTP_USER}>`,
 			to: process.env.RECEIVER_EMAIL,
 			replyTo: email,
 			subject: `📩 Website Message from ${name}`,
@@ -39,6 +39,7 @@ export default async function handler(req, res) {
 		return res.status(200).json({ success: true, message: "Email sent successfully!" });
 	} catch (error) {
 		console.error("SMTP Error:", error);
-		return res.status(500).json({ error: "Failed to process email delivery." });
+
+		return res.status(500).json({ success: false, error: "Failed to process email delivery." });
 	}
 }

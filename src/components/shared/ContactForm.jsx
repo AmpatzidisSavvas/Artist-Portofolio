@@ -40,16 +40,26 @@ export default function ContactForm() {
 				})
 			});
 
-			const result = await response.json();
+			let result = {};
+			const contentType = response.headers.get("content-type");
+			if (contentType && contentType.includes("application/json")) {
+				result = await response.json();
+			} else {
+				// Fallback if Vercel drops a raw html or text error response string
+				const textFallback = await response.text();
+				console.error("Non-JSON Response received:", textFallback);
+			}
 
 			if (response.ok && result.success) {
 				setStatus("Thank you! Your message has been sent.");
 				setFormData({ name: "", email: "", message: "", twitterHandle: "" });
 			} else {
-				setStatus(result.error || "Something went wrong.");
+				// If the parsing step failed to fetch an error message string, read the HTTP status instead
+				setStatus(result.error || `Server responded with status code: ${response.status}`);
 			}
 		} catch (error) {
-			setStatus("Network error. Please try again later.");
+			console.error("Frontend Form Submission Catch Error:", error);
+			setStatus("Network error or connection timed out. Please try again later.");
 		} finally {
 			setIsSubmitting(false);
 		}
