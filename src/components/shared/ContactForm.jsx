@@ -143,14 +143,30 @@ export default function ContactForm() {
 				/>
 			</form>
 
-			{status && (
-				<p
-					className={`mt-4 text-center text-sm font-medium ${
-						String(status).includes("Thank you") || String(status).includes("successfully") ? "text-emerald-500" : "text-rose-500"
-					}`}
-				>
-					{String(status)}
-				</p>
+			{(isSubmitting || status) && (
+				<div className="mt-4 w-full">
+					{/* Animated Loading Progress Bar */}
+					{isSubmitting && (
+						<div className="h-1 w-full bg-slate-100 overflow-hidden rounded-full mb-2">
+							<div className="h-full bg-blue-500 rounded-full animate-pulse w-full"></div>
+						</div>
+					)}
+
+					{/* Status Message */}
+					{status && (
+						<p
+							className={`text-center text-sm font-medium ${
+								String(status).includes("Thank you") || String(status).includes("successfully")
+									? "text-emerald-500"
+									: isSubmitting
+										? "text-slate-400"
+										: "text-orange-500"
+							}`}
+						>
+							{String(status)}
+						</p>
+					)}
+				</div>
 			)}
 		</div>
 	);
