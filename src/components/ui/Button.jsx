@@ -1,9 +1,11 @@
 import React from "react";
 
-const Button = ({ title, id, leftIcon, containerClass, onClick, href }) => {
+const Button = ({ title, id, leftIcon, containerClass, onClick, href, type = "button", disabled = false }) => {
 	return (
 		<button
 			id={id}
+			type={type}
+			disabled={disabled}
 			onClick={(e) => {
 				e.preventDefault();
 				if (href) {
