@@ -26,7 +26,7 @@ export default async function handler(req, res) {
 			pass: process.env.SMTP_PASS
 		}
 	});
-
+	const safeMessage = message.replace(/</g, "&lt;").replace(/>/g, "&gt;");
 	try {
 		await transporter.sendMail({
 			from: `"${name}" <${process.env.SMTP_USER}>`,
