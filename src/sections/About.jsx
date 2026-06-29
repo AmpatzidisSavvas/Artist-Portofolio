@@ -1,4 +1,5 @@
 import AnimatedTitle from "../components/shared/AnimatedTitle";
+import ButtonBlue from "../components/ui/ButtonBlue";
 
 const About = () => {
 	return (
@@ -30,16 +31,13 @@ const About = () => {
 									mental space. From shadowy realms filled with creatures and demons to rare moments of serenity, the film explores the tension between inner
 									darkness and the longing for peace. A powerful visual metaphor for the complexity of human consciousness and emotional struggle.
 								</p>
-								<p className="mt-8 text-base leading-relaxed">
-									<a
-										href="https://youtu.be/_xJd7ZvUFc4?si=GA5onEsLdznPnSOo"
-										target="_blank"
-										rel="noopener noreferrer"
-										className="mt-1 inline-block font-general text-sm  text-white bg-blue-400 hover:bg-blue-500 active:bg-blue-600 dark:bg-white dark:text-black dark:hover:bg-gray-200 transition-colors duration-300 ease-[cubic-bezier(0.65_0.05_0.36_1)] px-4 py-2 rounded-xl shadow-md cursor-pointer"
-									>
-										Watch Film Here
-									</a>
-								</p>
+								<div className="mt-8 text-base leading-relaxed">
+									<ButtonBlue
+										title={<>Watch Film Here</>}
+										href={"https://youtu.be/_xJd7ZvUFc4?si=GA5onEsLdznPnSOo"}
+										containerClass={"flex-center gap-1 mx-auto sm:mx-0"}
+									/>
+								</div>
 
 								{/* Festival Selections */}
 								<div className="mt-8 space-y-3">

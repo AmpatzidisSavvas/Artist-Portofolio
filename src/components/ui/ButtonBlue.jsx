@@ -1,6 +1,6 @@
 import React from "react";
 
-const Button = ({ title, id, leftIcon, containerClass, onClick, href, type = "button", disabled = false }) => {
+const ButtonBlue = ({ title, id, leftIcon, containerClass, onClick, href, type = "button", disabled = false }) => {
 	return (
 		<button
 			id={id}
@@ -20,7 +20,7 @@ const Button = ({ title, id, leftIcon, containerClass, onClick, href, type = "bu
 					onClick(e);
 				}
 			}}
-			className={`group relative z-10 w-fit cursor-pointer overflow-hidden rounded-full  px-8 py-3 text-zinc-900 font-bold  shadow-[5px_5px_0_0_#EC407A] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all duration-500 ease-in-out ${containerClass}`}
+			className={`group relative z-10 w-fit cursor-pointer overflow-hidden rounded-full bg-blue-400 px-8 py-3 text-zinc-100 font-bold  shadow-[5px_5px_0_0_#1565C0] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all duration-500 ease-in-out ${containerClass}`}
 		>
 			{leftIcon}
 			<span className="relative inline-flex overflow-hidden font-general text-xs">
@@ -30,4 +30,4 @@ const Button = ({ title, id, leftIcon, containerClass, onClick, href, type = "bu
 	);
 };
 
-export default Button;
+export default ButtonBlue;
