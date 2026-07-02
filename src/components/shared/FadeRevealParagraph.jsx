@@ -10,13 +10,12 @@ export default function FadeRevealParagraph({ paragraphs = [], highlights = [], 
 	useEffect(() => {
 		if (!containerRef.current || paragraphs.length === 0) return;
 
-		// Grab all generated characters across all paragraphs
 		const allChars = containerRef.current.querySelectorAll(".reveal-char");
 
 		const scrollConfig = {
 			trigger: containerRef.current,
-			start: "top 75%", // Starts revealing when the top of the text block is 75% down the viewport
-			end: "bottom 45%", // Finishes when the text block passes up past 45%
+			start: "top 75%",
+			end: "bottom 45%",
 			scrub: true
 		};
 
@@ -27,7 +26,7 @@ export default function FadeRevealParagraph({ paragraphs = [], highlights = [], 
 				{
 					opacity: 1,
 					duration: 0.3,
-					stagger: 0.01, // Smooth consecutive flow through every single paragraph
+					stagger: 0.01,
 					scrollTrigger: scrollConfig
 				}
 			);
@@ -36,7 +35,6 @@ export default function FadeRevealParagraph({ paragraphs = [], highlights = [], 
 		return () => ctx.revert();
 	}, [paragraphs]);
 
-	// Helper function to handle word matching for highlights
 	const shouldHighlight = (word) => {
 		const cleanWord = word
 			.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()“”]/g, "")
@@ -62,7 +60,7 @@ export default function FadeRevealParagraph({ paragraphs = [], highlights = [], 
 											{char}
 										</span>
 									))}
-									{/* Space between words */}
+
 									<span className="reveal-char inline-block opacity-20">&nbsp;</span>
 								</span>
 							);
