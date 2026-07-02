@@ -1,4 +1,6 @@
 import AnimatedTitle from "../components/shared/AnimatedTitle";
+import FadeRevealParagraph from "../components/shared/FadeRevealParagraph";
+import FadeTextReveal from "../components/shared/FadeTextReveal";
 import ButtonBlue from "../components/ui/ButtonBlue";
 
 const About = () => {
@@ -11,25 +13,30 @@ const About = () => {
 						<div className="lg:w-2/3 space-y-6 md:text-left">
 							{/* Filmography Section */}
 							<div className=" rounded-xl p-6 ">
-								<p className="text-base leading-relaxed">
-									Savvas “The Pack” Ampatzidis is a self-taught multidisciplinary designer based in Thessaloniki, Greece.
-								</p>
-								<br />
-								<p className="text-base leading-relaxed">
-									His work is deeply rooted in storytelling, blending violence, romance, chaos, and beauty into rich visual narratives. These stories reflect
-									the raw, often contradictory nature of life. Using a mix of 2D and 3D techniques, he creates striking, layered visuals that invite viewers to
-									look beneath the surface. His artistic range spans multiple mediums, evolving across disciplines while maintaining a strong personal voice.
-								</p>
-								<br />
-								<p className="text-base leading leading-relaxed mb-8">
-									His work has been exhibited internationally and featured at festivals dedicated to illustration, comics, and animation.
-								</p>
-								<h3 className="text-2xl font-bold mb-4">Filmography</h3>
-								<h4 className="text-xl font-semibold">Unusual Mind (2025)</h4>
+								<div className="text-base leading-relaxed mb-8">
+									<FadeRevealParagraph
+										paragraphs={[
+											`Savvas “The Pack” Ampatzidis is a self-taught multidisciplinary designer based in Thessaloniki, Greece.`,
+											`His work is deeply rooted in storytelling, blending violence, romance, chaos, and beauty into rich visual narratives.These stories reflect the raw, often contradictory nature of life. Using a mix of 2D and 3D techniques, Using a mix of 2D and 3D techniques, he creates striking, he creates striking, layered visuals
+									that invite viewers to look beneath the surface. His artistic range spans multiple mediums, evolving across disciplines while maintaining a
+									strong personal voice.`,
+											`His work has been exhibited internationally and featured at festivals dedicated to illustration, comics, and animation.`
+										]}
+									/>
+								</div>
+
+								<h3 className="text-2xl font-bold mb-4">
+									<FadeTextReveal text={"Filmography"} />
+								</h3>
+								<h4 className="text-xl font-semibold">
+									<FadeTextReveal text={"Unusual Mind (2025)"} />
+								</h4>
 								<p className="mt-2 text-base leading-relaxed">
-									An immersive, introspective journey into the psyche, <em>Unusual Mind</em> visualizes a passage through the darkest and most luminous parts of
+									<FadeTextReveal
+										text={`An immersive, introspective journey into the psyche, Unusual Mind visualizes a passage through the darkest and most luminous parts of
 									mental space. From shadowy realms filled with creatures and demons to rare moments of serenity, the film explores the tension between inner
-									darkness and the longing for peace. A powerful visual metaphor for the complexity of human consciousness and emotional struggle.
+									darkness and the longing for peace. A powerful visual metaphor for the complexity of human consciousness and emotional struggle.`}
+									/>
 								</p>
 								<div className="mt-8 text-base leading-relaxed">
 									<ButtonBlue
