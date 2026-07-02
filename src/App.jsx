@@ -1,8 +1,9 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useState } from "react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { Analytics } from "@vercel/analytics/react";
 import Navbar from "./components/layout/Navbar";
 import Hero from "./sections/Hero";
+import LandingPage from "./sections/LandingPage";
 
 // Lazy-loaded below-the-fold sections
 const About = lazy(() => import("./sections/About"));
@@ -11,6 +12,11 @@ const Contact = lazy(() => import("./sections/Contact"));
 const Footer = lazy(() => import("./components/layout/Footer"));
 
 function App() {
+	// const [hasEntered, setHasEntered] = useState(false);
+
+	// if (!hasEntered) {
+	// 	return <LandingPage onEnter={() => setHasEntered(true)} />;
+	// }
 	return (
 		<main className="relative min-h-screen w-screen overflow-x-hidden">
 			{/* Above the fold (loads immediately) */}
