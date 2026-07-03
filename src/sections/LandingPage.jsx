@@ -67,7 +67,7 @@ export default function LandingPage({ onEnter }) {
 			</div>
 
 			<div
-				className={`pointer-events-none absolute -translate-y-[330px] z-10 flex flex-col items-center justify-center transition-all duration-700 transform ${
+				className={`pointer-events-none absolute translate-y-[-330px] z-10 flex flex-col items-center justify-center transition-all duration-700 transform ${
 					isLoaded ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-95 translate-y-4"
 				}`}
 			>
