@@ -1,36 +1,16 @@
 import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF, Center, Html, useProgress } from "@react-three/drei";
-import { Suspense } from "react";
+import { Suspense, useState, useEffect } from "react";
+import Button from "../components/ui/Button";
 
-function Model({ onEnter }) {
+function isTargetMesh(object) {
+	return object.isMesh;
+}
+
+function Model() {
 	const { scene } = useGLTF("/3Dscene.glb");
-
-	return (
-		<primitive
-			object={scene}
-			scale={1.0}
-			onClick={(e) => {
-				e.stopPropagation();
-				if (isTargetMesh(e.object)) {
-					if (onEnter) onEnter();
-				}
-			}}
-			onPointerOver={(e) => {
-				e.stopPropagation();
-
-				if (isTargetMesh(e.object)) {
-					document.body.style.cursor = "pointer";
-				} else {
-					document.body.style.cursor = "auto";
-				}
-			}}
-			onPointerOut={(e) => {
-				e.stopPropagation();
-				document.body.style.cursor = "auto";
-			}}
-		/>
-	);
+	return <primitive object={scene} scale={3.0} />;
 }
 
 function CanvasLoader() {
@@ -39,7 +19,7 @@ function CanvasLoader() {
 		<Html center>
 			<div className="flex flex-col items-center justify-center text-white font-sans whitespace-nowrap">
 				<div className="w-12 h-12 border-4 border-t-white border-zinc-700 rounded-full animate-spin mb-4"></div>
-				<p className="text-sm tracking-widest font-medium uppercase">Loading 3D Experience</p>
+				<p className="text-sm tracking-widest font-medium uppercase">Loading...</p>
 				<p className="text-xs text-zinc-400 mt-1">{Math.round(progress)}% Loaded</p>
 			</div>
 		</Html>
@@ -47,19 +27,26 @@ function CanvasLoader() {
 }
 
 export default function LandingPage({ onEnter }) {
+	const { progress } = useProgress();
+	const [isLoaded, setIsLoaded] = useState(false);
+
+	useEffect(() => {
+		if (progress === 100) {
+			setIsLoaded(true);
+		}
+	}, [progress]);
+
 	return (
-		<div className="relative w-screen h-screen bg-zinc-950 flex flex-col items-center justify-center overflow-hidden">
+		<div className="relative w-screen h-screen bg-zinc-950 flex items-center justify-center overflow-hidden">
 			<div className="absolute inset-0 w-full h-full">
 				<Canvas camera={{ position: [0, 0, 3.5], fov: 45 }}>
-					{/* Custom Lighting Setup */}
-					<ambientLight intensity={0.8} color="#b9e3ff" />
+					<ambientLight intensity={0.6} color="#f1c232" />
 					<directionalLight position={[5, 8, 10]} intensity={3.0} color="#ffffff" castShadow />
-					<pointLight position={[-4, 3, -4]} intensity={10} color="#3b82f6" distance={20} />
-					<spotLight position={[0, 5, 2]} angle={0.4} penumbra={1} intensity={15.0} color="#fef08a" />
+					<spotLight position={[0, 5, 2]} angle={0.4} penumbra={1} intensity={10.0} color="#fef08a" />
 
 					<Suspense fallback={<CanvasLoader />}>
 						<Center>
-							<Model onEnter={onEnter} />
+							<Model />
 						</Center>
 					</Suspense>
 
@@ -77,6 +64,20 @@ export default function LandingPage({ onEnter }) {
 						minAzimuthAngle={-Math.PI / 6}
 					/>
 				</Canvas>
+			</div>
+
+			<div
+				className={`pointer-events-none absolute -translate-y-[330px] z-10 flex flex-col items-center justify-center transition-all duration-700 transform ${
+					isLoaded ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-95 translate-y-4"
+				}`}
+			>
+				{isLoaded && (
+					<Button
+						onClick={onEnter}
+						title={"Enter"}
+						containerClass="pointer-events-auto py-3.5 px-12 tracking-wider !bg-white flex-center gap-1 w-full sm:w-auto shadow-2xl"
+					/>
+				)}
 			</div>
 		</div>
 	);

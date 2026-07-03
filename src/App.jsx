@@ -12,11 +12,11 @@ const Contact = lazy(() => import("./sections/Contact"));
 const Footer = lazy(() => import("./components/layout/Footer"));
 
 function App() {
-	// const [hasEntered, setHasEntered] = useState(false);
+	const [hasEntered, setHasEntered] = useState(false);
 
-	// if (!hasEntered) {
-	// 	return <LandingPage onEnter={() => setHasEntered(true)} />;
-	// }
+	if (!hasEntered) {
+		return <LandingPage onEnter={() => setHasEntered(true)} />;
+	}
 	return (
 		<main className="relative min-h-screen w-screen overflow-x-hidden">
 			{/* Above the fold (loads immediately) */}
