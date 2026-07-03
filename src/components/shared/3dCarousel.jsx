@@ -51,7 +51,7 @@ const ThreeDCarousel = ({ slides }) => {
 
 	return (
 		<>
-			<section className="relative w-full max-w-[1920px] mx-auto">
+			<section className="relative w-full max-w-[1920px] mx-auto my-10">
 				{/* Left control */}
 				<div className="hidden sm:block absolute top-1/2 left-3 z-20 -translate-y-1/2">
 					<button onClick={handlePrev} className="transition hover:scale-110 active:scale-95">

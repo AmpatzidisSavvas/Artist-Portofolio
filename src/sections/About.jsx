@@ -5,6 +5,9 @@ import FadeTextReveal from "../components/shared/FadeTextReveal";
 import ButtonBlue from "../components/ui/ButtonBlue";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import LiquidImageReveal from "../components/ui/LiquidImageReveal";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
 	const festivalContainerRef = useRef(null);
@@ -12,25 +15,29 @@ const About = () => {
 	useEffect(() => {
 		if (!festivalContainerRef.current) return;
 
+		const items = gsap.utils.toArray(festivalContainerRef.current.children);
+
 		let ctx = gsap.context(() => {
-			gsap.fromTo(
-				festivalContainerRef.current.children,
-				{ x: 80, opacity: 0 },
-				{
-					x: 0,
-					opacity: 1,
-					duration: 0.7,
-					stagger: 0.12,
-					ease: "power2.out",
-					scrollTrigger: {
-						trigger: festivalContainerRef.current,
-						start: "top 85%",
-						end: "bottom 15%",
-						toggleActions: "play reverse play reverse"
+			items.forEach((item) => {
+				gsap.fromTo(
+					item,
+					{ x: 80, opacity: 0 },
+					{
+						x: 0,
+						opacity: 1,
+						duration: 0.7,
+						ease: "power2.out",
+						scrollTrigger: {
+							trigger: item,
+							start: "top 85%",
+							end: "bottom 15%",
+							toggleActions: "play reverse play reverse"
+						}
 					}
-				}
-			);
+				);
+			});
 		});
+
 		return () => ctx.revert();
 	}, []);
 
@@ -100,7 +107,7 @@ const About = () => {
 
 						{/* Right Image Section */}
 						<div className="lg:w-1/3 flex justify-center">
-							<img src="img/about-1.webp" alt="Artwork" className="w-full max-w-sm rounded-xl shadow-2xl object-cover transition-transform duration-500" />
+							<LiquidImageReveal src="img/about-1.webp" alt="Artwork" className="w-full rounded-xl  object-cover bg-transparent" width={450} height={750} />
 						</div>
 					</div>
 				</div>

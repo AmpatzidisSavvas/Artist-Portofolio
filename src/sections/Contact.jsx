@@ -4,10 +4,11 @@ import Button from "../components/ui/Button";
 import { FaVimeo } from "react-icons/fa";
 import { PiFacebookLogo, PiInstagramLogo, PiLinkedinLogo } from "react-icons/pi";
 import ContactForm from "../components/shared/ContactForm";
+import LiquidImageReveal from "../components/ui/LiquidImageReveal";
 
 const Contact = () => {
 	return (
-		<div id="contact" className="my-20 min-h-96 w-screen">
+		<div id="contact" className=" min-h-96 w-screen">
 			<div className="relative bg-black py-24 text-blue-50 sm:overflow-hidden">
 				<div className="flex flex-col items-center text-center">
 					<div className="mb-10 w-full">
