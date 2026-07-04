@@ -1,5 +1,7 @@
-# Personal artist portofolio build with React.js, Tailwind CSS and GSAP.
+<h1>
+    Personal visual designer Website build with React, Vite, Tailwind CSS, Three.js (R3F), GSAP, and Framer Motion. Features advanced animations, custom carousels, and built-in Vercel analytics.
+</h1>
 
 <h3>Check Website here: https://savvasampatzidis.vercel.app/</h3>
 
-![Screenshot 2024-12-09 115547](https://github.com/user-attachments/assets/3c4ecc22-a00e-431d-9b6e-1bdb4c55f996)
+<img src="img/Screenshot.png" alt="Project Screenshot" width="500">
