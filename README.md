@@ -4,4 +4,4 @@
 
 <h3>Check Website here: https://savvasampatzidis.vercel.app/</h3>
 
-<img src="img/Screenshot.png" alt="Project Screenshot" width="500">
+![Project Image](img/Screenshot.png)
