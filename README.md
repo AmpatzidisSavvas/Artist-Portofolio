@@ -3,5 +3,3 @@
 </h1>
 
 <h3>Check Website here: https://savvasampatzidis.vercel.app/</h3>
-
-![Project Image](img/Screenshot.png)
