@@ -24,7 +24,7 @@ function App() {
 	}, [hasEntered]);
 
 	return (
-		<div className="relative min-h-screen w-screen overflow-x-hidden bg-black">
+		<div className="relative min-h-screen w-screen overflow-x-hidden bg-blue-50 ">
 			<main className={`transition-all duration-1000 ease-out ${hasEntered ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}>
 				<Navbar />
 				<Hero />
