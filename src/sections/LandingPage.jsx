@@ -41,8 +41,8 @@ export default function LandingPage({ onEnter }) {
 			<div className="absolute inset-0 w-full h-full">
 				<Canvas camera={{ position: [0, 0, 3.5], fov: 45 }}>
 					<ambientLight intensity={0.6} color="#f1c232" />
-					<directionalLight position={[5, 8, 10]} intensity={3.0} color="#ffffff" castShadow />
-					<spotLight position={[0, 5, 2]} angle={0.4} penumbra={1} intensity={10.0} color="#fef08a" />
+					<directionalLight position={[5, 8, 10]} intensity={3.5} color="#F5F5DC" castShadow />
+					<spotLight position={[0, 5, 2]} angle={0.4} penumbra={1} intensity={15.0} color="#fef08a" />
 
 					<Suspense fallback={<CanvasLoader />}>
 						<Center>
@@ -74,8 +74,8 @@ export default function LandingPage({ onEnter }) {
 				{isLoaded && (
 					<Button
 						onClick={onEnter}
-						title={"Enter"}
-						containerClass="pointer-events-auto py-3.5 px-12 tracking-wider !bg-white flex-center gap-1 w-full sm:w-auto shadow-2xl"
+						title={"Enter Website"}
+						containerClass="pointer-events-auto py-3.5 px-7 tracking-wider !bg-white flex-center gap-1 w-full sm:w-auto shadow-2xl"
 					/>
 				)}
 			</div>
