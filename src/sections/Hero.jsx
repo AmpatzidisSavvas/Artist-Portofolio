@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState, useCallback } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
+import FocusText from "../components/shared/FocusText";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -133,12 +134,14 @@ const Hero = () => {
 				<div className="absolute left-0 top-0 z-40 size-full">
 					<div className="mt-24 px-5 sm:px-10">
 						<h1 className="special-font hero-heading text-blue-100 mb-2">savvas ampatzidis</h1>
-						<div className="bg-yellow-200 flex-center gap-1 group relative z-10 w-fit overflow-hidden rounded-md">
-							<p className="mb-1 p-3 max-x-64 font-circular-web text-black">Multidisciplinary Visual Designer</p>
-						</div>
-						<div className="bg-pink-200 flex-center gap-1 group relative z-10 w-fit overflow-hidden mt-2 rounded-md">
-							<p className="mb-1 p-3 max-x-64 font-circular-web text-black">Visual Storyteller</p>
-						</div>
+						<FocusText
+							sentence="Multidisciplinary Visual Designer"
+							manualMode={false}
+							blurAmount={4}
+							borderColor="#fef08a"
+							animationDuration={0.8}
+							pauseBetweenAnimations={1}
+						/>
 					</div>
 				</div>
 			</div>
