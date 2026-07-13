@@ -86,7 +86,7 @@ const About = () => {
 								</div>
 
 								{/* Festival Selections */}
-								<div className="mt-8 space-y-3">
+								{/* <div className="mt-8 space-y-3">
 									<h4 className="text-xl font-semibold mb-5">
 										<FadeTextReveal text={`Festival Official Selections`} />
 									</h4>
@@ -101,12 +101,12 @@ const About = () => {
 
 										<div className="border-l-4 border-r-4 border-blue-400 md:border-r-0 p-3 md:pl-4">Festival Miden (2026)</div>
 									</div>
-								</div>
+								</div> */}
 							</div>
 						</div>
 
 						{/* Right Image Section */}
-						<div className="lg:w-1/3 flex justify-center">
+						<div className="lg:w-2/3 flex justify-center">
 							<LiquidImageReveal src="img/about-1.webp" alt="Artwork" className="w-full rounded-xl  object-cover bg-transparent" width={450} height={750} />
 						</div>
 					</div>
