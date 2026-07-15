@@ -39,7 +39,7 @@ export default function LandingPage({ onEnter }) {
 	return (
 		<div className="relative w-screen h-screen bg-zinc-950 flex items-center justify-center overflow-hidden">
 			<div className="absolute inset-0 w-full h-full">
-				<Canvas camera={{ position: [0, 0, 3.5], fov: 45 }}>
+				<Canvas camera={{ position: [0, 0, 4.3], fov: 45 }}>
 					<ambientLight intensity={0.6} color="#f1c232" />
 					<directionalLight position={[5, 8, 10]} intensity={3.5} color="#F5F5DC" castShadow />
 					<spotLight position={[0, 5, 2]} angle={0.4} penumbra={1} intensity={15.0} color="#fef08a" />
