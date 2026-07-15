@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom"; // Import Portal
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 
@@ -8,6 +9,7 @@ import { faCircleArrowLeft, faCircleArrowRight, faXmark } from "@fortawesome/fre
 const ThreeDCarousel = ({ slides }) => {
 	const [selectedImage, setSelectedImage] = useState(null);
 
+	// Escape key to close lightbox
 	useEffect(() => {
 		if (!selectedImage) return;
 
@@ -18,13 +20,12 @@ const ThreeDCarousel = ({ slides }) => {
 		};
 
 		window.addEventListener("keydown", handleKeyDown);
-
 		return () => {
 			window.removeEventListener("keydown", handleKeyDown);
 		};
 	}, [selectedImage]);
 
-	const [sliderRef, slider] = useKeenSlider({
+	const [sliderRef, instanceRef] = useKeenSlider({
 		loop: true,
 		mode: "snap",
 		rubberband: true,
@@ -46,8 +47,15 @@ const ThreeDCarousel = ({ slides }) => {
 		}
 	});
 
-	const handlePrev = () => slider.current?.prev();
-	const handleNext = () => slider.current?.next();
+	const handlePrev = (e) => {
+		e.stopPropagation();
+		instanceRef.current?.prev();
+	};
+
+	const handleNext = (e) => {
+		e.stopPropagation();
+		instanceRef.current?.next();
+	};
 
 	return (
 		<>
@@ -71,24 +79,24 @@ const ThreeDCarousel = ({ slides }) => {
 					{slides.map((src, index) => (
 						<div key={index} className="keen-slider__slide">
 							<button
-								onClick={() => setSelectedImage(src)}
+								onMouseUp={() => setSelectedImage(src)}
 								className="
-									group
-									w-full
-									p-[3px]
-									rounded-3xl
-									bg-gradient-to-br
-									from-white/10
-									via-white/5
-									to-white/10
-									sm:from-white/25
-									sm:via-white/10
-									sm:to-white/25
-									lg:bg-none
-									lg:p-0
-									transition-all
-									duration-500
-								"
+                                    group
+                                    w-full
+                                    p-[3px]
+                                    rounded-3xl
+                                    bg-gradient-to-br
+                                    from-white/10
+                                    via-white/5
+                                    to-white/10
+                                    sm:from-white/25
+                                    sm:via-white/10
+                                    sm:to-white/25
+                                    lg:bg-none
+                                    lg:p-0
+                                    transition-all
+                                    duration-500
+                                "
 							>
 								<div className="overflow-hidden rounded-[22px] bg-neutral-900">
 									<img
@@ -96,13 +104,13 @@ const ThreeDCarousel = ({ slides }) => {
 										alt={`Slide ${index + 1}`}
 										loading="lazy"
 										className="
-											w-full
-											aspect-[16/9]
-											object-cover
-											transition-transform
-											duration-700
-											group-hover:scale-105
-										"
+                                            w-full
+                                            aspect-[16/9]
+                                            object-cover
+                                            transition-transform
+                                            duration-700
+                                            group-hover:scale-105
+                                        "
 									/>
 								</div>
 							</button>
@@ -120,36 +128,40 @@ const ThreeDCarousel = ({ slides }) => {
 				</div>
 			</section>
 
-			{/* Lightbox */}
-			{selectedImage && (
-				<div
-					className="
-						fixed inset-0 z-50
-						bg-black/90
-						backdrop-blur-sm
-						flex items-center justify-center
-						p-4
-					"
-					onClick={() => setSelectedImage(null)}
-				>
-					<button className="absolute top-4 right-4 text-white text-2xl z-50" onClick={() => setSelectedImage(null)}>
-						<FontAwesomeIcon icon={faXmark} />
-					</button>
-
-					<img
-						src={selectedImage}
-						alt="Preview"
+			{/* Lightbox rendered via React Portal to escape stacking context */}
+			{selectedImage &&
+				typeof document !== "undefined" &&
+				createPortal(
+					<div
 						className="
-							max-w-full
-							max-h-[90vh]
-							object-contain
-							rounded-2xl
-							shadow-2xl
-						"
-						onClick={(e) => e.stopPropagation()}
-					/>
-				</div>
-			)}
+                            fixed inset-0 z-[9999]
+                            bg-black/95
+                            backdrop-blur-md
+                            flex items-center justify-center
+                            p-4
+                        "
+						onClick={() => setSelectedImage(null)}
+					>
+						<button className="absolute top-6 right-6 text-white text-3xl z-[10000] hover:scale-110 transition" onClick={() => setSelectedImage(null)}>
+							<FontAwesomeIcon icon={faXmark} />
+						</button>
+
+						<img
+							src={selectedImage}
+							alt="Preview"
+							className="
+                                max-w-[90vw]
+                                max-h-[85vh]
+                                object-contain
+                                rounded-xl
+                                shadow-2xl
+                                border border-white/10
+                            "
+							onClick={(e) => e.stopPropagation()}
+						/>
+					</div>,
+					document.body
+				)}
 		</>
 	);
 };
