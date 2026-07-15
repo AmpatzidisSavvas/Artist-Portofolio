@@ -1,4 +1,4 @@
-import{r as e,j as t}from"./index-R_wmgVVT.js";import{g as N}from"./index-DSpwt0cg.js";import{m as T}from"./proxy-Bm-xBpNu.js";import{S as V}from"./ScrollTrigger-CezCZ8EY.js";/*!
+import{r as e,j as t}from"./index-DETu7bR5.js";import{g as N}from"./index-DSpwt0cg.js";import{m as T}from"./proxy-17-v2zXh.js";import{S as V}from"./ScrollTrigger-CezCZ8EY.js";/*!
  * @gsap/react 2.1.2
  * https://gsap.com
  *
