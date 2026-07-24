@@ -98,7 +98,7 @@ const Projects = () => {
 
 				<div className="border-hsla relative mt-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh] ">
 					<Card
-						src="videos/hero-3.webm"
+						src="videos/hero-2.webm"
 						title={<>Unusual Mind</>}
 						description={<>Scene from my animated short film "Unusual Mind" 2025</>}
 						titleButton="Watch film here"

@@ -14,7 +14,7 @@ const Hero = () => {
 	const [loadedVideos, setLoadedVideos] = useState(0);
 	const [isTransitioning, setIsTransitioning] = useState(false);
 
-	const totalVideos = 4;
+	const totalVideos = 3;
 	const videoRef = useRef(null);
 
 	const shuffleArray = (array) => {
