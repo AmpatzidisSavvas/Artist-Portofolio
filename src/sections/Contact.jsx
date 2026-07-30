@@ -5,12 +5,24 @@ import { FaVimeo } from "react-icons/fa";
 import { PiFacebookLogo, PiInstagramLogo, PiLinkedinLogo } from "react-icons/pi";
 import ContactForm from "../components/shared/ContactForm";
 import LiquidImageReveal from "../components/ui/LiquidImageReveal";
+import { motion } from "framer-motion";
 
 const Contact = () => {
 	return (
 		<div id="contact" className=" min-h-96 w-screen">
 			<div className="relative bg-black py-24 text-blue-50 sm:overflow-hidden">
 				<div className="flex flex-col items-center text-center">
+					<div className="mb-5">
+						<motion.img
+							src="img/flowerIcon.webp"
+							alt="Flower icon"
+							className="w-[160px] h-[160px] object-contain"
+							initial={{ opacity: 0, y: 30, scale: 0.9 }}
+							whileInView={{ opacity: 1, y: 0, scale: 1.1 }}
+							viewport={{ once: true, amount: 0.2 }}
+							transition={{ duration: 1.5, ease: [0.21, 0.47, 0.32, 0.98] }}
+						/>
+					</div>
 					<div className="mb-10 w-full">
 						<AnimatedTitle title="Contact" className="special-font !md:text-[6.2rem] w-full font-zentry !text-5xl !font-black !leading-[.9]" />
 					</div>
@@ -46,7 +58,6 @@ const Contact = () => {
 								containerClass="!bg-yellow-300 flex-center gap-1 w-full sm:w-auto"
 							/>
 						</div>
-						<img src="img/flowerIcon.webp" alt="Flower icon" className="w-[150px] h-[150px] object-contain" />
 						<div className="w-full">
 							<ContactForm />
 						</div>

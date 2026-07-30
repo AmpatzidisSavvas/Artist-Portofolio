@@ -29,16 +29,34 @@ export default function LandingPage({ onEnter }) {
 	const { progress } = useProgress();
 	const [isLoaded, setIsLoaded] = useState(false);
 
+	// Track mobile viewport size (<= 425px)
+	const [isMobile, setIsMobile] = useState(false);
+
+	useEffect(() => {
+		const handleResize = () => {
+			setIsMobile(window.innerWidth <= 425);
+		};
+
+		// Set initial value
+		handleResize();
+
+		window.addEventListener("resize", handleResize);
+		return () => window.removeEventListener("resize", handleResize);
+	}, []);
+
 	useEffect(() => {
 		if (progress === 100) {
 			setIsLoaded(true);
 		}
 	}, [progress]);
 
+	// Move camera further back on small screens (Z = 5.2 vs default 4.3)
+	const cameraPosition = isMobile ? [0, 2, 6.8] : [0, 0.2, 4.3];
+
 	return (
 		<div className="relative w-screen h-screen bg-zinc-950 flex items-center justify-center overflow-hidden">
 			<div className="absolute inset-0 w-full h-full">
-				<Canvas camera={{ position: [0, 0, 4.3], fov: 45 }}>
+				<Canvas key={isMobile ? "mobile" : "desktop"} camera={{ position: cameraPosition, fov: 45 }}>
 					<ambientLight intensity={0.6} color="#f1c232" />
 					<directionalLight position={[5, 8, 10]} intensity={3.5} color="#F5F5DC" castShadow />
 					<spotLight position={[0, 5, 2]} angle={0.4} penumbra={1} intensity={15.0} color="#fef08a" />
@@ -52,12 +70,13 @@ export default function LandingPage({ onEnter }) {
 					<OrbitControls
 						enableZoom={true}
 						minDistance={3}
-						maxDistance={4.0}
+						// Increase maxDistance on mobile to allow zooming out further
+						maxDistance={isMobile ? 7.0 : 4.0}
 						enablePan={false}
 						autoRotate={false}
 						enableDamping={true}
 						dampingFactor={0.05}
-						maxPolarAngle={Math.PI / 1.8}
+						maxPolarAngle={Math.PI / 2}
 						minPolarAngle={Math.PI / 2.5}
 						maxAzimuthAngle={Math.PI / 6}
 						minAzimuthAngle={-Math.PI / 6}
@@ -66,7 +85,7 @@ export default function LandingPage({ onEnter }) {
 			</div>
 
 			<div
-				className={`pointer-events-none absolute translate-y-[-290px]  md:translate-y-[-330px] z-10 flex flex-col items-center justify-center transition-all duration-700 transform ${
+				className={`pointer-events-none absolute translate-y-[-240px] md:translate-y-[-330px] z-10 flex flex-col items-center justify-center transition-all duration-700 transform ${
 					isLoaded ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-95 translate-y-4"
 				}`}
 			>

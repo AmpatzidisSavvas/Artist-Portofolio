@@ -4,6 +4,7 @@ import FadeRevealParagraph from "../components/shared/FadeRevealParagraph";
 import FadeTextReveal from "../components/shared/FadeTextReveal";
 import ButtonBlue from "../components/ui/ButtonBlue";
 import gsap from "gsap";
+import { motion } from "framer-motion";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import LiquidImageReveal from "../components/ui/LiquidImageReveal";
 
@@ -48,8 +49,18 @@ const About = () => {
 					<div className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-12 max-w-6xl mx-auto px-4">
 						{/* Left Text Section */}
 						<div className="lg:w-2/3 space-y-6 md:text-left">
-							{/* Filmography Section */}
 							<div className=" rounded-xl p-6 ">
+								<div className="mb-5 flex justify-center w-full sm:hidden">
+									<motion.img
+										src="img/flowerIcon.webp"
+										alt="Flower icon"
+										className="w-[140px] h-[140px] object-contain"
+										initial={{ opacity: 0, y: 30, scale: 0.9 }}
+										whileInView={{ opacity: 1, y: 0, scale: 1.1 }}
+										viewport={{ once: true, amount: 0.2 }}
+										transition={{ duration: 1.5, ease: [0.21, 0.47, 0.32, 0.98] }}
+									/>
+								</div>
 								<div className="mb-8">
 									<FadeRevealParagraph
 										paragraphs={[
@@ -84,24 +95,6 @@ const About = () => {
 										containerClass={"flex-center gap-1 mx-auto sm:mx-0"}
 									/>
 								</div>
-
-								{/* Festival Selections */}
-								{/* <div className="mt-8 space-y-3">
-									<h4 className="text-xl font-semibold mb-5">
-										<FadeTextReveal text={`Festival Official Selections`} />
-									</h4>
-									<div ref={festivalContainerRef} className="mt-8 space-y-3">
-										<div className="border-l-4 border-r-4 border-blue-400 md:border-r-0 p-3 md:pl-4 ">Athens Digital Arts Festival ADAF (2025)</div>
-
-										<div className="border-l-4 border-r-4 border-blue-400 md:border-r-0 p-3 md:pl-4">CINERGO International Film Festival (2025)</div>
-
-										<div className="border-l-4 border-r-4 border-blue-400 md:border-r-0 p-3 md:pl-4">
-											KINOdiseea International Children Film Festival Romania (2025)
-										</div>
-
-										<div className="border-l-4 border-r-4 border-blue-400 md:border-r-0 p-3 md:pl-4">Festival Miden (2026)</div>
-									</div>
-								</div> */}
 							</div>
 						</div>
 
