@@ -35,10 +35,10 @@ const Hero = () => {
 	};
 
 	useEffect(() => {
-		if (loadedVideos === totalVideos - 1) {
+		if (loadedVideos >= totalVideos) {
 			setLoading(false);
 		}
-	}, [loadedVideos]);
+	}, [loadedVideos, totalVideos]);
 
 	const handleNextVideo = useCallback(() => {
 		if (isTransitioning) return;
@@ -71,7 +71,6 @@ const Hero = () => {
 		});
 	}, [currentIndex, playlist, totalVideos, isTransitioning]);
 
-	// GSAP ScrollTrigger animation
 	useGSAP(() => {
 		gsap.set("#video-frame", {
 			clipPath: "polygon(14% 0%, 72% 0%, 90% 90%, 0% 100%)",
@@ -95,7 +94,10 @@ const Hero = () => {
 		setIsVideoReady(true);
 	};
 
-	const getVideoSrc = (index) => `videos/hero-${index}.webm`;
+	const getVideoSrc = (index) => {
+		if (index === undefined) return "";
+		return `videos/hero-${index}.webm`;
+	};
 
 	return (
 		<div id="home" className="relative h-dvh w-screen overflow-x-hidden">
