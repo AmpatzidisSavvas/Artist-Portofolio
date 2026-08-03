@@ -1,5 +1,6 @@
 import { lazy, Suspense, useState, useEffect, useCallback } from "react";
 import LandingPage from "./sections/LandingPage";
+import ClickSpark from "./components/shared/ClickSpark";
 
 // 1. Keep lazy definitions as is (Vite splits these into separate chunks automatically)
 const Navbar = lazy(() => import("./components/layout/Navbar"));
@@ -93,31 +94,35 @@ function App() {
 	}, []);
 
 	return (
-		<div className="relative min-h-screen w-screen overflow-x-hidden bg-blue-50">
-			{/* Main content: Mounts and transitions once the user enters */}
-			{hasEntered && (
-				<main className="animate-enter-fade">
-					<Suspense fallback={<div className="min-h-screen bg-blue-50" />}>
-						<Navbar />
-						<Hero />
-						<About />
-						<Projects />
-						<Contact />
-						<Footer />
-					</Suspense>
-				</main>
-			)}
+		<ClickSpark sparkColor="#EC407A" sparkSize={10} sparkRadius={15} sparkCount={8} duration={400}>
+			<div className="relative min-h-screen w-screen overflow-x-hidden bg-blue-50">
+				{/* Main content: Mounts and transitions once the user enters */}
+				{hasEntered && (
+					<main className="animate-enter-fade">
+						<Suspense fallback={<div className="min-h-screen bg-blue-50" />}>
+							<Navbar />
+							<Hero />
+							<About />
+							<Projects />
+							<Contact />
+							<Footer />
+						</Suspense>
+					</main>
+				)}
 
-			{/* Landing/Welcome Screen */}
-			{shouldRenderLanding && (
-				<div className={`fixed inset-0 z-50 transition-all duration-700 ease-in-out ${hasEntered ? "opacity-0 pointer-events-none scale-105" : "opacity-100"}`}>
-					<LandingPage
-						onEnter={handleEnter}
-						onHoverEnter={prefetchMainContent} // Trigger when user hovers the enter button
-					/>
-				</div>
-			)}
-		</div>
+				{/* Landing/Welcome Screen */}
+				{shouldRenderLanding && (
+					<div
+						className={`fixed inset-0 z-50 transition-all duration-700 ease-in-out ${hasEntered ? "opacity-0 pointer-events-none scale-105" : "opacity-100"}`}
+					>
+						<LandingPage
+							onEnter={handleEnter}
+							onHoverEnter={prefetchMainContent} // Trigger when user hovers the enter button
+						/>
+					</div>
+				)}
+			</div>
+		</ClickSpark>
 	);
 }
 

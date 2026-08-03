@@ -64,7 +64,7 @@ const About = () => {
 								<div className="mb-8">
 									<FadeRevealParagraph
 										paragraphs={[
-											`Savvas “The Pack” Ampatzidis is a self-taught multidisciplinary designer based in Thessaloniki, Greece.`,
+											`Savvas “The Pack” Ampatzidis is a self-taught multidisciplinary visual designer based in Thessaloniki, Greece.`,
 											`His work is deeply rooted in storytelling, blending violence, romance, chaos, and beauty into rich visual narratives.These stories reflect the raw, often contradictory nature of life. Using a mix of 2D and 3D techniques, he creates striking, layered visuals
 									 that invite viewers to look beneath the surface. His artistic range spans multiple mediums, evolving across disciplines while maintaining a
 									 strong personal voice.`,
@@ -82,7 +82,7 @@ const About = () => {
 								<div className="mt-2">
 									<FadeRevealParagraph
 										paragraphs={[
-											`An immersive, introspective journey into the psyche, Unusual Mind visualizes a passage through the darkest and most luminous parts of
+											`An immersive, introspective journey into the psyche, Unusual Mind visualizes a passage through the darkest and most luminous parts of 
 									mental space. From shadowy realms filled with creatures and demons to rare moments of serenity, the film explores the tension between inner
 									darkness and the longing for peace. A powerful visual metaphor for the complexity of human consciousness and emotional struggle.`
 										]}
