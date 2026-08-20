@@ -7,7 +7,6 @@ const ButtonBlue = ({ title, id, leftIcon, containerClass, onClick, href, type =
 			type={type}
 			disabled={disabled}
 			onClick={(e) => {
-				// Only prevent default behavior if this is NOT a submit button
 				if (type !== "submit") {
 					e.preventDefault();
 				}
@@ -20,10 +19,10 @@ const ButtonBlue = ({ title, id, leftIcon, containerClass, onClick, href, type =
 					onClick(e);
 				}
 			}}
-			className={`group relative z-10 w-fit cursor-pointer overflow-hidden rounded-full bg-blue-400 px-8 py-3 text-zinc-100 font-bold  shadow-[5px_5px_0_0_#1565C0] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all duration-500 ease-in-out ${containerClass}`}
+			className={`group relative z-10 w-fit cursor-pointer overflow-hidden rounded-full bg-blue-400 px-8 py-3 text-zinc-100 font-bold shadow-[5px_5px_0_0_#1565C0] transition-all duration-300 ease-in-out md:hover:translate-x-1 md:hover:translate-y-1 md:hover:shadow-none active:translate-x-1 active:translate-y-1 active:shadow-none ${containerClass}`}
 		>
 			{leftIcon}
-			<span className="relative inline-flex overflow-hidden font-general text-xs">
+			<span className="relative inline-flex overflow-hidden font-general text-xs pointer-events-none">
 				<div>{title}</div>
 			</span>
 		</button>

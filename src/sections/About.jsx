@@ -108,14 +108,18 @@ const About = () => {
 											transition={{ duration: 0.5, ease: "easeInOut" }}
 											className="overflow-hidden w-full"
 										>
-											<div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-8 w-full max-w-4xl items-center justify-items-center justify-center mx-auto">
-												<img src="img/2025_ADAF_LAURELS_blackTRans.png" alt="Official Selection adaf 2025" className="max-w-full h-auto object-contain" />
-												<img src="img/CFF-14KOTINOS-1.png" alt="Official Selection chania film festival 2026" className="max-w-full h-auto object-contain" />
-												{/* <img
+											<div className="mt-12 grid grid-cols-1  sm:grid-cols-3 gap-8 w-full max-w-4xl items-center justify-items-center justify-center mx-auto">
+												<img src="img/2025_ADAF_LAURELS_blackTRans.png" alt="Official Selection adaf 2025" className="w-1/2 sm:w-full h-auto object-contain" />
+												<img
+													src="img/CFF-14KOTINOS-1.png"
+													alt="Official Selection chania film festival 2026"
+													className="w-1/2 sm:w-full h-auto object-contain"
+												/>
+												<img
 													src="img/Official_Selection_animasyros_2026.png"
 													alt="Official Selection animasyros 2026"
-													className="max-w-full h-auto object-contain"
-												/> */}
+													className="w-1/2 sm:w-full h-auto object-contain"
+												/>
 											</div>
 										</motion.div>
 									)}
