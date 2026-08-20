@@ -38,12 +38,13 @@ const LiquidImageReveal = ({
 				},
 				{
 					attr: { r: defaultMaxRadius },
-					ease: "none",
+					duration: 4,
+					ease: "power2.out",
 					scrollTrigger: {
 						trigger: containerRef.current,
-						start: "top 90%",
-						end: "bottom 40%",
-						scrub: 1
+						start: "top 80%",
+						toggleActions: "play none none none",
+						once: true
 					}
 				}
 			);
