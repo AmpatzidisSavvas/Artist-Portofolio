@@ -3,7 +3,7 @@ import LandingPage from "./sections/LandingPage";
 import ClickSpark from "./components/shared/ClickSpark";
 
 // 1. Keep lazy definitions as is (Vite splits these into separate chunks automatically)
-const Navbar = lazy(() => import("./components/layout/Navbar"));
+const StaggeredMenu = lazy(() => import("./components/layout/StaggeredMenu"));
 const Hero = lazy(() => import("./sections/Hero"));
 const About = lazy(() => import("./sections/About"));
 const Projects = lazy(() => import("./sections/Projects"));
@@ -14,7 +14,7 @@ const Footer = lazy(() => import("./components/layout/Footer"));
 const prefetchMainContent = () => {
 	// Calling these dynamic imports imports them into browser cache without rendering
 	const promises = [
-		import("./components/layout/Navbar"),
+		import("./components/layout/StaggeredMenu"),
 		import("./sections/Hero"),
 		import("./sections/About"),
 		import("./sections/Projects"),
@@ -100,7 +100,7 @@ function App() {
 				{hasEntered && (
 					<main className="animate-enter-fade">
 						<Suspense fallback={<div className="min-h-screen bg-blue-50" />}>
-							<Navbar />
+							<StaggeredMenu />
 							<Hero />
 							<About />
 							<Projects />

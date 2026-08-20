@@ -78,14 +78,14 @@ export default function ContactForm() {
 		<div className="w-full rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100 text-left">
 			<h2 className="mb-6 text-center text-2xl font-bold tracking-tight text-blue-50">Get in Touch</h2>
 
-			<form onSubmit={handleSubmit} className="flex flex-col gap-5">
+			<form onSubmit={handleSubmit} className="flex flex-col gap-5 ">
 				{/* --- HONEYPOT FIELD (Hidden from real users) --- */}
 				<div className="hidden" aria-hidden="true">
 					<input type="text" name="twitterHandle" value={formData.twitterHandle} onChange={handleChange} tabIndex="-1" autoComplete="off" />
 				</div>
 
 				<div className="flex flex-col gap-1.5">
-					<label htmlFor="name" className="text-sm font-semibold text-blue-50">
+					<label htmlFor="name" className="text-sm  text-blue-50">
 						Name
 					</label>
 					<input
@@ -102,7 +102,7 @@ export default function ContactForm() {
 				</div>
 
 				<div className="flex flex-col gap-1.5">
-					<label htmlFor="email" className="text-sm font-semibold text-blue-50">
+					<label htmlFor="email" className="text-sm  text-blue-50">
 						Email
 					</label>
 					<input
@@ -119,7 +119,7 @@ export default function ContactForm() {
 				</div>
 
 				<div className="flex flex-col gap-1.5">
-					<label htmlFor="message" className="text-sm font-semibold text-blue-50">
+					<label htmlFor="message" className="text-sm  text-blue-50">
 						Message
 					</label>
 					<textarea
@@ -135,12 +135,14 @@ export default function ContactForm() {
 					/>
 				</div>
 
-				<Button
-					title={isSubmitting ? "Sending..." : "Send Message"}
-					type="submit"
-					disabled={isSubmitting}
-					containerClass="!bg-yellow-300 flex-center gap-1 w-full sm:w-auto"
-				/>
+				<div className="flex flex-col gap-1.5 items-center">
+					<Button
+						title={isSubmitting ? "Sending..." : "Send Message"}
+						type="submit"
+						disabled={isSubmitting}
+						containerClass="!bg-yellow-300 flex-center gap-1 w-full sm:w-1/2"
+					/>
+				</div>
 			</form>
 
 			{(isSubmitting || status) && (
