@@ -81,7 +81,13 @@ const About = () => {
 								<div className="mt-2">
 									<FadeRevealParagraph
 										paragraphs={[
-											`An immersive, introspective journey into the psyche, Unusual Mind visualizes a passage through the darkest and most luminous parts of mental space. From shadowy realms filled with creatures and demons to rare moments of serenity, the film explores the tension between inner darkness and the longing for peace. A powerful visual metaphor for the complexity of human consciousness and emotional struggle.`
+											`
+"Unusual Mind" is an animated short film that narrates a journey inside an unusual mind.
+From the dark and tense depths of the mind inhabited by creatures and demons to the
+places where the coveted calmness exists. 
+An immersive, introspective experience that
+ visualizes the struggle between inner darkness and the pursuit of peace, offering a
+mesmerizing exploration of the psyche’s most uncharted realms.`
 										]}
 									/>
 								</div>
