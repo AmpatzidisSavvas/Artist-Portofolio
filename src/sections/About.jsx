@@ -92,7 +92,12 @@ const About = () => {
 										containerClass={"flex-center gap-1 mx-auto sm:mx-0"}
 									/>
 									<ButtonBlue
-										title={<>Official Selections</>}
+										title={
+											<span className="flex items-center gap-1">
+												Official Selections
+												<span className="font-extrabold text-md">{showImages ? " -" : " ＋"}</span>
+											</span>
+										}
 										onClick={() => setShowImages((prev) => !prev)}
 										containerClass={"flex-center gap-1 mx-auto sm:mx-0"}
 									/>
@@ -105,7 +110,7 @@ const About = () => {
 											initial={{ opacity: 0, height: 0, y: -10 }}
 											animate={{ opacity: 1, height: "auto", y: 0 }}
 											exit={{ opacity: 0, height: 0, y: -10 }}
-											transition={{ duration: 0.5, ease: "easeInOut" }}
+											transition={{ duration: 0.8, ease: "easeInOut" }}
 											className="overflow-hidden w-full"
 										>
 											<div className="mt-12 grid grid-cols-1  sm:grid-cols-3 gap-8 w-full max-w-4xl items-center justify-items-center justify-center mx-auto">
@@ -115,11 +120,11 @@ const About = () => {
 													alt="Official Selection chania film festival 2026"
 													className="w-1/2 sm:w-full h-auto object-contain"
 												/>
-												<img
+												{/* <img
 													src="img/Official_Selection_animasyros_2026.png"
 													alt="Official Selection animasyros 2026"
 													className="w-1/2 sm:w-full h-auto object-contain"
-												/>
+												/> */}
 											</div>
 										</motion.div>
 									)}
