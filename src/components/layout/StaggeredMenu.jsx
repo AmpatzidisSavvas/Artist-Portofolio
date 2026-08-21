@@ -25,7 +25,7 @@ export const StaggeredMenu = ({
 	isFixed = true,
 	accentColor = "#EC407A",
 	closeOnClickAway = true,
-	closeOnScroll = true, // Added prop option for flexibility
+	closeOnScroll = true,
 	onMenuOpen,
 	onMenuClose
 }) => {
@@ -213,7 +213,7 @@ export const StaggeredMenu = ({
 							arr.splice(Math.floor(arr.length / 2), 1);
 						}
 						return arr.map((c, i) => (
-							<div key={i} className="sm-prelayer absolute top-0 right-0 h-full w-full [will-change:transform]" style={{ background: c }} />
+							<div key={`prelayer-${i}`} className="sm-prelayer absolute top-0 right-0 h-full w-full [will-change:transform]" style={{ background: c }} />
 						));
 					})()}
 				</div>
@@ -258,16 +258,16 @@ export const StaggeredMenu = ({
 					className="staggered-menu-panel absolute top-0 right-0 h-full bg-[#DFDFF0] flex flex-col p-[6em_2em_2em_2em] overflow-y-auto z-10 pointer-events-auto [will-change:transform]"
 					aria-hidden={!open}
 				>
-					<div className="sm-panel-inner flex-1 flex flex-col gap-5">
+					<div className="sm-panel-inner flex-1 flex flex-col gap-3">
 						<ul className="sm-panel-list list-none m-0 p-0 flex flex-col gap-2" role="list" data-numbering={displayItemNumbering || undefined}>
 							{items && items.length
 								? items.map((it, idx) => (
-										<li className="sm-panel-itemWrap relative overflow-hidden leading-none" key={it.label + idx}>
+										<li className="sm-panel-itemWrap relative overflow-hidden leading-none" key={it.link || it.label || `item-${idx}`}>
 											<a
 												className="sm-panel-item relative text-black font-semibold text-[4rem] cursor-pointer leading-none tracking-[-2px] uppercase transition-[color] duration-150 ease-linear inline-block no-underline pr-[1.4em]"
 												href={it.link}
 												aria-label={it.ariaLabel}
-												onClick={closeMenu} // Closes menu when clicking menu items
+												onClick={closeMenu}
 											>
 												<span className="sm-panel-itemLabel inline-block [transform-origin:50%_100%] [will-change:transform]">{it.label}</span>
 											</a>
@@ -278,22 +278,24 @@ export const StaggeredMenu = ({
 
 						{displaySocials && socialItems && socialItems.length > 0 && (
 							<div className="sm-socials mt-auto pt-8 flex flex-col gap-3" aria-label="Social links">
-								<h3 className="sm-socials-title m-0 text-base font-medium [color:var(--sm-accent,#ff0000)]">Socials</h3>
 								<ul className="sm-socials-list list-none m-0 p-0 flex flex-row items-center gap-12 flex-wrap" role="list">
 									{socialItems.map((s, i) => (
-										<li key={s.label + i} className="sm-socials-item">
+										<li key={s.link || `social-${i}`} className="sm-socials-item">
 											<a
 												href={s.link}
 												target="_blank"
 												rel="noopener noreferrer"
-												className="sm-socials-link text-[1.1rem] font-medium text-[#111] no-underline relative inline-flex items-center gap-1.5 py-[2px]"
+												className="group sm-socials-link text-[1.1rem] font-medium text-[#111] no-underline relative inline-flex items-center gap-1.5 py-[2px]"
 											>
 												{s.icon ? (
-													<span className="sm-socials-icon inline-flex text-[1.8em] leading-none shrink-0" aria-hidden="true">
+													<span
+														className="sm-socials-icon inline-flex text-[1.8em] leading-none shrink-0 transition-transform duration-200 group-hover:scale-125"
+														aria-hidden="true"
+													>
 														{s.icon}
 													</span>
 												) : null}
-												<span>{s.label}</span>
+												{s.label && <span>{s.label}</span>}
 											</a>
 										</li>
 									))}
