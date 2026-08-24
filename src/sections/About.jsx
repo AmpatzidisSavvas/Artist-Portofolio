@@ -111,12 +111,13 @@ mesmerizing exploration of the psyche’s most uncharted realms.`
 								<AnimatePresence>
 									{showImages && (
 										<motion.div
-											initial={{ opacity: 0, gridTemplateRows: "0fr", y: 0 }}
-											animate={{ opacity: 1, gridTemplateRows: "1fr", y: 0 }}
-											exit={{ opacity: 0, gridTemplateRows: "0fr", y: 0 }}
+											initial={{ opacity: 0, gridTemplateRows: "0fr" }}
+											animate={{ opacity: 1, gridTemplateRows: "1fr" }}
+											exit={{ opacity: 0, gridTemplateRows: "0fr" }}
 											transition={{ duration: 0.8, ease: easeInOut }}
+											style={{ display: "grid" }}
 										>
-											<div className="min-h-0 w-full">
+											<div className="overflow-hidden min-h-0 w-full">
 												<div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-8 w-full max-w-4xl items-center justify-items-center justify-center mx-auto">
 													<img
 														src="img/2025_ADAF_LAURELS_blackTRans.webp"
