@@ -1,10 +1,9 @@
 import { useEffect, useRef, useState } from "react";
-import AnimatedTitle from "../components/shared/AnimatedTitle";
 import FadeRevealParagraph from "../components/shared/FadeRevealParagraph";
 import FadeTextReveal from "../components/shared/FadeTextReveal";
 import ButtonBlue from "../components/ui/ButtonBlue";
 import gsap from "gsap";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, easeInOut } from "framer-motion";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import LiquidImageReveal from "../components/ui/LiquidImageReveal";
 
@@ -109,28 +108,40 @@ mesmerizing exploration of the psyche’s most uncharted realms.`
 									/>
 								</div>
 
-								{/* Smooth Reveal for Laurels */}
 								<AnimatePresence>
 									{showImages && (
 										<motion.div
-											initial={{ opacity: 0, height: 0, y: -10 }}
-											animate={{ opacity: 1, height: "auto", y: 0 }}
-											exit={{ opacity: 0, height: 0, y: -10 }}
-											transition={{ duration: 0.8, ease: "easeInOut" }}
-											className="overflow-hidden w-full"
+											initial={{ opacity: 0, gridTemplateRows: "0fr", y: 0 }}
+											animate={{ opacity: 1, gridTemplateRows: "1fr", y: 0 }}
+											exit={{ opacity: 0, gridTemplateRows: "0fr", y: 0 }}
+											transition={{ duration: 0.8, ease: easeInOut }}
 										>
-											<div className="mt-12 grid grid-cols-1  sm:grid-cols-3 gap-8 w-full max-w-4xl items-center justify-items-center justify-center mx-auto">
-												<img src="img/2025_ADAF_LAURELS_blackTRans.png" alt="Official Selection adaf 2025" className="w-1/2 sm:w-full h-auto object-contain" />
-												<img
-													src="img/CFF-14KOTINOS-1.png"
-													alt="Official Selection chania film festival 2026"
-													className="w-1/2 sm:w-full h-auto object-contain"
-												/>
-												{/* <img
-													src="img/Official_Selection_animasyros_2026.png"
-													alt="Official Selection animasyros 2026"
-													className="w-1/2 sm:w-full h-auto object-contain"
-												/> */}
+											<div className="min-h-0 w-full">
+												<div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-8 w-full max-w-4xl items-center justify-items-center justify-center mx-auto">
+													<img
+														src="img/2025_ADAF_LAURELS_blackTRans.webp"
+														alt="Official Selection adaf 2025"
+														width={300}
+														height={150}
+														loading="eager"
+														decoding="async"
+														className="w-1/2 sm:w-full h-auto object-contain"
+													/>
+													<img
+														src="img/CFF-14KOTINOS-1.webp"
+														alt="Official Selection chania film festival 2026"
+														width={300}
+														height={150}
+														loading="eager"
+														decoding="async"
+														className="w-1/2 sm:w-full h-auto object-contain"
+													/>
+													{/* <img
+														src="img/Official_Selection_animasyros_2026.webp"
+														alt="Official Selection animasyros 2026"
+														className="w-1/2 sm:w-full h-auto object-contain"
+													/> */}
+												</div>
 											</div>
 										</motion.div>
 									)}

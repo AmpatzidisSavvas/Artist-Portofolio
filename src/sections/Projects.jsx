@@ -21,7 +21,7 @@ const OPTIONS = [
 
 const OPTIONS2 = [
 	"img/RoomCross2.webp",
-	"img/Watcher1.webp",
+	"img/Watcher.jpg",
 	"img/RoomPanagia2.webp",
 	"img/256.webp",
 	"img/256-2.webp",
@@ -113,8 +113,8 @@ const Projects = () => {
 					<SmallCard src={"videos/feature-9.webm"} />
 				</div>
 
-				<div className="border-hsla relative mt-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh] ">
-					<Card src="videos/feature-7.webm" />
+				<div className="border-hsla relative mt-7 h-96 w-full overflow-hidden rounded-md md:h-[100vh] ">
+					<Card src="videos/feature-15.webm" />
 				</div>
 
 				<div className="grid  grid-cols-1 md:grid-cols-2 mt-7 gap-7">
