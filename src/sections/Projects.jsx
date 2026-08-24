@@ -21,6 +21,7 @@ const OPTIONS = [
 
 const OPTIONS2 = [
 	"img/RoomCross2.webp",
+	"img/Watcher1.webp",
 	"img/RoomPanagia2.webp",
 	"img/256.webp",
 	"img/256-2.webp",

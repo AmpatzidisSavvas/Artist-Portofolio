@@ -126,11 +126,11 @@ mesmerizing exploration of the psyche’s most uncharted realms.`
 													alt="Official Selection chania film festival 2026"
 													className="w-1/2 sm:w-full h-auto object-contain"
 												/>
-												{/* <img
+												<img
 													src="img/Official_Selection_animasyros_2026.png"
 													alt="Official Selection animasyros 2026"
 													className="w-1/2 sm:w-full h-auto object-contain"
-												/> */}
+												/>
 											</div>
 										</motion.div>
 									)}

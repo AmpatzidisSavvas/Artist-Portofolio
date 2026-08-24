@@ -3,13 +3,26 @@ import { OrbitControls, useGLTF, Center, Html, useProgress } from "@react-three/
 import { Suspense, useState, useEffect } from "react";
 import Button from "../components/ui/Button";
 
-function isTargetMesh(object) {
-	return object.isMesh;
-}
-
 function Model() {
 	const { scene } = useGLTF("/3Dscene.glb");
 	return <primitive object={scene} scale={3.0} />;
+}
+
+function InteractionHint({ isInteracted }) {
+	if (isInteracted) return null;
+
+	return (
+		<Html center position={[0, -0.5, 0]}>
+			<div className="flex flex-col items-center justify-center pointer-events-none select-none animate-pulse">
+				<div className="flex items-center gap-2 px-3 py-1.5 bg-zinc-900/80 backdrop-blur-md rounded-full border border-zinc-700/60 shadow-xl text-white/90 text-xs tracking-wider">
+					<svg className="w-4 h-4 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h8M8 12h8m-8 5h8" />
+					</svg>
+					<span>Drag to rotate</span>
+				</div>
+			</div>
+		</Html>
+	);
 }
 
 function CanvasLoader() {
@@ -28,29 +41,20 @@ function CanvasLoader() {
 export default function LandingPage({ onEnter }) {
 	const { progress } = useProgress();
 	const [isLoaded, setIsLoaded] = useState(false);
-
-	// Track mobile viewport size (<= 425px)
+	const [hasInteracted, setHasInteracted] = useState(false);
 	const [isMobile, setIsMobile] = useState(false);
 
 	useEffect(() => {
-		const handleResize = () => {
-			setIsMobile(window.innerWidth <= 425);
-		};
-
-		// Set initial value
+		const handleResize = () => setIsMobile(window.innerWidth <= 425);
 		handleResize();
-
 		window.addEventListener("resize", handleResize);
 		return () => window.removeEventListener("resize", handleResize);
 	}, []);
 
 	useEffect(() => {
-		if (progress === 100) {
-			setIsLoaded(true);
-		}
+		if (progress === 100) setIsLoaded(true);
 	}, [progress]);
 
-	// Move camera further back on small screens (Z = 5.2 vs default 4.3)
 	const cameraPosition = isMobile ? [0, 2, 6.8] : [0, 0.2, 4.3];
 
 	return (
@@ -65,21 +69,24 @@ export default function LandingPage({ onEnter }) {
 						<Center>
 							<Model />
 						</Center>
+						{isLoaded && <InteractionHint isInteracted={hasInteracted} />}
 					</Suspense>
 
 					<OrbitControls
 						enableZoom={true}
 						minDistance={3}
-						// Increase maxDistance on mobile to allow zooming out further
 						maxDistance={isMobile ? 7.0 : 4.0}
 						enablePan={false}
-						autoRotate={false}
+						// Auto-rotate subtle movement until the user touches/drags
+						autoRotate={!hasInteracted}
+						autoRotateSpeed={1.5}
 						enableDamping={true}
 						dampingFactor={0.05}
 						maxPolarAngle={Math.PI / 2}
 						minPolarAngle={Math.PI / 2.5}
 						maxAzimuthAngle={Math.PI / 6}
 						minAzimuthAngle={-Math.PI / 6}
+						onStart={() => setHasInteracted(true)}
 					/>
 				</Canvas>
 			</div>
