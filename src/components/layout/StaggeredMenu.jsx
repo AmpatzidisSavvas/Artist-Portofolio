@@ -25,7 +25,7 @@ export const StaggeredMenu = ({
 	changeMenuColorOnOpen = true,
 	accentColor = "#EC407A",
 	closeOnClickAway = true,
-	closeOnScroll = true, // Enabled auto-close on scroll by default
+	closeOnScroll = true,
 	onMenuOpen,
 	onMenuClose
 }) => {
@@ -199,12 +199,14 @@ export const StaggeredMenu = ({
 		return () => document.removeEventListener("mousedown", handleClickOutside);
 	}, [closeOnClickAway, open, closeMenu]);
 
-	// Auto-close menu on page scroll
+	// Auto-close menu on page scroll (with busy check fix)
 	React.useEffect(() => {
 		if (!closeOnScroll || !open) return;
 
 		const handleScroll = () => {
-			closeMenu();
+			if (!busyRef.current) {
+				closeMenu();
+			}
 		};
 
 		window.addEventListener("scroll", handleScroll, { passive: true });
@@ -226,7 +228,7 @@ export const StaggeredMenu = ({
 					<button
 						ref={toggleBtnRef}
 						className={`sm-toggle relative inline-flex items-center gap-[0.4rem] border-0 cursor-pointer text-[#e9e9ef] font-medium leading-none pointer-events-auto transition-all duration-300 ${
-							scrolled ? "bg-[#EC407A]  px-5 py-3 rounded-lg" : "bg-transparent p-0"
+							scrolled ? "bg-[#EC407A] px-5 py-3 rounded-lg" : "bg-transparent p-0"
 						}`}
 						aria-label={open ? "Close menu" : "Open menu"}
 						aria-expanded={open}
@@ -286,7 +288,21 @@ export const StaggeredMenu = ({
 												className="sm-panel-item relative text-black font-semibold text-[4rem] cursor-pointer leading-none tracking-[-2px] uppercase transition-[color] duration-150 ease-linear inline-block no-underline pr-[1.4em]"
 												href={it.link}
 												aria-label={it.ariaLabel}
-												onClick={closeMenu}
+												onClick={(e) => {
+													e.preventDefault();
+													closeMenu();
+
+													const targetId = it.link.replace("/#", "").replace("#", "");
+													const targetElement = document.getElementById(targetId);
+
+													if (targetElement) {
+														setTimeout(() => {
+															targetElement.scrollIntoView({ behavior: "smooth" });
+														}, 50);
+													} else {
+														window.location.href = it.link;
+													}
+												}}
 											>
 												<span className="sm-panel-itemLabel inline-block [transform-origin:50%_100%] [will-change:transform]">{it.label}</span>
 											</a>
