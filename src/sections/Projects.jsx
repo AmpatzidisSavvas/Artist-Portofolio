@@ -91,10 +91,9 @@ const Projects = () => {
 							href="https://www.youtube.com/watch?v=kZOZSruDpRw"
 						/>
 					</div>
-					{/* Double small cards */}
 
-					<SmallCard src={"videos/feature-5.webm"} />
-					<SmallCard src={"videos/feature-6.webm"} />
+					<SmallCard src={"videos/feature-2.webm"} />
+					<SmallCard src={"videos/feature-11.webm"} />
 				</div>
 
 				<div className="border-hsla relative mt-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh] ">
@@ -115,11 +114,6 @@ const Projects = () => {
 
 				<div className="border-hsla relative mt-7 h-96 w-full overflow-hidden rounded-md md:h-[100vh] ">
 					<Card src="videos/feature-15.webm" />
-				</div>
-
-				<div className="grid  grid-cols-1 md:grid-cols-2 mt-7 gap-7">
-					<SmallCard src={"videos/feature-2.webm"} />
-					<SmallCard src={"videos/feature-11.webm"} />
 				</div>
 			</div>
 			<div className="px-5 py-20">

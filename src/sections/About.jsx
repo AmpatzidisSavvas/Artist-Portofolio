@@ -90,7 +90,7 @@ mesmerizing exploration of the psyche’s most uncharted realms.`
 										]}
 									/>
 								</div>
-								<div className="mt-8 flex flex-col sm:flex-row items-center gap-4 text-base leading-relaxed">
+								<div className="mt-16 flex flex-col sm:flex-row items-center gap-4 text-base leading-relaxed">
 									<ButtonBlue
 										title={<>Watch Film Here</>}
 										href={"https://youtu.be/_xJd7ZvUFc4?si=GA5onEsLdznPnSOo"}
@@ -137,11 +137,11 @@ mesmerizing exploration of the psyche’s most uncharted realms.`
 														decoding="async"
 														className="w-1/2 sm:w-full h-auto object-contain"
 													/>
-													{/* <img
+													<img
 														src="img/Official_Selection_animasyros_2026.webp"
 														alt="Official Selection animasyros 2026"
 														className="w-1/2 sm:w-full h-auto object-contain"
-													/> */}
+													/>
 												</div>
 											</div>
 										</motion.div>
