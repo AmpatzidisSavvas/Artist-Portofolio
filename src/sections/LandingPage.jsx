@@ -3,6 +3,8 @@ import { OrbitControls, useGLTF, Center, Html, useProgress } from "@react-three/
 import { Suspense, useState, useEffect } from "react";
 import Button from "../components/ui/Button";
 
+useGLTF.preload("/3Dscene.glb");
+
 function Model() {
 	const { scene } = useGLTF("/3Dscene.glb");
 	return <primitive object={scene} scale={3.0} />;
@@ -60,7 +62,13 @@ export default function LandingPage({ onEnter }) {
 	return (
 		<div className="relative w-screen h-screen bg-zinc-950 flex items-center justify-center overflow-hidden">
 			<div className="absolute inset-0 w-full h-full">
-				<Canvas key={isMobile ? "mobile" : "desktop"} camera={{ position: cameraPosition, fov: 45 }}>
+				<Canvas
+					key={isMobile ? "mobile" : "desktop"}
+					dpr={[1, 2]}
+					performance={{ min: 0.5 }}
+					camera={{ position: cameraPosition, fov: 45 }}
+					gl={{ powerPreference: "high-performance", antialias: true }}
+				>
 					<ambientLight intensity={0.6} color="#f1c232" />
 					<directionalLight position={[5, 8, 10]} intensity={3.5} color="#F5F5DC" castShadow />
 					<spotLight position={[0, 5, 2]} angle={0.4} penumbra={1} intensity={15.0} color="#fef08a" />
