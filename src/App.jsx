@@ -9,16 +9,14 @@ const Projects = lazy(() => import("./sections/Projects"));
 const Contact = lazy(() => import("./sections/Contact"));
 const Footer = lazy(() => import("./components/layout/Footer"));
 
+// Progressive prefetch: trigger only when user shows intent
 const prefetchMainContent = () => {
-	const promises = [
-		import("./components/layout/StaggeredMenu"),
-		import("./sections/Hero"),
-		import("./sections/About"),
-		import("./sections/Projects"),
-		import("./sections/Contact"),
-		import("./components/layout/Footer")
-	];
-	Promise.allSettled(promises).catch((err) => console.warn("Failed to prefetch main bundles:", err));
+	import("./components/layout/StaggeredMenu");
+	import("./sections/Hero");
+	import("./sections/About");
+	import("./sections/Projects");
+	import("./sections/Contact");
+	import("./components/layout/Footer");
 };
 
 function App() {
@@ -37,8 +35,7 @@ function App() {
 	useEffect(() => {
 		const injectVercelScripts = async () => {
 			try {
-				const { injectSpeedInsights } = await import("@vercel/speed-insights");
-				const { inject } = await import("@vercel/analytics");
+				const [{ injectSpeedInsights }, { inject }] = await Promise.all([import("@vercel/speed-insights"), import("@vercel/analytics")]);
 				injectSpeedInsights();
 				inject();
 			} catch (err) {
@@ -55,7 +52,6 @@ function App() {
 	}, []);
 
 	const handleEnter = useCallback(() => {
-		prefetchMainContent();
 		setHasEntered(true);
 	}, []);
 
@@ -64,12 +60,22 @@ function App() {
 			<div className="relative min-h-screen w-screen overflow-x-hidden bg-blue-50">
 				{hasEntered && (
 					<main className="animate-enter-fade">
-						<Suspense fallback={<div className="min-h-screen bg-blue-50" />}>
+						<Suspense fallback={null}>
 							<StaggeredMenu />
+						</Suspense>
+						<Suspense fallback={<div className="min-h-screen bg-blue-50" />}>
 							<Hero />
+						</Suspense>
+						<Suspense fallback={null}>
 							<About />
+						</Suspense>
+						<Suspense fallback={null}>
 							<Projects />
+						</Suspense>
+						<Suspense fallback={null}>
 							<Contact />
+						</Suspense>
+						<Suspense fallback={null}>
 							<Footer />
 						</Suspense>
 					</main>
