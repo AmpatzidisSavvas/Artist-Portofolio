@@ -64,9 +64,9 @@ const About = () => {
 								<div className="mb-8">
 									<FadeRevealParagraph
 										paragraphs={[
-											`Savvas “The Pack” Ampatzidis is a self-taught multidisciplinary visual designer based in Thessaloniki, Greece.`,
-											`His work is deeply rooted in storytelling, blending violence, romance, chaos, and beauty into rich visual narratives.These stories reflect the raw, often contradictory nature of life. Using a mix of 2D and 3D techniques, he creates striking, layered visuals that invite viewers to look beneath the surface. His artistic range spans multiple mediums, evolving across disciplines while maintaining a strong personal voice.`,
-											`His work has been exhibited internationally and featured at festivals dedicated to illustration, comics, and animation.`
+											`Savvas “The Pack” Ampatzidis is a multidisciplinary visual designer and 3D artist based in Thessaloniki, Greece.`,
+											`Specializing in advanced Blender 3D and 2D workflows, he crafts immersive visual narratives that explore the raw, contradictory space between beauty, chaos, romance, and violence. His work bridges digital illustration, animation, and world-building—creating layered visuals designed to evoke intrigue beneath the surface.`,
+											`Savvas’s work has been exhibited internationally and featured across global illustration, comic, and animation festivals.`
 										]}
 									/>
 								</div>
