@@ -5,34 +5,27 @@ export default defineConfig({
 	plugins: [react()],
 	build: {
 		target: "esnext",
-		// Enable minification optimizations
 		cssCodeSplit: true,
-
 		rollupOptions: {
 			output: {
 				manualChunks(id) {
 					if (id.includes("node_modules")) {
-						// 1. Core React ecosystem (Critical initial render)
-						if (/\/node_modules\/(react|react-dom|scheduler)\//.test(id)) {
-							return "vendor-react";
+						// 1. Core React + Animation libraries together to prevent evaluation order issues
+						if (/\/node_modules\/(react|react-dom|scheduler|framer-motion|gsap|@motionone)\//.test(id)) {
+							return "vendor-core";
 						}
 
-						// 2. Heavy Animation Libraries (Defer completely until main content triggers)
-						if (id.includes("framer-motion") || id.includes("gsap") || id.includes("@motionone")) {
-							return "vendor-animation";
-						}
-
-						// 3. Icons (Isolate icon packs)
+						// 2. Icons (Isolate icon packs)
 						if (id.includes("react-icons") || id.includes("lucide-react")) {
 							return "vendor-icons";
 						}
 
-						// 4. Vercel Analytics / Speed Insights (Non-critical metrics)
+						// 3. Vercel Analytics / Speed Insights
 						if (id.includes("@vercel")) {
 							return "vendor-vercel";
 						}
 
-						// 5. All other third-party dependencies into a generic chunk
+						// 4. Fallback chunk for all other node_modules
 						return "vendor-others";
 					}
 				}
