@@ -1,10 +1,5 @@
 import React, { useEffect, useRef, useState, useCallback } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/all";
 import FocusText from "../components/shared/FocusText";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
 	const [playlist, setPlaylist] = useState([]);
@@ -12,7 +7,6 @@ const Hero = () => {
 	const [loading, setLoading] = useState(true);
 	const [isVideoReady, setIsVideoReady] = useState(false);
 	const [loadedVideos, setLoadedVideos] = useState(0);
-	const [isTransitioning, setIsTransitioning] = useState(false);
 
 	const totalVideos = 3;
 	const videoRef = useRef(null);
@@ -41,54 +35,16 @@ const Hero = () => {
 	}, [loadedVideos, totalVideos]);
 
 	const handleNextVideo = useCallback(() => {
-		if (isTransitioning) return;
-		setIsTransitioning(true);
+		let nextIndexInPlaylist = currentIndex + 1;
 
-		requestAnimationFrame(() => {
-			gsap.to(videoRef.current, {
-				opacity: 0,
-				duration: 0.5,
-				onComplete: () => {
-					let nextIndexInPlaylist = currentIndex + 1;
+		if (nextIndexInPlaylist >= playlist.length) {
+			const newPlaylist = shuffleArray([...Array(totalVideos)].map((_, i) => i + 1));
+			setPlaylist(newPlaylist);
+			nextIndexInPlaylist = 0;
+		}
 
-					if (nextIndexInPlaylist >= playlist.length) {
-						const newPlaylist = shuffleArray([...Array(totalVideos)].map((_, i) => i + 1));
-						setPlaylist(newPlaylist);
-						nextIndexInPlaylist = 0;
-					}
-
-					setCurrentIndex(nextIndexInPlaylist);
-
-					setTimeout(() => {
-						gsap.to(videoRef.current, {
-							opacity: 1,
-							duration: 0.5,
-							onComplete: () => setIsTransitioning(false)
-						});
-					}, 100);
-				}
-			});
-		});
-	}, [currentIndex, playlist, totalVideos, isTransitioning]);
-
-	useGSAP(() => {
-		gsap.set("#video-frame", {
-			clipPath: "polygon(14% 0%, 72% 0%, 90% 90%, 0% 100%)",
-			borderRadius: "0 0 40% 10%"
-		});
-
-		gsap.from("#video-frame", {
-			clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-			borderRadius: "0% 0% 0% 0%",
-			ease: "power1.inOut",
-			scrollTrigger: {
-				trigger: "#video-frame",
-				start: "center center",
-				end: "bottom center",
-				scrub: true
-			}
-		});
-	});
+		setCurrentIndex(nextIndexInPlaylist);
+	}, [currentIndex, playlist, totalVideos]);
 
 	const handleCanPlay = () => {
 		setIsVideoReady(true);
@@ -101,7 +57,7 @@ const Hero = () => {
 
 	return (
 		<div id="home" className="relative h-dvh w-screen overflow-x-hidden">
-			<div id="video-frame" className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-blue-75">
+			<div id="video-frame" className="relative z-10 h-dvh w-screen overflow-hidden bg-blue-75">
 				<div>
 					{/* Loading Indicator */}
 					{!isVideoReady && (
@@ -147,8 +103,6 @@ const Hero = () => {
 					</div>
 				</div>
 			</div>
-
-			<h1 className="special-font hero-heading absolute bottom-5 right-5 text-black">Portfolio</h1>
 		</div>
 	);
 };
