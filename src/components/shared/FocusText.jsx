@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useMemo, useCallback } from "react";
 import { motion } from "motion/react";
 
 const FocusText = ({
@@ -11,50 +11,33 @@ const FocusText = ({
 	animationDuration = 0.5,
 	pauseBetweenAnimations = 1
 }) => {
-	const words = sentence.split(separator);
+	const words = useMemo(() => sentence.split(separator), [sentence, separator]);
+
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const [lastActiveIndex, setLastActiveIndex] = useState(null);
+	const [isMobile, setIsMobile] = useState(false);
+	const [focusRect, setFocusRect] = useState({ x: 0, y: 0, width: 0, height: 0 });
+
 	const containerRef = useRef(null);
 	const wordRefs = useRef([]);
-	const [focusRect, setFocusRect] = useState({ x: 0, y: 0, width: 0, height: 0 });
-	const [isMobile, setIsMobile] = useState(false);
 
-	// 1. Detect touch devices (mobile/tablet) to cleanly toggle auto-play
-	useEffect(() => {
-		const checkIfMobile = () => {
-			setIsMobile(window.matchMedia("(pointer: coarse)").matches);
-		};
+	const cornerStyle = useMemo(
+		() => ({
+			borderColor: "var(--border-color)",
+			filter: "drop-shadow(0 0 4px var(--border-color))"
+		}),
+		[]
+	);
 
-		checkIfMobile();
-		window.addEventListener("resize", checkIfMobile);
-		return () => window.removeEventListener("resize", checkIfMobile);
-	}, []);
+	const updatePosition = useCallback(() => {
+		const currentWordEl = wordRefs.current[currentIndex];
+		const containerEl = containerRef.current;
 
-	// 2. Animation Cycle (Autoplays on mobile, respects manualMode on desktop)
-	useEffect(() => {
-		const shouldAutoPlay = !manualMode || isMobile;
+		if (!currentWordEl || !containerEl) return;
 
-		if (shouldAutoPlay) {
-			const interval = setInterval(
-				() => {
-					setCurrentIndex((prev) => (prev + 1) % words.length);
-				},
-				(animationDuration + pauseBetweenAnimations) * 1000
-			);
-
-			return () => clearInterval(interval);
-		}
-	}, [manualMode, isMobile, animationDuration, pauseBetweenAnimations, words.length]);
-
-	// 3. Track box positioning dynamically (handles responsive layout shifts seamlessly)
-	useEffect(() => {
-		if (currentIndex === null || currentIndex === -1) return;
-		if (!wordRefs.current[currentIndex] || !containerRef.current) return;
-
-		const updatePosition = () => {
-			if (!wordRefs.current[currentIndex] || !containerRef.current) return;
-			const parentRect = containerRef.current.getBoundingClientRect();
-			const activeRect = wordRefs.current[currentIndex].getBoundingClientRect();
+		requestAnimationFrame(() => {
+			const parentRect = containerEl.getBoundingClientRect();
+			const activeRect = currentWordEl.getBoundingClientRect();
 
 			setFocusRect({
 				x: activeRect.left - parentRect.left,
@@ -62,59 +45,80 @@ const FocusText = ({
 				width: activeRect.width,
 				height: activeRect.height
 			});
-		};
+		});
+	}, [currentIndex]);
 
-		// Execute immediately and set up event listeners for layout recalculations
+	useEffect(() => {
+		const mediaQuery = window.matchMedia("(pointer: coarse)");
+		setIsMobile(mediaQuery.matches);
+
+		const handleMediaChange = (e) => setIsMobile(e.matches);
+		mediaQuery.addEventListener("change", handleMediaChange);
+
+		return () => mediaQuery.removeEventListener("change", handleMediaChange);
+	}, []);
+
+	useEffect(() => {
+		const shouldAutoPlay = !manualMode || isMobile;
+		if (!shouldAutoPlay || words.length === 0) return;
+
+		const interval = setInterval(
+			() => {
+				setCurrentIndex((prev) => (prev + 1) % words.length);
+			},
+			(animationDuration + pauseBetweenAnimations) * 1000
+		);
+
+		return () => clearInterval(interval);
+	}, [manualMode, isMobile, animationDuration, pauseBetweenAnimations, words.length]);
+
+	useEffect(() => {
+		if (currentIndex < 0 || currentIndex >= words.length) return;
+
 		updatePosition();
 
-		// A small timeout ensures the DOM has settled if layout direction changes
-		const timeoutId = setTimeout(updatePosition, 50);
+		const containerEl = containerRef.current;
+		if (!containerEl) return;
 
-		window.addEventListener("resize", updatePosition);
-		return () => {
-			clearTimeout(timeoutId);
-			window.removeEventListener("resize", updatePosition);
-		};
-	}, [currentIndex, words.length, isMobile]); // Recalculate if isMobile layout shifts
+		const observer = new ResizeObserver(() => updatePosition());
+		observer.observe(containerEl);
 
-	// Desktop hover handling
-	const handleMouseEnter = (index) => {
-		if (manualMode && !isMobile) {
-			setLastActiveIndex(index);
-			setCurrentIndex(index);
-		}
-	};
+		const activeWordEl = wordRefs.current[currentIndex];
+		if (activeWordEl) observer.observe(activeWordEl);
 
-	const handleMouseLeave = () => {
-		if (manualMode && !isMobile) {
+		return () => observer.disconnect();
+	}, [currentIndex, words.length, updatePosition]);
+
+	const handleMouseEnter = useCallback(
+		(index) => {
+			if (manualMode && !isMobile) {
+				setLastActiveIndex(index);
+				setCurrentIndex(index);
+			}
+		},
+		[manualMode, isMobile]
+	);
+
+	const handleMouseLeave = useCallback(() => {
+		if (manualMode && !isMobile && lastActiveIndex !== null) {
 			setCurrentIndex(lastActiveIndex);
 		}
-	};
+	}, [manualMode, isMobile, lastActiveIndex]);
 
 	return (
-		/* CHANGED: flex-col on mobile, sm:flex-row on desktop */
-		<div
-			className="relative flex flex-col mt-4  lg:p-2 sm:flex-row gap-4 justify-start items-start w-full"
-			ref={containerRef}
-			style={{ outline: "none", userSelect: "none" }}
-		>
+		<div className="relative flex flex-col mt-4 lg:p-2 sm:flex-row gap-4 justify-start items-start w-full select-none outline-none" ref={containerRef}>
 			{words.map((word, index) => {
 				const isActive = index === currentIndex;
 				return (
 					<span
-						key={index}
+						key={`${word}-${index}`}
 						ref={(el) => {
 							wordRefs.current[index] = el;
 						}}
-						// Adjusted mobile typography to center-align beautifully when stacked
-						className="relative text-[1rem] sm:text-[1.6rem] font-black text-white text-center sm:text-left select-none"
+						className="relative text-[1rem] sm:text-[1.6rem] font-black text-white text-center sm:text-left select-none outline-none"
 						style={{
-							filter: isActive ? `blur(0px)` : `blur(${blurAmount}px)`,
-							"--border-color": borderColor,
-							"--glow-color": glowColor,
-							transition: `filter ${animationDuration}s ease`,
-							outline: "none",
-							userSelect: "none"
+							filter: isActive ? "blur(0px)" : `blur(${blurAmount}px)`,
+							transition: `filter ${animationDuration}s ease`
 						}}
 						onMouseEnter={() => handleMouseEnter(index)}
 						onMouseLeave={handleMouseLeave}
@@ -134,29 +138,18 @@ const FocusText = ({
 					opacity: currentIndex >= 0 ? 1 : 0
 				}}
 				transition={{
-					duration: animationDuration
+					duration: animationDuration,
+					ease: "easeInOut"
 				}}
 				style={{
 					"--border-color": borderColor,
 					"--glow-color": glowColor
 				}}
 			>
-				<span
-					className="absolute w-4 h-4 border-[3px] rounded-[3px] top-[-10px] left-[-10px] border-r-0 border-b-0"
-					style={{ borderColor: "var(--border-color)", filter: "drop-shadow(0 0 4px var(--border-color))" }}
-				></span>
-				<span
-					className="absolute w-4 h-4 border-[3px] rounded-[3px] top-[-10px] right-[-10px] border-l-0 border-b-0"
-					style={{ borderColor: "var(--border-color)", filter: "drop-shadow(0 0 4px var(--border-color))" }}
-				></span>
-				<span
-					className="absolute w-4 h-4 border-[3px] rounded-[3px] bottom-[-10px] left-[-10px] border-r-0 border-t-0"
-					style={{ borderColor: "var(--border-color)", filter: "drop-shadow(0 0 4px var(--border-color))" }}
-				></span>
-				<span
-					className="absolute w-4 h-4 border-[3px] rounded-[3px] bottom-[-10px] right-[-10px] border-l-0 border-t-0"
-					style={{ borderColor: "var(--border-color)", filter: "drop-shadow(0 0 4px var(--border-color))" }}
-				></span>
+				<span className="absolute w-4 h-4 border-[3px] rounded-[3px] top-[-10px] left-[-10px] border-r-0 border-b-0" style={cornerStyle} />
+				<span className="absolute w-4 h-4 border-[3px] rounded-[3px] top-[-10px] right-[-10px] border-l-0 border-b-0" style={cornerStyle} />
+				<span className="absolute w-4 h-4 border-[3px] rounded-[3px] bottom-[-10px] left-[-10px] border-r-0 border-t-0" style={cornerStyle} />
+				<span className="absolute w-4 h-4 border-[3px] rounded-[3px] bottom-[-10px] right-[-10px] border-l-0 border-t-0" style={cornerStyle} />
 			</motion.div>
 		</div>
 	);
