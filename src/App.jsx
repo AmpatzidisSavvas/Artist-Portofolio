@@ -1,7 +1,8 @@
 import { lazy, Suspense, useState, useEffect, useCallback } from "react";
 import LandingPage from "./sections/LandingPage";
-import ClickSpark from "./components/shared/ClickSpark";
-import GridPreloader from "./components/ui/GridPreloader";
+
+const ClickSpark = lazy(() => import("./components/shared/ClickSpark"));
+const GridPreloader = lazy(() => import("./components/ui/GridPreloader"));
 
 const StaggeredMenu = lazy(() => import("./components/layout/StaggeredMenu"));
 const Hero = lazy(() => import("./sections/Hero"));
@@ -10,41 +11,49 @@ const Projects = lazy(() => import("./sections/Projects"));
 const Contact = lazy(() => import("./sections/Contact"));
 const Footer = lazy(() => import("./components/layout/Footer"));
 
-const prefetchMainContent = () => {
-	import("./components/layout/StaggeredMenu");
-	import("./sections/Hero");
-	import("./sections/About");
-	import("./sections/Projects");
-	import("./sections/Contact");
-	import("./components/layout/Footer");
-};
-
 function App() {
 	const [hasEntered, setHasEntered] = useState(false);
 	const [shouldRenderLanding, setShouldRenderLanding] = useState(true);
 	const [isLoading, setIsLoading] = useState(false);
 
 	useEffect(() => {
-		const injectVercelScripts = async () => {
-			try {
-				const [{ injectSpeedInsights }, { inject }] = await Promise.all([import("@vercel/speed-insights"), import("@vercel/analytics")]);
-				injectSpeedInsights();
-				inject();
-			} catch (err) {
-				console.error("Failed to load analytics scripts:", err);
+		const injectVercelScripts = () => {
+			const run = async () => {
+				try {
+					const [{ injectSpeedInsights }, { inject }] = await Promise.all([import("@vercel/speed-insights"), import("@vercel/analytics")]);
+					injectSpeedInsights();
+					inject();
+				} catch (err) {
+					console.error("Failed to load analytics scripts:", err);
+				}
+			};
+
+			if ("requestIdleCallback" in window) {
+				window.requestIdleCallback(() => run());
+			} else {
+				setTimeout(run, 2000);
 			}
 		};
 
 		if (document.readyState === "complete") {
 			injectVercelScripts();
 		} else {
-			window.addEventListener("load", injectVercelScripts);
-			return () => window.removeEventListener("load", injectVercelScripts);
+			window.addEventListener("load", injectVercelScripts, { once: true });
 		}
+	}, []);
+
+	const handleHoverEnter = useCallback(() => {
+		import("./components/layout/StaggeredMenu");
+		import("./sections/Hero");
 	}, []);
 
 	const handleEnter = useCallback(() => {
 		setIsLoading(true);
+
+		import("./sections/About");
+		import("./sections/Projects");
+		import("./sections/Contact");
+		import("./components/layout/Footer");
 	}, []);
 
 	const handleBeforeCollapse = useCallback(() => {
@@ -57,40 +66,36 @@ function App() {
 	}, []);
 
 	return (
-		<ClickSpark sparkColor="#EC407A" sparkSize={10} sparkRadius={15} sparkCount={8} duration={400}>
-			<div className="relative min-h-screen w-screen overflow-x-hidden bg-blue-50">
-				{shouldRenderLanding && (
-					<div className="fixed inset-0 z-40">
-						<LandingPage onEnter={handleEnter} onHoverEnter={prefetchMainContent} />
-					</div>
-				)}
+		<Suspense fallback={null}>
+			<ClickSpark sparkColor="#EC407A" sparkSize={10} sparkRadius={15} sparkCount={8} duration={400}>
+				<div className="relative min-h-screen w-screen overflow-x-hidden bg-blue-50">
+					{shouldRenderLanding && (
+						<div className="fixed inset-0 z-40">
+							<LandingPage onEnter={handleEnter} onHoverEnter={handleHoverEnter} />
+						</div>
+					)}
 
-				{isLoading && <GridPreloader onBeforeCollapse={handleBeforeCollapse} onComplete={handlePreloaderComplete} logoSrc="/logo.svg" tileColor="#000000" />}
+					{isLoading && (
+						<Suspense fallback={null}>
+							<GridPreloader onBeforeCollapse={handleBeforeCollapse} onComplete={handlePreloaderComplete} logoSrc="/logo.svg" tileColor="#000000" />
+						</Suspense>
+					)}
 
-				{hasEntered && (
-					<main className="animate-enter-fade">
-						<Suspense fallback={null}>
-							<StaggeredMenu />
-						</Suspense>
-						<Suspense fallback={<div className="min-h-screen bg-blue-50" />}>
-							<Hero />
-						</Suspense>
-						<Suspense fallback={null}>
-							<About />
-						</Suspense>
-						<Suspense fallback={null}>
-							<Projects />
-						</Suspense>
-						<Suspense fallback={null}>
-							<Contact />
-						</Suspense>
-						<Suspense fallback={null}>
-							<Footer />
-						</Suspense>
-					</main>
-				)}
-			</div>
-		</ClickSpark>
+					{hasEntered && (
+						<main className="animate-enter-fade">
+							<Suspense fallback={null}>
+								<StaggeredMenu />
+								<Hero />
+								<About />
+								<Projects />
+								<Contact />
+								<Footer />
+							</Suspense>
+						</main>
+					)}
+				</div>
+			</ClickSpark>
+		</Suspense>
 	);
 }
 
