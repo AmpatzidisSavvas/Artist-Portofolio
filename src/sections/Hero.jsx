@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState, useCallback } from "react";
-import FocusText from "../components/shared/FocusText";
+
+import SimpleText from "../components/shared/SimpleText";
 
 const Hero = () => {
 	const [playlist, setPlaylist] = useState([]);
@@ -92,14 +93,7 @@ const Hero = () => {
 				<div className="absolute left-0 top-0 z-40 size-full">
 					<div className="mt-24 px-5 sm:px-10">
 						<h1 className="special-font hero-heading text-blue-100 mb-2">savvas ampatzidis</h1>
-						<FocusText
-							sentence="Multidisciplinary Visual Designer"
-							manualMode={false}
-							blurAmount={4}
-							borderColor="#fef08a"
-							animationDuration={0.8}
-							pauseBetweenAnimations={1}
-						/>
+						<SimpleText sentence="Multidisciplinary Visual Designer" />
 					</div>
 				</div>
 			</div>
