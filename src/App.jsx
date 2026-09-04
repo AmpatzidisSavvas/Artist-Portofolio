@@ -66,36 +66,34 @@ function App() {
 	}, []);
 
 	return (
-		<Suspense fallback={null}>
-			<ClickSpark sparkColor="#EC407A" sparkSize={10} sparkRadius={15} sparkCount={8} duration={400}>
-				<div className="relative min-h-screen w-screen overflow-x-hidden bg-blue-50">
-					{shouldRenderLanding && (
-						<div className="fixed inset-0 z-40">
-							<LandingPage onEnter={handleEnter} onHoverEnter={handleHoverEnter} />
-						</div>
-					)}
-
-					{isLoading && (
-						<Suspense fallback={null}>
-							<GridPreloader onBeforeCollapse={handleBeforeCollapse} onComplete={handlePreloaderComplete} logoSrc="/logo.svg" tileColor="#000000" />
-						</Suspense>
-					)}
-
-					{hasEntered && (
-						<main className="animate-enter-fade">
-							<Suspense fallback={null}>
-								<StaggeredMenu />
-								<Hero />
-								<About />
-								<Projects />
-								<Contact />
-								<Footer />
-							</Suspense>
-						</main>
-					)}
+		<div className="relative min-h-screen w-screen overflow-x-hidden bg-blue-50">
+			{shouldRenderLanding && (
+				<div className="fixed inset-0 z-40">
+					<LandingPage onEnter={handleEnter} onHoverEnter={handleHoverEnter} />
 				</div>
-			</ClickSpark>
-		</Suspense>
+			)}
+
+			{isLoading && (
+				<Suspense fallback={null}>
+					<GridPreloader onBeforeCollapse={handleBeforeCollapse} onComplete={handlePreloaderComplete} logoSrc="/logo.svg" tileColor="#000000" />
+				</Suspense>
+			)}
+
+			{hasEntered && (
+				<Suspense fallback={null}>
+					<ClickSpark sparkColor="#EC407A" sparkSize={10} sparkRadius={15} sparkCount={8} duration={400}>
+						<main className="animate-enter-fade">
+							<StaggeredMenu />
+							<Hero />
+							<About />
+							<Projects />
+							<Contact />
+							<Footer />
+						</main>
+					</ClickSpark>
+				</Suspense>
+			)}
+		</div>
 	);
 }
 
