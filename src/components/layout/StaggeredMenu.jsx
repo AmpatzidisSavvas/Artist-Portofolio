@@ -276,7 +276,7 @@ export const StaggeredMenu = ({
 				<aside
 					id="staggered-menu-panel"
 					ref={panelRef}
-					className="staggered-menu-panel !fixed !top-0 !right-0 h-screen bg-[#DFDFF0] flex flex-col p-[6em_2em_2em_2em] overflow-y-auto z-[9998] pointer-events-auto [will-change:transform]"
+					className="staggered-menu-panel !fixed !top-0 !right-0 h-screen bg-[#DFDFF0] flex flex-col p-[6em_2em_2em_2em] overflow-y-auto z-[9998] pointer-events-auto [will-change:transform] md:shadow-[-10px_0_30px_rgba(0,0,0,0.35)] transition-shadow duration-300"
 					aria-hidden={!open}
 				>
 					<div className="sm-panel-inner flex-1 flex flex-col gap-3">
