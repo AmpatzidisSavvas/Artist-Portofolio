@@ -113,7 +113,12 @@ const Projects = () => {
 				</div>
 
 				<div className="border-hsla relative mt-7 h-96 w-full overflow-hidden rounded-md md:h-[100vh] ">
-					<Card src="videos/feature-15.webm" />
+					<Card
+						src="videos/feature-15.webm"
+						title={<>Beware The Watcher</>}
+						titleButton="Watch full video"
+						href="https://www.youtube.com/watch?v=F5xw7PsacuA"
+					/>
 				</div>
 			</div>
 			<div className="px-5 py-20">
