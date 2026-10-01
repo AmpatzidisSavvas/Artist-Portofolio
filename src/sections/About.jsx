@@ -140,6 +140,19 @@ mesmerizing exploration of the psyche’s most uncharted realms.`
 													<img
 														src="img/Official_Selection_animasyros_2026.webp"
 														alt="Official Selection animasyros 2026"
+														width={300}
+														height={150}
+														loading="eager"
+														decoding="async"
+														className="w-1/2 sm:w-full h-auto object-contain"
+													/>
+													<img
+														src="img/OFFICIAL SELECTION - Kuova International Independent Film Festival - 2026.webp"
+														alt="Official Selection Kuova International Independent Film Festival"
+														width={300}
+														height={150}
+														loading="eager"
+														decoding="async"
 														className="w-1/2 sm:w-full h-auto object-contain"
 													/>
 												</div>
