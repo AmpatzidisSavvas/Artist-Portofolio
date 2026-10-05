@@ -155,6 +155,15 @@ mesmerizing exploration of the psyche’s most uncharted realms.`
 														decoding="async"
 														className="w-1/2 sm:w-full h-auto object-contain"
 													/>
+													<img
+														src="img/Athens International Monthly Art Film Festival-Honorable-Mention.webp"
+														alt="Athens International Monthly Art Film Festival Honorable-Mention"
+														width={300}
+														height={150}
+														loading="eager"
+														decoding="async"
+														className="w-1/2 sm:w-full h-auto object-contain"
+													/>
 												</div>
 											</div>
 										</motion.div>
