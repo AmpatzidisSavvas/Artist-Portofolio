@@ -164,6 +164,15 @@ mesmerizing exploration of the psyche’s most uncharted realms.`
 														decoding="async"
 														className="w-1/2 sm:w-full h-auto object-contain"
 													/>
+													<img
+														src="img/Ionian Contemporary Animation Festival ICONA 2026.png"
+														alt="Official Selection Ionian Contemporary Animation Festival ICONA 2026 "
+														width={300}
+														height={150}
+														loading="eager"
+														decoding="async"
+														className="w-1/2 sm:w-full h-auto object-contain"
+													/>
 												</div>
 											</div>
 										</motion.div>
