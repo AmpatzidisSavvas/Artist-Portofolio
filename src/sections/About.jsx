@@ -65,7 +65,7 @@ const About = () => {
 									<FadeRevealParagraph
 										paragraphs={[
 											`Savvas “The Pack” Ampatzidis is a multidisciplinary visual designer and 3D artist based in Thessaloniki, Greece.`,
-											`Specializing in advanced Blender 3D and 2D workflows, he crafts immersive visual narratives that explore the raw, contradictory space between beauty, chaos, romance, and violence. His work bridges digital illustration, animation, and world-building—creating layered visuals designed to evoke intrigue beneath the surface.`,
+											`Specializing in advanced Blender 3D and 2D workflows, he crafts immersive visual narratives that explore the raw, contradictory space between beauty, chaos, romance, and violence. His work bridges digital illustration, animation, and world-building-creating layered visuals designed to evoke intrigue beneath the surface.`,
 											`Savvas’s work has been exhibited internationally and featured across global illustration, comic, and animation festivals.`
 										]}
 									/>
@@ -81,12 +81,13 @@ const About = () => {
 									<FadeRevealParagraph
 										paragraphs={[
 											`
-"Unusual Mind" is an animated short film that narrates a journey inside an unusual mind.
-From the dark and tense depths of the mind inhabited by creatures and demons to the
-places where the coveted calmness exists. 
-An immersive, introspective experience that
- visualizes the struggle between inner darkness and the pursuit of peace, offering a
-mesmerizing exploration of the psyche’s most uncharted realms.`
+												"Unusual Mind" is an animated short film that narrates a journey inside an unusual mind.
+												From the dark and tense depths of the mind inhabited by creatures and demons to the
+												places where the coveted calmness exists. 
+												An immersive, introspective experience that
+												visualizes the struggle between inner darkness and the pursuit of peace, offering a
+												mesmerizing exploration of the psyche’s most uncharted realms.
+											`
 										]}
 									/>
 								</div>
